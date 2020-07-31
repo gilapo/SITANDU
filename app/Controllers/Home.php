@@ -8,6 +8,7 @@ class Home extends BaseController
 	{
 		$data = [
 			'judul' => 'Home|POSBINDU',
+			'judul2' => 'Home',
 			'background' => 'dark',
 			'active' => 'active'
 		];

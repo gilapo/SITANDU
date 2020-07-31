@@ -1,19 +1,21 @@
 <?= $this->extend('templates/layout'); ?>
 <?= $this->section('content'); ?>
 
-<div class="main-panel">
-    <div class="content">
-        <div class="page-inner">
-            <div class="page-header">
-                <h4 class="page-title">Data Diri</h4>
-            </div>
-            <!-- isi konten disini -->
-            <div class="card">
+<div class="page-inner mt--5">
+    <div class="row mt--2">
+        <div class="col-md-8 ml-auto mr-auto">
+            <div class="card full-height">
+                <div class="card-header">
+                    <div class="card-title fw-bold">Data Diri</div>
+                </div>
                 <div class="card-body">
-                    <h5 class="card-title mb-2 fw-mediumbold">Form Data Diri</h5>
                     <form>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Id Identitas</label>
+                            <label for="exampleInputEmail1">Nomor Antrian</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nomor Antrian">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Nomor Identitas</label>
                             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="NIK/no.KTP/no.Pasport/NIM">
                         </div>
                         <div class="form-group">
@@ -57,11 +59,12 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Kirim</button>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Kirim</button>
+                        </div>
                     </form>
                 </div>
             </div>
-            <!-- akhir konten disini -->
         </div>
     </div>
 </div>

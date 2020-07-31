@@ -4,7 +4,7 @@
                     <div class="sidebar-content">
                         <ul class="nav nav-primary">
                             <li class="nav-item active">
-                                <a href="#dashboard" class="collapsed" aria-expanded="false">
+                                <a href="/" class="collapsed" aria-expanded="false">
                                     <i class="fas fa-home"></i>
                                     <p>Dashboard</p>
                                 </a>
@@ -16,31 +16,31 @@
                                 <h4 class="text-section">Menu</h4>
                             </li>
                             <li class="nav-item">
-                                <a href="admin/isiDataDiri">
+                                <a href="/isiDataDiri">
                                     <i class="fas fa-user-alt"></i>
                                     <p>Data Diri</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#sidebarLayouts">
+                                <a href="/isiRiwayatPenyakit">
                                     <i class="fas fa-head-side-mask"></i>
                                     <p>Riwayat penyait</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#forms">
+                                <a href="/isiAntropometri">
                                     <i class="fas fa-clipboard-list"></i>
                                     <p>Antropometri</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#tables">
+                                <a href="/isiCekKesehatan">
                                     <i class="fas fa-tasks"></i>
                                     <p>Cek Kesehatan</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#maps">
+                                <a href="/isiRekapData">
                                     <i class="fas fa-table"></i>
                                     <p>Hasil Data Akhir</p>
                                 </a>

@@ -28,6 +28,6 @@
             <div class="page-category">Inner page content goes here</div>
         </div>
     </div>
-</div>
 
-<?= $this->endSection(); ?>
+
+    <?= $this->endSection(); ?>
