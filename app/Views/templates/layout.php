@@ -36,7 +36,7 @@
         <div class="main-header">
             <!-- Logo Header -->
             <div class="logo-header" data-background-color="dark2">
-                <a href="index.html" class="logo">
+                <a href="/" class="logo">
                     <img src="<?= base_url(); ?>/assets/img/iconHome.png" alt="navbar brand" class="navbar-brand" width="150">
                 </a>
                 <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,7 +64,7 @@
                                     <h2 class="text-white pb-2 fw-bold"><?= $judul2; ?></h2>
                                 </div>
                                 <div class="ml-md-auto py-2 py-md-0">
-                                    <a href="#" class="btn btn-secondary btn-round">Lihat Data Pasien</a>
+                                    <button type="button" id="dataPasienlBtn" name="dataPasienBtn" class="btn btn-secondary btn-round" data-toggle="modal" data-target="#dataPasien"> Lihat Data Pasien</button>
                                 </div>
                             </div>
                         </div>
@@ -74,27 +74,8 @@
 
                     <footer class="footer">
                         <div class="container-fluid">
-                            <nav class="pull-left">
-                                <ul class="nav">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="https://www.themekita.com">
-                                            ThemeKita
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">
-                                            Help
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">
-                                            Licenses
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
                             <div class="copyright ml-auto">
-                                2018, made with <i class="fa fa-heart heart text-danger"></i> by <a href="https://www.themekita.com">ThemeKita</a>
+                                2020 SITANDU UMY
                             </div>
                         </div>
                     </footer>

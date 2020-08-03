@@ -37,7 +37,8 @@ $routes->get('/isiRiwayatPenyakit', 'Admin::isiRiwayatPenyakit');
 $routes->get('/isiAntropometri', 'Admin::isiAntropometri');
 $routes->get('/isiCekKesehatan', 'Admin::isiCekKesehatan');
 $routes->get('/isiRekapData', 'Admin::isiRekapData');
-
+$routes->get('/dataKeseluruhan', 'Admin::dataKeseluruhan');
+$routes->get('/login', 'Login::index');
 
 /**
  * --------------------------------------------------------------------

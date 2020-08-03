@@ -46,6 +46,12 @@
                                 </a>
                             </li>
                             <li class="nav-item">
+                                <a href="/dataKeseluruhan">
+                                    <i class="fas fa-book"></i>
+                                    <p>Data Keseluruhan</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="/Login/logoutAct">
                                     <i class="fas fa-sign-out-alt"></i>
                                     <p>Logout</p>
