@@ -10,6 +10,7 @@ class Login extends BaseController
             'judul' => 'Login|POSBINDU',
             'background' => 'dark',
             'active' => 'active'
+
         ];
         return view('login/login', $data);
     }
