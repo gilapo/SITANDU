@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Admin extends Model
+class Admin_model extends Model
 {
     public function readPasien()
     {

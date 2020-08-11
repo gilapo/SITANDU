@@ -2,13 +2,20 @@
 
 namespace App\Controllers;
 
+use App\Models\Admin_model;
+
 class Admin extends BaseController
 {
+    protected $model;
+    public function __construct()
+    {
+        $this->model = new Admin_model();
+    }
     public function isiDataDiri()
     {
-        $model = new \App\Models\Admin();
+
         $data = [
-            'pasien' => $model->readPasien()->getResult(),
+            'pasien' => $this->model->readPasien()->getResult(),
             'judul' => 'isi Data Diri|POSBINDU',
             'judul2' => 'DATA DIRI',
             'background' => 'dark',
@@ -18,7 +25,7 @@ class Admin extends BaseController
     }
     public function createDataDiriAct()
     {
-        $model = new \App\Models\Admin();
+
         $data = [
             'identitas' => $this->request->getPost('identitas'),
             'nama' =>  $this->request->getPost('nama'),
@@ -26,13 +33,13 @@ class Admin extends BaseController
             'usia' => $this->request->getPost('usia'),
             'jeniskelamin' =>  $this->request->getPost('jeniskelamin'),
         ];
-        $model->createPasien($data);
+        $this->model->createPasien($data);
         return redirect()->to('/home');
     }
 
     public function updatePasienAct()
     {
-        $model = new \App\Models\Admin();
+
         $id = $this->request->getPost('id');
         $data = [
             'identitas' => $this->request->getPost('identitas'),
@@ -41,20 +48,21 @@ class Admin extends BaseController
             'usia' => $this->request->getPost('usia'),
             'jeniskelamin' =>  $this->request->getPost('jeniskelamin'),
         ];
-        $model->updatePasien($data, $id);
+        $this->model->updatePasien($data, $id);
         return redirect()->to('/home');
     }
 
     public function deletePasienAct()
     {
-        $model = new \App\Models\Admin();
+
         $id = $this->request->getPost('id');
-        $model->deletePasien($id);
+        $this->model->deletePasien($id);
         return redirect()->to('/home');
     }
     public function isiRiwayatPenyakit()
     {
         $data = [
+            'pasien' => $this->model->readPasien()->getResult(),
             'judul' => 'Riwayat Penyakit|POSBINDU',
             'judul2' => 'RIWAYAT PENYAKIT',
             'background' => 'dark',
@@ -64,7 +72,7 @@ class Admin extends BaseController
     }
     public function createRiwayatPenyakitAct()
     {
-        $model = new \App\Models\Admin();
+
         $data = [
             'identitas' => $this->request->getPost('identitas'),
             'nama' =>  $this->request->getPost('nama'),
@@ -72,13 +80,13 @@ class Admin extends BaseController
             'usia' => $this->request->getPost('usia'),
             'jeniskelamin' =>  $this->request->getPost('jeniskelamin'),
         ];
-        $model->createPasien($data);
+        $this->model->createPasien($data);
         return redirect()->to('/home');
     }
 
     public function updateRiwayatPenyakitAct()
     {
-        $model = new \App\Models\Admin();
+
         $id = $this->request->getPost('id');
         $data = [
             'identitas' => $this->request->getPost('identitas'),
@@ -87,20 +95,21 @@ class Admin extends BaseController
             'usia' => $this->request->getPost('usia'),
             'jeniskelamin' =>  $this->request->getPost('jeniskelamin'),
         ];
-        $model->updatePasien($data, $id);
+        $this->model->updatePasien($data, $id);
         return redirect()->to('/home');
     }
 
     public function deleteRiwayatPenyakitAct()
     {
-        $model = new \App\Models\Admin();
+
         $id = $this->request->getPost('id');
-        $model->deletePasien($id);
+        $this->model->deletePasien($id);
         return redirect()->to('/home');
     }
     public function isiAntropometri()
     {
         $data = [
+            'pasien' => $this->model->readPasien()->getResult(),
             'judul' => 'Antropometri|POSBINDU',
             'judul2' => 'Antropometri',
             'background' => 'dark',
@@ -110,7 +119,7 @@ class Admin extends BaseController
     }
     public function createAntropometriAct()
     {
-        $model = new \App\Models\Admin();
+
         $data = [
             'identitas' => $this->request->getPost('identitas'),
             'nama' =>  $this->request->getPost('nama'),
@@ -118,13 +127,13 @@ class Admin extends BaseController
             'usia' => $this->request->getPost('usia'),
             'jeniskelamin' =>  $this->request->getPost('jeniskelamin'),
         ];
-        $model->createPasien($data);
+        $this->model->createPasien($data);
         return redirect()->to('/home');
     }
 
     public function updateAntropometriAct()
     {
-        $model = new \App\Models\Admin();
+
         $id = $this->request->getPost('id');
         $data = [
             'identitas' => $this->request->getPost('identitas'),
@@ -133,20 +142,21 @@ class Admin extends BaseController
             'usia' => $this->request->getPost('usia'),
             'jeniskelamin' =>  $this->request->getPost('jeniskelamin'),
         ];
-        $model->updatePasien($data, $id);
+        $this->model->updatePasien($data, $id);
         return redirect()->to('/home');
     }
 
     public function deleteAntropometriAct()
     {
-        $model = new \App\Models\Admin();
+
         $id = $this->request->getPost('id');
-        $model->deletePasien($id);
+        $this->model->deletePasien($id);
         return redirect()->to('/home');
     }
     public function isiCekKesehatan()
     {
         $data = [
+            'pasien' => $this->model->readPasien()->getResult(),
             'judul' => 'Cek Kesehatan|POSBINDU',
             'judul2' => 'Cek Kesehatan',
             'background' => 'dark',
@@ -156,7 +166,7 @@ class Admin extends BaseController
     }
     public function createCekKesehatanAct()
     {
-        $model = new \App\Models\Admin();
+
         $data = [
             'identitas' => $this->request->getPost('identitas'),
             'nama' =>  $this->request->getPost('nama'),
@@ -164,13 +174,13 @@ class Admin extends BaseController
             'usia' => $this->request->getPost('usia'),
             'jeniskelamin' =>  $this->request->getPost('jeniskelamin'),
         ];
-        $model->createPasien($data);
+        $this->model->createPasien($data);
         return redirect()->to('/home');
     }
 
     public function updateCekKesehatanAct()
     {
-        $model = new \App\Models\Admin();
+
         $id = $this->request->getPost('id');
         $data = [
             'identitas' => $this->request->getPost('identitas'),
@@ -179,20 +189,21 @@ class Admin extends BaseController
             'usia' => $this->request->getPost('usia'),
             'jeniskelamin' =>  $this->request->getPost('jeniskelamin'),
         ];
-        $model->updatePasien($data, $id);
+        $this->model->updatePasien($data, $id);
         return redirect()->to('/home');
     }
 
     public function deleteCekKesehatanAct()
     {
-        $model = new \App\Models\Admin();
+
         $id = $this->request->getPost('id');
-        $model->deletePasien($id);
+        $this->model->deletePasien($id);
         return redirect()->to('/home');
     }
     public function isiRekapData()
     {
         $data = [
+            'pasien' => $this->model->readPasien()->getResult(),
             'judul' => 'Rekap Data|POSBINDU',
             'judul2' => 'Rekap Data',
             'background' => 'dark',
@@ -202,7 +213,7 @@ class Admin extends BaseController
     }
     public function createRekapDataAct()
     {
-        $model = new \App\Models\Admin();
+
         $data = [
             'identitas' => $this->request->getPost('identitas'),
             'nama' =>  $this->request->getPost('nama'),
@@ -210,13 +221,13 @@ class Admin extends BaseController
             'usia' => $this->request->getPost('usia'),
             'jeniskelamin' =>  $this->request->getPost('jeniskelamin'),
         ];
-        $model->createPasien($data);
+        $this->model->createPasien($data);
         return redirect()->to('/home');
     }
 
     public function updateRekapDataAct()
     {
-        $model = new \App\Models\Admin();
+
         $id = $this->request->getPost('id');
         $data = [
             'identitas' => $this->request->getPost('identitas'),
@@ -225,23 +236,23 @@ class Admin extends BaseController
             'usia' => $this->request->getPost('usia'),
             'jeniskelamin' =>  $this->request->getPost('jeniskelamin'),
         ];
-        $model->updatePasien($data, $id);
+        $this->model->updatePasien($data, $id);
         return redirect()->to('/home');
     }
 
     public function deleteRekapDataAct()
     {
-        $model = new \App\Models\Admin();
+
         $id = $this->request->getPost('id');
-        $model->deletePasien($id);
+        $this->model->deletePasien($id);
         return redirect()->to('/home');
     }
     //--------------------------------------------------------------------
     public function dataKeseluruhan()
     {
-        $model = new \App\Models\Admin();
+
         $data = [
-            'pasien' => $model->readPasien()->getResult(),
+            'pasien' => $this->model->readPasien()->getResult(),
             'judul' => 'Data Keseluruhan|POSBINDU',
             'judul2' => 'Data Keseluruhana',
             'background' => 'dark',

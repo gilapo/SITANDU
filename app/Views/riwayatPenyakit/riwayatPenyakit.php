@@ -32,116 +32,110 @@
                                     <hr>
                                 </div>
                                 <div class="form-group row">
-                                    <div class="col-3">
-                                        <label for="exampleInputEmail1">DM</label>
+                                    <div class="col">
+                                        <label>DM</label>
                                     </div>
                                     <div class="col">
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio1">Ya</label>
-                                        </div>
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Tidak</label>
-                                        </div>
+                                        <label class="form-radio-label">
+                                            <input class="form-radio-input" type="radio" name="dm" value="">
+                                            <span class="form-radio-sign">Ya</span>
+                                        </label>
+                                        <label class="form-radio-label ml-3">
+                                            <input class="form-radio-input" type="radio" name="dm" value="">
+                                            <span class="form-radio-sign">Tidak</span>
+                                        </label>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <div class="col-3">
-                                        <label for="s">HT</label>
+                                    <div class="col">
+                                        <label>HT</label>
                                     </div>
                                     <div class="col">
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="q" name="q" class="custom-control-input">
-                                            <label class="custom-control-label" for="q">Ya</label>
-                                        </div>
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="w" name="q" class="custom-control-input">
-                                            <label class="custom-control-label" for="w">Tidak</label>
-                                        </div>
+                                        <label class="form-radio-label">
+                                            <input class="form-radio-input" type="radio" name="HT" value="">
+                                            <span class="form-radio-sign">Ya</span>
+                                        </label>
+                                        <label class="form-radio-label ml-3">
+                                            <input class="form-radio-input" type="radio" name="HT" value="">
+                                            <span class="form-radio-sign">Tidak</span>
+                                        </label>
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
-                                    <div class="col-3">
-                                        <label for="exampleInputEmail1">Jantung</label>
+                                    <div class="col">
+                                        <label>Jantung</label>
                                     </div>
                                     <div class="col">
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio1">Ya</label>
-                                        </div>
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Tidak</label>
-                                        </div>
+                                        <label class="form-radio-label">
+                                            <input class="form-radio-input" type="radio" name="Jantung" value="">
+                                            <span class="form-radio-sign">Ya</span>
+                                        </label>
+                                        <label class="form-radio-label ml-3">
+                                            <input class="form-radio-input" type="radio" name="Jantung" value="">
+                                            <span class="form-radio-sign">Tidak</span>
+                                        </label>
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
-                                    <div class="col-3">
-                                        <label for="exampleInputEmail1">Stroke</label>
+                                    <div class="col">
+                                        <label>Stroke</label>
                                     </div>
                                     <div class="col">
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio1">Ya</label>
-                                        </div>
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Tidak</label>
-                                        </div>
+                                        <label class="form-radio-label">
+                                            <input class="form-radio-input" type="radio" name="Stroke" value="">
+                                            <span class="form-radio-sign">Ya</span>
+                                        </label>
+                                        <label class="form-radio-label ml-3">
+                                            <input class="form-radio-input" type="radio" name="Stroke" value="">
+                                            <span class="form-radio-sign">Tidak</span>
+                                        </label>
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
-                                    <div class="col-3">
-                                        <label for="exampleInputEmail1">Asma</label>
+                                    <div class="col">
+                                        <label>Asma</label>
                                     </div>
                                     <div class="col">
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio1">Ya</label>
-                                        </div>
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Tidak</label>
-                                        </div>
+                                        <label class="form-radio-label">
+                                            <input class="form-radio-input" type="radio" name="Asma" value="">
+                                            <span class="form-radio-sign">Ya</span>
+                                        </label>
+                                        <label class="form-radio-label ml-3">
+                                            <input class="form-radio-input" type="radio" name="Asma" value="">
+                                            <span class="form-radio-sign">Tidak</span>
+                                        </label>
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
-                                    <div class="col-3">
-                                        <label for="exampleInputEmail1">Colesterol</label>
+                                    <div class="col">
+                                        <label>Kanker</label>
                                     </div>
                                     <div class="col">
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio1">Ya</label>
-                                        </div>
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Tidak</label>
-                                        </div>
+                                        <label class="form-radio-label">
+                                            <input class="form-radio-input" type="radio" name="Kanker" value="">
+                                            <span class="form-radio-sign">Ya</span>
+                                        </label>
+                                        <label class="form-radio-label ml-3">
+                                            <input class="form-radio-input" type="radio" name="Kanker" value="">
+                                            <span class="form-radio-sign">Tidak</span>
+                                        </label>
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
-                                    <div class="col-3">
-                                        <label for="exampleInputEmail1">Kanker</label>
+                                    <div class="col">
+                                        <label>Kolesterol</label>
                                     </div>
                                     <div class="col">
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio1">Ya</label>
-                                        </div>
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Tidak</label>
-                                        </div>
+                                        <label class="form-radio-label">
+                                            <input class="form-radio-input" type="radio" name="Kolesterol" value="">
+                                            <span class="form-radio-sign">Ya</span>
+                                        </label>
+                                        <label class="form-radio-label ml-3">
+                                            <input class="form-radio-input" type="radio" name="Kolesterol" value="">
+                                            <span class="form-radio-sign">Tidak</span>
+                                        </label>
                                     </div>
                                 </div>
-
                                 <!-- ///////////////// -->
                                 <div class="form-group mt-4">
                                     <hr>
@@ -149,82 +143,81 @@
                                     <hr>
                                 </div>
                                 <div class="form-group row">
-                                    <div class="col-5">
-                                        <label for="exampleInputEmail1">Merokok</label>
+                                    <div class="col">
+                                        <label>Merokok</label>
                                     </div>
                                     <div class="col">
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio1">Ya</label>
-                                        </div>
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Tidak</label>
-                                        </div>
+                                        <label class="form-radio-label">
+                                            <input class="form-radio-input" type="radio" name="Merokok" value="">
+                                            <span class="form-radio-sign">Ya</span>
+                                        </label>
+                                        <label class="form-radio-label ml-3">
+                                            <input class="form-radio-input" type="radio" name="Merokok" value="">
+                                            <span class="form-radio-sign">Tidak</span>
+                                        </label>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <div class="col-5">
-                                        <label for="s">Sayur dan Buah <br> kurang dari 5 per hari</label> </div>
                                     <div class="col">
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="q" name="q" class="custom-control-input">
-                                            <label class="custom-control-label" for="q">Ya</label>
-                                        </div>
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="w" name="q" class="custom-control-input">
-                                            <label class="custom-control-label" for="w">Tidak</label>
-                                        </div>
+                                        <label>Sayur dan Buah <br> kurang dari 5 per hari</label>
+                                    </div>
+                                    <div class="col">
+                                        <label class="form-radio-label">
+                                            <input class="form-radio-input" type="radio" name="Sayur" value="">
+                                            <span class="form-radio-sign">Ya</span>
+                                        </label>
+                                        <label class="form-radio-label ml-3">
+                                            <input class="form-radio-input" type="radio" name="Sayur" value="">
+                                            <span class="form-radio-sign">Tidak</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col">
+                                        <label>Kurang Aktivitas Fisik</label>
+                                    </div>
+                                    <div class="col">
+                                        <label class="form-radio-label">
+                                            <input class="form-radio-input" type="radio" name="Fisik" value="">
+                                            <span class="form-radio-sign">Ya</span>
+                                        </label>
+                                        <label class="form-radio-label ml-3">
+                                            <input class="form-radio-input" type="radio" name="Fisik" value="">
+                                            <span class="form-radio-sign">Tidak</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col">
+                                        <label>Konsumsi Alkohol</label>
+                                    </div>
+                                    <div class="col">
+                                        <label class="form-radio-label">
+                                            <input class="form-radio-input" type="radio" name="Alkohol" value="">
+                                            <span class="form-radio-sign">Ya</span>
+                                        </label>
+                                        <label class="form-radio-label ml-3">
+                                            <input class="form-radio-input" type="radio" name="Alkohol" value="">
+                                            <span class="form-radio-sign">Tidak</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col">
+                                        <label>Sulit Tidur dan <br> nafsu makan menurun</label>
+                                    </div>
+                                    <div class="col">
+                                        <label class="form-radio-label">
+                                            <input class="form-radio-input" type="radio" name="stnm" value="">
+                                            <span class="form-radio-sign">Ya</span>
+                                        </label>
+                                        <label class="form-radio-label ml-3">
+                                            <input class="form-radio-input" type="radio" name="stnm" value="">
+                                            <span class="form-radio-sign">Tidak</span>
+                                        </label>
                                     </div>
                                 </div>
 
-                                <div class="form-group row">
-                                    <div class="col-5">
-                                        <label for="exampleInputEmail1">Kurang aktivitas Fisik</label>
-                                    </div>
-                                    <div class="col">
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio1">Ya</label>
-                                        </div>
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Tidak</label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="col-5">
-                                        <label for="exampleInputEmail1">Konsumsi Alkohol</label>
-                                    </div>
-                                    <div class="col">
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio1">Ya</label>
-                                        </div>
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Tidak</label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="col-5">
-                                        <label for="exampleInputEmail1">Susah Tidur & <br> Nafsu Makan Menurun</label>
-                                    </div>
-                                    <div class="col">
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio1">Ya</label>
-                                        </div>
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Tidak</label>
-                                        </div>
-                                    </div>
-                                </div>
                                 <!-- //////////////// -->
                             </div>
                             <div class="col">
@@ -233,117 +226,110 @@
                                     <hr>
                                 </div>
                                 <div class="form-group row">
-                                    <div class="col-3">
-                                        <label for="exampleInputEmail1">DM</label>
+                                    <div class="col">
+                                        <label>DM</label>
                                     </div>
                                     <div class="col">
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio1">Ya</label>
-                                        </div>
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Tidak</label>
-                                        </div>
+                                        <label class="form-radio-label">
+                                            <input class="form-radio-input" type="radio" name="dm2" value="">
+                                            <span class="form-radio-sign">Ya</span>
+                                        </label>
+                                        <label class="form-radio-label ml-3">
+                                            <input class="form-radio-input" type="radio" name="dm2" value="">
+                                            <span class="form-radio-sign">Tidak</span>
+                                        </label>
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
-                                    <div class="col-3">
-                                        <label for="exampleInputEmail1">HT</label>
+                                    <div class="col">
+                                        <label>HT</label>
                                     </div>
                                     <div class="col">
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio1">Ya</label>
-                                        </div>
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Tidak</label>
-                                        </div>
+                                        <label class="form-radio-label">
+                                            <input class="form-radio-input" type="radio" name="HT2" value="">
+                                            <span class="form-radio-sign">Ya</span>
+                                        </label>
+                                        <label class="form-radio-label ml-3">
+                                            <input class="form-radio-input" type="radio" name="HT2" value="">
+                                            <span class="form-radio-sign">Tidak</span>
+                                        </label>
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
-                                    <div class="col-3">
-                                        <label for="exampleInputEmail1">Jantung</label>
+                                    <div class="col">
+                                        <label>Jantung</label>
                                     </div>
                                     <div class="col">
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio1">Ya</label>
-                                        </div>
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Tidak</label>
-                                        </div>
+                                        <label class="form-radio-label">
+                                            <input class="form-radio-input" type="radio" name="Jantung2" value="">
+                                            <span class="form-radio-sign">Ya</span>
+                                        </label>
+                                        <label class="form-radio-label ml-3">
+                                            <input class="form-radio-input" type="radio" name="Jantung2" value="">
+                                            <span class="form-radio-sign">Tidak</span>
+                                        </label>
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
-                                    <div class="col-3">
-                                        <label for="exampleInputEmail1">Stroke</label>
+                                    <div class="col">
+                                        <label>Stroke</label>
                                     </div>
                                     <div class="col">
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio1">Ya</label>
-                                        </div>
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Tidak</label>
-                                        </div>
+                                        <label class="form-radio-label">
+                                            <input class="form-radio-input" type="radio" name="Stroke2" value="">
+                                            <span class="form-radio-sign">Ya</span>
+                                        </label>
+                                        <label class="form-radio-label ml-3">
+                                            <input class="form-radio-input" type="radio" name="Stroke2" value="">
+                                            <span class="form-radio-sign">Tidak</span>
+                                        </label>
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
-                                    <div class="col-3">
-                                        <label for="exampleInputEmail1">Asma</label>
+                                    <div class="col">
+                                        <label>Asma</label>
                                     </div>
                                     <div class="col">
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio1">Ya</label>
-                                        </div>
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Tidak</label>
-                                        </div>
+                                        <label class="form-radio-label">
+                                            <input class="form-radio-input" type="radio" name="Asma2" value="">
+                                            <span class="form-radio-sign">Ya</span>
+                                        </label>
+                                        <label class="form-radio-label ml-3">
+                                            <input class="form-radio-input" type="radio" name="Asma2" value="">
+                                            <span class="form-radio-sign">Tidak</span>
+                                        </label>
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
-                                    <div class="col-3">
-                                        <label for="exampleInputEmail1">Colesterol</label>
+                                    <div class="col">
+                                        <label>Kanker</label>
                                     </div>
                                     <div class="col">
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio1">Ya</label>
-                                        </div>
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Tidak</label>
-                                        </div>
+                                        <label class="form-radio-label">
+                                            <input class="form-radio-input" type="radio" name="Kanker2" value="">
+                                            <span class="form-radio-sign">Ya</span>
+                                        </label>
+                                        <label class="form-radio-label ml-3">
+                                            <input class="form-radio-input" type="radio" name="Kanker2" value="">
+                                            <span class="form-radio-sign">Tidak</span>
+                                        </label>
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
-                                    <div class="col-3">
-                                        <label for="exampleInputEmail1">Kanker</label>
+                                    <div class="col">
+                                        <label>Kolesterol</label>
                                     </div>
                                     <div class="col">
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio1">Ya</label>
-                                        </div>
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Tidak</label>
-                                        </div>
+                                        <label class="form-radio-label">
+                                            <input class="form-radio-input" type="radio" name="Kolesterol2" value="">
+                                            <span class="form-radio-sign">Ya</span>
+                                        </label>
+                                        <label class="form-radio-label ml-3">
+                                            <input class="form-radio-input" type="radio" name="Kolesterol2" value="">
+                                            <span class="form-radio-sign">Tidak</span>
+                                        </label>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
 

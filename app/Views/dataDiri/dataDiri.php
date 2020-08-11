@@ -51,52 +51,5 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="dataPasien" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Data Pasien</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>Nomor Identitas</th>
-                                    <th>Nama</th>
-                                    <th>Usia</th>
-                                    <th>Jabatan</th>
-                                    <th>Jenis Kelamin</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($pasien as $data) : ?>
-                                    <tr>
-                                        <td><?= $data->identitas; ?></td>
-                                        <td><?= $data->nama; ?></td>
-                                        <td><?= $data->usia; ?></td>
-                                        <td><?= $data->jabatan; ?></td>
-                                        <td><?= $data->jeniskelamin; ?></td>
-                                        <td>
-                                            <a href="#" class="btn btn-danger btn-sm btn-info" data-id="">Isi</a>
-                                        </td>
-                                    </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<script>
-    $(document).ready(function() {
-        $('#dataPasien').DataTable();
-    });
-</script>
+
 <?= $this->endSection(); ?>
