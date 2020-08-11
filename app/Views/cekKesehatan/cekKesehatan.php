@@ -214,7 +214,7 @@
         var isiGd = parseFloat(document.getElementById('isiGd').value);
 
         if (selectedGd == "1") {
-            if (isiGd < 200) {
+            if (isiGd <= 199) {
                 document.getElementsByTagName("h6")[2].innerHTML = "Normal";
                 h63.classList.remove("text-danger");
                 h63.classList.add("text-success");
@@ -224,7 +224,7 @@
                 h63.classList.add("text-danger");
             }
         } else if (selectedGd == "2") {
-            if (isiGd < 108) {
+            if (isiGd <= 107) {
                 document.getElementsByTagName("h6")[2].innerHTML = "Normal";
                 h63.classList.remove("text-warning", "text-danger");
                 h63.classList.add("text-success");
