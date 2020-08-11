@@ -11,15 +11,9 @@
                         <div class="col-md-9 col-lg-8 mx-auto">
                             <h1 class="text-white mb-4">Daftar Akun</h1>
                             <form>
-                                <div class="row">
-                                    <div class="form-label-group col">
-                                        <label class="text-white" for="NamaDepan">Nama Depan</label>
-                                        <input type="text" id="NamaDepan" class="form-control" placeholder="Nama Depan" required autofocus>
-                                    </div>
-                                    <div class="form-label-group col">
-                                        <label class="text-white" for="namaBelakang">Nama Belakang</label>
-                                        <input type="text" id="namaBelakang" class="form-control" placeholder="Nama Belakang" required>
-                                    </div>
+                                <div class="form-label-group ">
+                                    <label class="text-white" for="nama">Nama</label>
+                                    <input type="text" id="nama" class="form-control" placeholder="nama" required>
                                 </div>
                                 <div class="form-label-group ">
                                     <label class="text-white" for="instansi">Instansi</label>

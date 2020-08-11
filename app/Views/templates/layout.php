@@ -80,7 +80,7 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body mx-auto">
                                     <div class="row">
                                         <div class="table-responsive">
                                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -89,8 +89,8 @@
                                                         <th>Nomor Identitas</th>
                                                         <th>Nama</th>
                                                         <th>Usia</th>
-                                                        <th>Jabatan</th>
                                                         <th>Jenis Kelamin</th>
+                                                        <th>aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -99,10 +99,9 @@
                                                             <td><?= $data->identitas; ?></td>
                                                             <td><?= $data->nama; ?></td>
                                                             <td><?= $data->usia; ?></td>
-                                                            <td><?= $data->jabatan; ?></td>
                                                             <td><?= $data->jeniskelamin; ?></td>
                                                             <td>
-                                                                <a href="#" class="btn btn-danger btn-sm btn-info" data-id="">Isi</a>
+                                                                <button class="btn btn-primary btn-round">Pilih</button>
                                                             </td>
                                                         </tr>
                                                     <?php endforeach; ?>

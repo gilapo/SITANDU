@@ -12,7 +12,7 @@
                             <img class="mb-4" src="<?= base_url(); ?>/assets/img/iconHome.png" alt="" width="300">
                             <form>
                                 <div class="form-label-group">
-                                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                                    <input type="text" id="inputEmail" class="form-control" placeholder="username" required autofocus>
                                 </div>
 
                                 <div class="form-label-group mt-3">
