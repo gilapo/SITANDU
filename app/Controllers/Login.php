@@ -17,7 +17,7 @@ class Login extends BaseController
     public function loginAct()
     {
         if ($this->request->getPost()) {
-            $userModel = new \App\Models\Login();
+            $userModel = new \App\Models\Login_model();
 
             $username = $this->request->getPost('username');
             $password = $this->request->getPost('password');

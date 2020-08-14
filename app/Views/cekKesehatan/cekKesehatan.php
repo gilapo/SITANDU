@@ -9,21 +9,19 @@
                     <div class="card-title fw-bold">Cek Kesehatan</div>
                 </div>
                 <div class="card-body">
-                    <form>
-                        <input type="hidden" id="umur" name="umur" value="">
+                    <form action="/Admin/createCekKesehatanAct" method="post" enctype="multipart/form-data">
                         <div class="form-group row">
                             <div class="col">
-                                <label for="exampleInputEmail1">Nomor Antrian</label>
-                                <input type="text" class="form-control" id="exampleInputtext1" placeholder="Nomor Antrian" readonly>
+                                <label for="nik">Nomor Identitas</label>
+                                <input type="text" class="form-control" id="identitas" aria-describedby="textHelp" placeholder="NIK/no.KTP/no.Pasport/NIM" readonly>
                             </div>
                             <div class="col">
-                                <label for="exampleInputtext1">NIK</label>
-                                <input type="text" class="form-control" id="exampleInputtext1" placeholder="NIK/no.KTP/no.Pasport/NIM" readonly>
+                                <label for="nama">Nama</label>
+                                <input type="text" class="form-control" id="nama" aria-describedby="textHelp" placeholder="Nama Pasien" readonly>
                             </div>
-                            <div class="col">
-                                <label for="exampleInputtext1">Nama</label>
-                                <input type="text" class="form-control" id="exampleInputtext1" placeholder="NIK/no.KTP/no.Pasport/NIM" readonly>
-                            </div>
+                            <input type="text" id="id" name="id" aria-describedby="textHelp" hidden>
+                            <input type="text" id="id_detail_kesehatan " name="id_detail_kesehatan " aria-describedby="textHelp" hidden>
+                            <input type="text" id="status_meja_4" name="status_meja_4" aria-describedby="textHelp" value="1" hidden>
                         </div>
                         <hr>
                         <div class="form-group">
@@ -34,11 +32,11 @@
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <input type="text" class="form-control" id="sistole" placeholder="Sistole" onchange="tekananDarah()">
+                                    <input type="text" class="form-control" id="sistole" name="sistole" placeholder="Sistole" onchange="tekananDarah()">
                                     <h6 class="mt-1 ml-1 " id="kets"></h6>
                                 </div>
                                 <div class="col">
-                                    <input type="text" class="form-control" id="diastole" placeholder="Diastole" onchange="tekananDarah()">
+                                    <input type="text" class="form-control" id="diastole" name="diastole" placeholder="Diastole" onchange="tekananDarah()">
                                     <h6 class="mt-1 ml-1 " id="ketd"></h6>
                                 </div>
                             </div>
@@ -57,19 +55,19 @@
                                     </select>
                                 </div>
                                 <div class="col">
-                                    <input type="text" class="form-control" id="isiGd" placeholder="Gula Darah" onchange="guladarah()">
+                                    <input type="text" class="form-control" id="isiGd" name="gds" placeholder="Gula Darah" onchange="guladarah()">
                                     <h6 class="mt-1 ml-1 " id="ketGd"></h6>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label>Kolesterol Total</label>
-                            <input type="text" class="form-control" id="kt" placeholder="Kolesterol Total" onchange="kolesterol()">
+                            <input type="text" class="form-control" id="kt" name="kolesterol" placeholder="Kolesterol Total" onchange="kolesterol()">
                             <h6 class="mt-1 ml-1 " id="ketkt"></h6>
                         </div>
                         <div class="form-group">
                             <label for="au">Asam Urat</label>
-                            <input type="text" class="form-control" id="au" placeholder="asam urat" onchange="asamurat()">
+                            <input type="text" class="form-control" id="au" name="asam_urat" placeholder="asam urat" onchange="asamurat()">
                             <h6 class="mt-1 ml-1 " id="ketau"></h6>
                         </div>
 
@@ -81,11 +79,11 @@
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <input type="text" class="form-control" id="eks" placeholder="Ekspirasi" onchange="respirasi()">
+                                    <input type="text" class="form-control" id="eks" name="ekspirasi" placeholder="Ekspirasi" onchange="respirasi()">
                                     <h6 class="mt-1 ml-1 " id="ketres"></h6>
                                 </div>
                                 <div class="col">
-                                    <input type="text" class="form-control" id="jk" placeholder="Jenis Kelamin" value="perempuan" readonly>
+                                    <input type="text" class="form-control" id="jk" placeholder="Jenis Kelamin" readonly>
                                 </div>
                             </div>
                         </div>
@@ -96,11 +94,11 @@
                             </div>
                             <div class="col">
                                 <label class="form-radio-label">
-                                    <input class="form-radio-input" type="radio" name="bp" value="">
+                                    <input class="form-radio-input" type="radio" name="benjolan_pada_payudara" value="1">
                                     <span class="form-radio-sign">Normal</span>
                                 </label>
                                 <label class="form-radio-label ml-3">
-                                    <input class="form-radio-input" type="radio" name="bp" value="">
+                                    <input class="form-radio-input" type="radio" name="benjolan_pada_payudara" value="0">
                                     <span class="form-radio-sign">Tidak Normal</span>
                                 </label>
                             </div>
@@ -112,11 +110,11 @@
                             </div>
                             <div class="col">
                                 <label class="form-radio-label">
-                                    <input class="form-radio-input" type="radio" name="iv" value="">
+                                    <input class="form-radio-input" type="radio" name="iva" value="1">
                                     <span class="form-radio-sign">Positif</span>
                                 </label>
                                 <label class="form-radio-label ml-3">
-                                    <input class="form-radio-input" type="radio" name="iv" value="">
+                                    <input class="form-radio-input" type="radio" name="iva" value="0">
                                     <span class="form-radio-sign">Negatif</span>
                                 </label>
                             </div>
@@ -127,11 +125,11 @@
                             </div>
                             <div class="col">
                                 <label class="form-radio-label">
-                                    <input class="form-radio-input" type="radio" name="kl" value="">
+                                    <input class="form-radio-input" type="radio" name="kadar_alkohol" value="1">
                                     <span class="form-radio-sign">Positif</span>
                                 </label>
                                 <label class="form-radio-label ml-3">
-                                    <input class="form-radio-input" type="radio" name="kl" value="">
+                                    <input class="form-radio-input" type="radio" name="kadar_alkohol" value="0">
                                     <span class="form-radio-sign">Negatif</span>
                                 </label>
                             </div>
@@ -143,11 +141,11 @@
                             </div>
                             <div class="col">
                                 <label class="form-radio-label">
-                                    <input class="form-radio-input" type="radio" name="ta" value="">
+                                    <input class="form-radio-input" type="radio" name="tes_amfetamin" value="1">
                                     <span class="form-radio-sign">Positif</span>
                                 </label>
                                 <label class="form-radio-label ml-3">
-                                    <input class="form-radio-input" type="radio" name="ta" value="">
+                                    <input class="form-radio-input" type="radio" name="tes_amfetamin" value="0">
                                     <span class="form-radio-sign">Negatif</span>
                                 </label>
                             </div>
@@ -161,8 +159,72 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="dataPasien" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Data Pasien</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
 
+            </div>
+            <div class="card-body mx-auto">
+                <div class="row">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Nomor Identitas</th>
+                                    <th>Nama</th>
+                                    <th>Usia</th>
+                                    <th>Jenis Kelamin</th>
+                                    <th>aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($pasien as $data) : if ($data->status_meja_3 == 0) {
+                                ?>
+                                        <tr>
+                                            <td><?= $data->identitas; ?></td>
+                                            <td><?= $data->nama; ?></td>
+                                            <td><?= $data->usia; ?></td>
+                                            <td><?php if ($data->jeniskelamin == 1) {
+                                                    echo "laki-laki";
+                                                } else {
+                                                    echo "perempuan";
+                                                } ?></td>
+                                            <td>
+                                                <button class="btn btn-primary btn-round" id="pilih" data-id="<?= $data->id; ?>" data-jk="<?php if ($data->jeniskelamin == 1) {
+                                                                                                                                                echo "laki-laki";
+                                                                                                                                            } else {
+                                                                                                                                                echo "perempuan";
+                                                                                                                                            } ?>" data-identitas="<?= $data->identitas; ?>" data-nama="<?= $data->nama; ?>">Pilih</button>
+                                            </td>
+                                        </tr>
+                                <?php }
+                                endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
+    $(document).ready(function() {
+        $('#dataTable').DataTable();
+        $(document).on('click', '#pilih', function(e) {
+            document.getElementById("identitas").value = $(this).attr('data-identitas');
+            document.getElementById("nama").value = $(this).attr('data-nama');
+            document.getElementById("id").value = $(this).attr('data-id');
+            document.getElementById("jk").value = $(this).attr('data-jk');
+            document.getElementById("id_detail_kesehatan ").value = $(this).attr('data-id');
+            $('#dataPasien').modal('hide');
+        });
+    });
+
     function tekananDarah() {
         var h61 = document.getElementById("kets");
         var h62 = document.getElementById("ketd");

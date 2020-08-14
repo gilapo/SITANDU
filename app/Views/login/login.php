@@ -10,15 +10,14 @@
                     <div class="row">
                         <div class="col-md-9 col-lg-8 mx-auto">
                             <img class="mb-4" src="<?= base_url(); ?>/assets/img/iconHome.png" alt="" width="300">
-                            <form>
+                            <form action="/Login/loginAct" method="post" enctype="multipart/form-data">
                                 <div class="form-label-group">
-                                    <input type="text" id="inputEmail" class="form-control" placeholder="username" required autofocus>
+                                    <input type="text" id="username" name="username" class="form-control" placeholder="username" required autofocus>
                                 </div>
 
                                 <div class="form-label-group mt-3">
-                                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                                    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
                                 </div>
-
                                 <div class="custom-control custom-checkbox mb-2 mt-1">
                                     <input type="checkbox" class="custom-control-input" id="customCheck1">
                                     <label class="custom-control-label" for="customCheck1">Remember password</label>

@@ -26,6 +26,7 @@
     </script>
 
     <!-- CSS Files -->
+    <script src="<?= base_url(); ?>/assets/js/core/jquery.3.2.1.min.js"></script>
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/atlantis.min.css">
     <link href="<?= base_url(); ?>/assets/css/all.css" rel="stylesheet">
@@ -71,53 +72,7 @@
                     </div>
 
                     <?= $this->renderSection('content'); ?>
-                    <div class="modal fade" id="dataPasien" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-xl" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="staticBackdropLabel">Data Pasien</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="card-body mx-auto">
-                                    <div class="row">
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Nomor Identitas</th>
-                                                        <th>Nama</th>
-                                                        <th>Usia</th>
-                                                        <th>Jenis Kelamin</th>
-                                                        <th>aksi</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php foreach ($pasien as $data) : ?>
-                                                        <tr>
-                                                            <td><?= $data->identitas; ?></td>
-                                                            <td><?= $data->nama; ?></td>
-                                                            <td><?= $data->usia; ?></td>
-                                                            <td><?= $data->jeniskelamin; ?></td>
-                                                            <td>
-                                                                <button class="btn btn-primary btn-round">Pilih</button>
-                                                            </td>
-                                                        </tr>
-                                                    <?php endforeach; ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <script>
-                        $(document).ready(function() {
-                            $('#dataPasien').DataTable();
-                        });
-                    </script>
+
                     <footer class="footer">
                         <div class="container-fluid">
                             <div class="copyright ml-auto">
@@ -129,7 +84,7 @@
             </div>
 
             <!--   Core JS Files   -->
-            <script src="<?= base_url(); ?>/assets/js/core/jquery.3.2.1.min.js"></script>
+
             <script src="<?= base_url(); ?>/assets/js/core/popper.min.js"></script>
             <script src="<?= base_url(); ?>/assets/js/core/bootstrap.min.js"></script>
 

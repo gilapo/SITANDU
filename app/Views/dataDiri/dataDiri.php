@@ -31,12 +31,12 @@
                                     <label for="jeniskelamin">Jenis Kelamin</label>
                                     <div class="row">
                                         <div class="custom-control custom-radio">
-                                            <input type="radio" id="jeniskelamin" name="jeniskelamin" class="custom-control-input" value="1">
-                                            <label class="custom-control-label" for="jeniskelamin">Laki-Laki</label>
+                                            <input type="radio" id="jeniskelamin1" name="jeniskelamin" class="custom-control-input" value="1">
+                                            <label class="custom-control-label" for="jeniskelamin1">Laki-Laki</label>
                                         </div>
                                         <div class="custom-control custom-radio">
-                                            <input type="radio" id="jeniskelamin" name="jeniskelamin" class="custom-control-input" value="0">
-                                            <label class="custom-control-label" for="jeniskelamin">Perempuan</label>
+                                            <input type="radio" id="jeniskelamin2" name="jeniskelamin" class="custom-control-input" value="0">
+                                            <label class="custom-control-label" for="jeniskelamin2">Perempuan</label>
                                         </div>
                                     </div>
                                 </div>

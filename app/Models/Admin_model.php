@@ -14,18 +14,11 @@ class Admin_model extends Model
 
     public function readKeseluruhan()
     {
-        $builder = $this->db->table('t_pasien');
-        $builder->db->table('t_detail_kesehatan');
-        $builder->db->table('t_faktor_resiko');
-        $builder->db->table('t_konseling');
-        $builder->db->table('t_tidak_menular_diri');
-        $builder->db->table('t_tidak_menular_keluarga');
+        $builder = $this->db->table('t_pasien');;
         $builder->select('*');
-        $builder->join('t_pasien', 't_pasien.id = t_detail_kesehatan.id');
-        $builder->join('t_pasien', 't_pasien.id = t_faktor_resiko.id_faktor_resiko');
-        $builder->join('t_pasien', 't_pasien.id = t_konseling .id_kesimpulan');
-        $builder->join('t_pasien', 't_pasien.id = t_tidak_menular_diri .id_penyakit_diri_sendiri');
-        $builder->join('t_pasien', 't_pasien.id = t_tidak_menular_keluarga.id_penyakit_keluarga ');
+        $builder->join('t_tidak_menular_keluarga', 't_tidak_menular_keluarga.id_penyakit_keluarga  = t_pasien.id');
+        $builder->join('t_tidak_menular_diri', 't_tidak_menular_diri.id_penyakit_diri_sendiri   = t_pasien.id');
+        $builder->join('t_faktor_resiko', 't_faktor_resiko.id_faktor_resiko    = t_pasien.id');
         return $builder->get();
     }
     public function createPasien($data)
@@ -40,66 +33,31 @@ class Admin_model extends Model
         return $query;
     }
 
-    public function deletePasien($id)
+    public function createRiwayatPenyakit_1($data_menular_keluarga)
     {
-        $query = $this->db->table('t_pasien')->delete(array('id' => $id));
+        $query = $this->db->table('t_tidak_menular_keluarga')->insert($data_menular_keluarga);
         return $query;
     }
-    public function readRiwayatPenyakit()
+    public function createRiwayatPenyakit_2($data_menular_sendiri)
     {
-        $builder = $this->db->table('t_pasien');
-        return $builder->get();
-    }
-
-    public function createRiwayatPenyakit($data)
-    {
-        $query = $this->db->table('t_pasien')->insert($data);
+        $query = $this->db->table('t_tidak_menular_diri')->insert($data_menular_sendiri);
         return $query;
     }
-
-    public function updateRiwayatPenyakit($data, $id)
+    public function createRiwayatPenyakit_3($data_faktor_risiko)
     {
-        $query = $this->db->table('t_pasien')->update($data, array('id' => $id));
+        $query = $this->db->table('t_faktor_resiko')->insert($data_faktor_risiko);
         return $query;
-    }
-
-    public function deleteRiwayatPenyakit($id)
-    {
-        $query = $this->db->table('t_pasien')->delete(array('id' => $id));
-        return $query;
-    }
-    public function readAntropometri()
-    {
-        $builder = $this->db->table('t_pasien');
-        return $builder->get();
     }
 
     public function createAntropometri($data)
     {
-        $query = $this->db->table('t_pasien')->insert($data);
+        $query = $this->db->table('t_detail_kesehatan')->insert($data);
         return $query;
-    }
-
-    public function updateAntropometri($data, $id)
-    {
-        $query = $this->db->table('t_pasien')->update($data, array('id' => $id));
-        return $query;
-    }
-
-    public function deleteAntropometri($id)
-    {
-        $query = $this->db->table('t_pasien')->delete(array('id' => $id));
-        return $query;
-    }
-    public function readCekKesehatan()
-    {
-        $builder = $this->db->table('t_pasien');
-        return $builder->get();
     }
 
     public function createCekKesehatan($data)
     {
-        $query = $this->db->table('t_pasien')->insert($data);
+        $query = $this->db->table('t_detail_kesehatan')->insert($data);
         return $query;
     }
 
