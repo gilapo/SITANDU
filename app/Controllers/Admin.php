@@ -190,4 +190,16 @@ class Admin extends BaseController
         ];
         return view('dataKeseluruhan/dataKeseluruhan', $data);
     }
+
+    public function user()
+    {
+        $data = [
+            'pasien' => $this->model->readKeseluruhan()->getResult(),
+            'judul' => 'user administrator|POSBINDU',
+            'judul2' => 'pengaturan user',
+            'background' => 'dark',
+            'active' => 'active'
+        ];
+        return view('user/user', $data);
+    }
 }

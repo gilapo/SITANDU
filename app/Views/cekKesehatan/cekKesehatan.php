@@ -33,11 +33,13 @@
                             <div class="row">
                                 <div class="col">
                                     <input type="text" class="form-control" id="sistole" name="sistole" placeholder="Sistole" onchange="tekananDarah()">
-                                    <h6 class="mt-1 ml-1 " id="kets"></h6>
                                 </div>
                                 <div class="col">
                                     <input type="text" class="form-control" id="diastole" name="diastole" placeholder="Diastole" onchange="tekananDarah()">
-                                    <h6 class="mt-1 ml-1 " id="ketd"></h6>
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" id="td" name="td" value="" readonly>
+                                    <h6 class="mt-1 ml-1 " id="kettd"></h6>
                                 </div>
                             </div>
                         </div>
@@ -226,45 +228,27 @@
     });
 
     function tekananDarah() {
-        var h61 = document.getElementById("kets");
-        var h62 = document.getElementById("ketd");
+        var h61 = document.getElementById("kettd");
         var sistole = parseFloat(document.getElementById('sistole').value);
         var diastole = parseFloat(document.getElementById('diastole').value);
+        document.getElementById('td').value = sistole + "/" + diastole;
 
-        if (sistole < 120) {
+        if (sistole < 120 && diastole <= 80) {
             document.getElementsByTagName("h6")[0].innerHTML = "normal";
             h61.classList.remove("text-danger", "text-warning");
             h61.classList.add("text-success");
-        } else if (sistole >= 121 && sistole <= 139) {
+        } else if (sistole >= 121 && sistole <= 139 || diastole >= 81 && diastole <= 90) {
             document.getElementsByTagName("h6")[0].innerHTML = "Prehipertensi";
             h61.classList.remove("text-danger", "text-success");
             h61.classList.add("text-warning");
-        } else if (sistole >= 140 && sistole <= 159) {
+        } else if (sistole >= 140 && sistole <= 159 || diastole >= 91 && diastole <= 99) {
             document.getElementsByTagName("h6")[0].innerHTML = "Hipertensi I";
             h61.classList.remove("text-success", "text-warning");
             h61.classList.add("text-danger");
-        } else if (sistole >= 160) {
+        } else if (sistole >= 160 || diastole >= 100) {
             document.getElementsByTagName("h6")[0].innerHTML = "Hipertensi II";
             h61.classList.remove("text-success", "text-warning");
             h61.classList.add("text-danger");
-        }
-
-        if (diastole < 80) {
-            document.getElementsByTagName("h6")[1].innerHTML = "normal";
-            h62.classList.remove("text-danger", "text-warning");
-            h62.classList.add("text-success");
-        } else if (diastole >= 81 && diastole <= 89) {
-            document.getElementsByTagName("h6")[1].innerHTML = "Prehipertensi";
-            h62.classList.remove("text-danger", "text-success");
-            h62.classList.add("text-warning");
-        } else if (diastole >= 90 && diastole <= 99) {
-            document.getElementsByTagName("h6")[1].innerHTML = "Hipertensi I";
-            h62.classList.remove("text-success", "text-warning");
-            h62.classList.add("text-danger");
-        } else if (diastole >= 100) {
-            document.getElementsByTagName("h6")[1].innerHTML = "Hipertensi II";
-            h62.classList.remove("text-success", "text-warning");
-            h62.classList.add("text-danger");
         }
     }
 
@@ -277,25 +261,25 @@
 
         if (selectedGd == "1") {
             if (isiGd <= 199) {
-                document.getElementsByTagName("h6")[2].innerHTML = "Normal";
+                document.getElementsByTagName("h6")[1].innerHTML = "Normal";
                 h63.classList.remove("text-danger");
                 h63.classList.add("text-success");
             } else if (isiGd >= 200) {
-                document.getElementsByTagName("h6")[2].innerHTML = "Diabetes";
+                document.getElementsByTagName("h6")[1].innerHTML = "Diabetes";
                 h63.classList.remove("text-success");
                 h63.classList.add("text-danger");
             }
         } else if (selectedGd == "2") {
             if (isiGd <= 107) {
-                document.getElementsByTagName("h6")[2].innerHTML = "Normal";
+                document.getElementsByTagName("h6")[1].innerHTML = "Normal";
                 h63.classList.remove("text-warning", "text-danger");
                 h63.classList.add("text-success");
             } else if (isiGd >= 108 && isiGd <= 125) {
-                document.getElementsByTagName("h6")[2].innerHTML = "Prediabetes";
+                document.getElementsByTagName("h6")[1].innerHTML = "Prediabetes";
                 h63.classList.remove("text-success", "text-danger");
                 h63.classList.add("text-warning");
             } else if (isiGd >= 126) {
-                document.getElementsByTagName("h6")[2].innerHTML = "Diabetes";
+                document.getElementsByTagName("h6")[1].innerHTML = "Diabetes";
                 h63.classList.remove("text-warning", "text-success");
                 h63.classList.add("text-danger");
             }
@@ -307,15 +291,15 @@
         var h64 = document.getElementById("ketkt");
 
         if (kt <= 170) {
-            document.getElementsByTagName("h6")[3].innerHTML = "Normal";
+            document.getElementsByTagName("h6")[2].innerHTML = "Normal";
             h64.classList.remove("text-danger", "text-warning");
             h64.classList.add("text-success");
         } else if (kt >= 171 && kt <= 199) {
-            document.getElementsByTagName("h6")[3].innerHTML = "Waspada";
+            document.getElementsByTagName("h6")[2].innerHTML = "Waspada";
             h64.classList.remove("text-danger", "text success");
             h64.classList.add("text-warning");
         } else if (kt >= 200) {
-            document.getElementsByTagName("h6")[3].innerHTML = "Bahaya";
+            document.getElementsByTagName("h6")[2].innerHTML = "Bahaya";
             h64.classList.remove("text-success", "text success");
             h64.classList.add("text-danger");
         }
@@ -328,21 +312,21 @@
 
         if (jk == "laki-laki") {
             if (au > 7) {
-                document.getElementsByTagName("h6")[4].innerHTML = "Tinggi";
+                document.getElementsByTagName("h6")[3].innerHTML = "Tinggi";
                 h65.classList.remove("text-success");
                 h65.classList.add("text-danger");
             } else {
-                document.getElementsByTagName("h6")[4].innerHTML = "Normal";
+                document.getElementsByTagName("h6")[3].innerHTML = "Normal";
                 h65.classList.remove("text-danger");
                 h65.classList.add("text-success");
             }
         } else if (jk == "perempuan") {
             if (au > 6) {
-                document.getElementsByTagName("h6")[4].innerHTML = "Tinggi";
+                document.getElementsByTagName("h6")[3].innerHTML = "Tinggi";
                 h65.classList.remove("text-success");
                 h65.classList.add("text-danger");
             } else {
-                document.getElementsByTagName("h6")[4].innerHTML = "Normal";
+                document.getElementsByTagName("h6")[3].innerHTML = "Normal";
                 h65.classList.remove("text-danger");
                 h65.classList.add("text-success");
             }
@@ -356,21 +340,21 @@
 
         if (jk == "laki-laki") {
             if (eks >= 500 && eks <= 700) {
-                document.getElementsByTagName("h6")[5].innerHTML = "Normal";
+                document.getElementsByTagName("h6")[4].innerHTML = "Normal";
                 h66.classList.remove("text-danger");
                 h66.classList.add("text-success");
             } else {
-                document.getElementsByTagName("h6")[5].innerHTML = "Tidak Normal";
+                document.getElementsByTagName("h6")[4].innerHTML = "Tidak Normal";
                 h66.classList.remove("text-success");
                 h66.classList.add("text-danger");
             }
         } else if (jk == "perempuan") {
             if (eks >= 280 && eks <= 500) {
-                document.getElementsByTagName("h6")[5].innerHTML = "Normal";
+                document.getElementsByTagName("h6")[4].innerHTML = "Normal";
                 h66.classList.remove("text-danger");
                 h66.classList.add("text-success");
             } else {
-                document.getElementsByTagName("h6")[5].innerHTML = "Tidak Normal";
+                document.getElementsByTagName("h6")[4].innerHTML = "Tidak Normal";
                 h66.classList.remove("text-success");
                 h66.classList.add("text-danger");
             }

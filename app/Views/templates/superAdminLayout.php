@@ -65,9 +65,6 @@
                                 <div>
                                     <h2 class="text-white pb-2 fw-bold"><?= $judul2; ?></h2>
                                 </div>
-                                <div class="ml-md-auto py-2 py-md-0">
-                                    <button type="button" id="dataPasienlBtn" name="dataPasienBtn" class="btn btn-secondary btn-round" data-toggle="modal" data-target="#dataPasien"> Lihat Data Pasien</button>
-                                </div>
                             </div>
                         </div>
                     </div>
