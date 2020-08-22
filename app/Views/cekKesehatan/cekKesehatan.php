@@ -85,12 +85,12 @@
                                     <h6 class="mt-1 ml-1 " id="ketres"></h6>
                                 </div>
                                 <div class="col">
-                                    <input type="text" class="form-control" id="jk" placeholder="Jenis Kelamin" readonly>
+                                    <input type="text" class="form-control" id="jk" placeholder="Jenis Kelamin" value="" readonly>
                                 </div>
                             </div>
                         </div>
                         <hr>
-                        <div class="form-group row">
+                        <div class="form-group row " id="bj">
                             <div class="col">
                                 <label>Benjolan Aneh Pada Payudara</label>
                             </div>
@@ -201,7 +201,7 @@
                                                                                                                                                 echo "laki-laki";
                                                                                                                                             } else {
                                                                                                                                                 echo "perempuan";
-                                                                                                                                            } ?>" data-identitas="<?= $data->identitas; ?>" data-nama="<?= $data->nama; ?>">Pilih</button>
+                                                                                                                                            } ?>" data-identitas="<?= $data->identitas; ?>" data-nama="<?= $data->nama; ?>" onclick="benjolan()">Pilih</button>
                                             </td>
                                         </tr>
                                 <?php }
@@ -358,6 +358,21 @@
                 h66.classList.remove("text-success");
                 h66.classList.add("text-danger");
             }
+        }
+    }
+
+    function benjolan() {
+        var bj = document.getElementById("bj");
+        var jk = document.getElementById('jk').value
+        console.log(jk);
+        if (jk == "laki-laki") {
+            bj.classList.remove("visibble");
+            bj.classList.add("invisible");
+
+        } else if (jk == "perempuan") {
+            bj.classList.remove("invisible");
+            bj.classList.add("visible");
+
         }
     }
 </script>

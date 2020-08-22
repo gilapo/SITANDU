@@ -1,4 +1,4 @@
-<?= $this->extend('templates/layout'); ?>
+<?= $this->extend('templates/superAdminLayout'); ?>
 <?= $this->section('content'); ?>
 <div class="page-inner mt--5">
     <div class="row mt--2">
@@ -208,6 +208,13 @@
     </div>
 </div>
 <script>
+    // var td = document.getElementsByTagName("td");
+
+    // if (td.innerHTML == "Ya") {
+    //     td.bgColor.add
+    // }
+
+
     $(document).ready(function() {
         $('#dataTable').removeAttr('width').DataTable({
             scrollY: "1000px",
