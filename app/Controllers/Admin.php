@@ -113,7 +113,11 @@ class Admin extends BaseController
         $data_status = [
             'status_meja_3'        => $this->request->getPost('status_meja_3'),
         ];
-        $this->model->createAntropometri($data);
+        if ($this->model->duplicateAntropometri($id)) {
+            $this->model->updateAntropometri($data, $id);
+        } else {
+            $this->model->createAntropometri($data);
+        }
         $this->model->updatePasien($data_status, $id);
         return redirect()->to('/home');
     }
@@ -148,7 +152,11 @@ class Admin extends BaseController
         $data_status = [
             'status_meja_4'        => $this->request->getPost('status_meja_4'),
         ];
-        $this->model->createCekKesehatan($data);
+        if ($this->model->duplicateCekKesehatan($id)) {
+            $this->model->updateCekKesehatan($data, $id);
+        } else {
+            $this->model->createCekKesehatan($data);
+        }
         $this->model->updatePasien($data_status, $id);
         return redirect()->to('/home');
     }
@@ -166,15 +174,18 @@ class Admin extends BaseController
     }
     public function createRekapDataAct()
     {
-
+        $id = $this->request->getPost('id');
         $data = [
-            'identitas' => $this->request->getPost('identitas'),
-            'nama' =>  $this->request->getPost('nama'),
-            'jabatan' =>  $this->request->getPost('jabatan'),
-            'usia' => $this->request->getPost('usia'),
-            'jeniskelamin' =>  $this->request->getPost('jeniskelamin'),
+            'id_kesimpulan' => $this->request->getPost('id_kesimpulan'),
+            'masalah_yang_ditemukan' =>  $this->request->getPost('masalah_yang_ditemukan'),
+            'saran' => $this->request->getPost('saran'),
+            'rujukan' =>  $this->request->getPost('rujukan'),
         ];
-        $this->model->createPasien($data);
+        $data_status = [
+            'status_meja_5'        => $this->request->getPost('status_meja_5'),
+        ];
+        $this->model->createRekapData($data);
+        $this->model->updatePasien($data_status, $id);
         return redirect()->to('/home');
     }
     //--------------------------------------------------------------------

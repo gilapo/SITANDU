@@ -37,6 +37,23 @@
                                     <th>Kurang Aktivitas Fisik</th>
                                     <th>Alkohol</th>
                                     <th>Sulit Tidur Mapsu Makan</th>
+                                    <th>Berat Badan</th>
+                                    <th>Tinggi Badan</th>
+                                    <th>Lingkar Perut</th>
+                                    <th>IMT</th>
+                                    <th>Sistole</th>
+                                    <th>Diastole</th>
+                                    <th>GDS</th>
+                                    <th>Kolesterol</th>
+                                    <th>Asam Urat</th>
+                                    <th>Ekspirasi</th>
+                                    <th>Benjolan pada Payudara</th>
+                                    <th>IVA</th>
+                                    <th>Kadar Alkohol</th>
+                                    <th>Tes Amfetamin</th>
+                                    <th>Masalah yang Ditemukan</th>
+                                    <th>Saran</th>
+                                    <th>Rujukan</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -66,6 +83,23 @@
                                         <td><?= $data->kurang_aktivitas_fisik; ?></td>
                                         <td><?= $data->alkohol; ?></td>
                                         <td><?= $data->sulit_tidur_napsu_makan; ?></td>
+                                        <td><?= $data->bb; ?></td>
+                                        <td><?= $data->tb; ?></td>
+                                        <td><?= $data->imt; ?></td>
+                                        <td><?= $data->lp; ?></td>
+                                        <td><?= $data->sistole; ?></td>
+                                        <td><?= $data->diastole; ?></td>
+                                        <td><?= $data->gds; ?></td>
+                                        <td><?= $data->kolesterol; ?></td>
+                                        <td><?= $data->asam_urat; ?></td>
+                                        <td><?= $data->ekspirasi; ?></td>
+                                        <td><?= $data->benjolan_pada_payudara; ?></td>
+                                        <td><?= $data->iva; ?></td>
+                                        <td><?= $data->kadar_alkohol; ?></td>
+                                        <td><?= $data->tes_amfetamin; ?></td>
+                                        <td><?= $data->masalah_yang_ditemukan; ?></td>
+                                        <td><?= $data->saran; ?></td>
+                                        <td><?= $data->rujukan; ?></td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>

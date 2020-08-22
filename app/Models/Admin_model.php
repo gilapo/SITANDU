@@ -14,11 +14,13 @@ class Admin_model extends Model
 
     public function readKeseluruhan()
     {
-        $builder = $this->db->table('t_pasien');;
+        $builder = $this->db->table('t_pasien');
         $builder->select('*');
-        $builder->join('t_tidak_menular_keluarga', 't_tidak_menular_keluarga.id_penyakit_keluarga  = t_pasien.id');
-        $builder->join('t_tidak_menular_diri', 't_tidak_menular_diri.id_penyakit_diri_sendiri   = t_pasien.id');
-        $builder->join('t_faktor_resiko', 't_faktor_resiko.id_faktor_resiko    = t_pasien.id');
+        $builder->join('t_tidak_menular_keluarga', 't_tidak_menular_keluarga.id_penyakit_keluarga=t_pasien.id', 'left');
+        $builder->join('t_tidak_menular_diri', 't_tidak_menular_diri.id_penyakit_diri_sendiri=t_pasien.id', 'left');
+        $builder->join('t_faktor_resiko', 't_faktor_resiko.id_faktor_resiko=t_pasien.id', 'left');
+        $builder->join('t_detail_kesehatan', 't_detail_kesehatan.id_detail_kesehatan=t_pasien.id', 'left');
+        $builder->join('t_konseling', 't_konseling.id_kesimpulan=t_pasien.id', 'left');
         return $builder->get();
     }
     public function createPasien($data)
@@ -54,45 +56,39 @@ class Admin_model extends Model
         $query = $this->db->table('t_detail_kesehatan')->insert($data);
         return $query;
     }
-
+    public function updateAntropometri($data, $id)
+    {
+        $query = $this->db->table('t_detail_kesehatan')->update($data, array('id_detail_kesehatan' => $id));
+        return $query;
+    }
     public function createCekKesehatan($data)
     {
         $query = $this->db->table('t_detail_kesehatan')->insert($data);
         return $query;
     }
-
     public function updateCekKesehatan($data, $id)
     {
-        $query = $this->db->table('t_pasien')->update($data, array('id' => $id));
+        $query = $this->db->table('t_detail_kesehatan')->update($data, array('id_detail_kesehatan' => $id));
         return $query;
     }
-
-    public function deleteCekKesehatan($id)
+    public function duplicateAntropometri($id)
     {
-        $query = $this->db->table('t_pasien')->delete(array('id' => $id));
-        return $query;
+        $builder = $this->db->table('t_detail_kesehatan');
+        $builder->select('*');
+        $builder->where('name', $id);
+        return $builder->get();
     }
-    public function readRekapDatan()
+    public function duplicateCekKesehatan($id)
     {
-        $builder = $this->db->table('t_pasien');
+        $builder = $this->db->table('t_detail_kesehatan');
+        $builder->select('*');
+        $builder->where('id_detail_kesehatan', $id);
         return $builder->get();
     }
 
     public function createRekapData($data)
     {
-        $query = $this->db->table('t_pasien')->insert($data);
-        return $query;
-    }
-
-    public function updateRekapData($data, $id)
-    {
-        $query = $this->db->table('t_pasien')->update($data, array('id' => $id));
-        return $query;
-    }
-
-    public function deleteRekapData($id)
-    {
-        $query = $this->db->table('t_pasien')->delete(array('id' => $id));
+        $query = $this->db->table('t_konseling')->insert($data);
         return $query;
     }
 }

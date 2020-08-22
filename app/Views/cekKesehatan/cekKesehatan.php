@@ -20,7 +20,7 @@
                                 <input type="text" class="form-control" id="nama" aria-describedby="textHelp" placeholder="Nama Pasien" readonly>
                             </div>
                             <input type="text" id="id" name="id" aria-describedby="textHelp" hidden>
-                            <input type="text" id="id_detail_kesehatan " name="id_detail_kesehatan " aria-describedby="textHelp" hidden>
+                            <input type="text" id="id_detail_kesehatan" name="id_detail_kesehatan" aria-describedby="textHelp" hidden>
                             <input type="text" id="status_meja_4" name="status_meja_4" aria-describedby="textHelp" value="1" hidden>
                         </div>
                         <hr>
@@ -185,7 +185,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($pasien as $data) : if ($data->status_meja_3 == 0) {
+                                <?php foreach ($pasien as $data) : if ($data->status_meja_4 == 0) {
                                 ?>
                                         <tr>
                                             <td><?= $data->identitas; ?></td>
@@ -222,7 +222,7 @@
             document.getElementById("nama").value = $(this).attr('data-nama');
             document.getElementById("id").value = $(this).attr('data-id');
             document.getElementById("jk").value = $(this).attr('data-jk');
-            document.getElementById("id_detail_kesehatan ").value = $(this).attr('data-id');
+            document.getElementById("id_detail_kesehatan").value = $(this).attr('data-id');
             $('#dataPasien').modal('hide');
         });
     });

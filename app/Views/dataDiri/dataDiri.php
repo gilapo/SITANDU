@@ -11,11 +11,11 @@
                     <form action="/Admin/createDataDiriAct" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="identitas">Nomor Identitas</label>
-                            <input type="number" class="form-control" id="identitas" name="identitas" placeholder="NIK/no.KTP/no.Pasport/NIM">
+                            <input type="text" class="form-control" id="identitas" name="identitas" placeholder="NIK/no.KTP/no.Pasport/NIM">
                         </div>
                         <div class="form-group">
                             <label for="nama">Nama</label>
-                            <input type="text" class="form-control" id="nama" name="nama" placeholder="First name">
+                            <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Lengkap">
                         </div>
                         <div class="form-group">
                             <label for="jabatan">Jabatan</label>
