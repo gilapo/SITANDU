@@ -19,7 +19,7 @@
                         </div>
                         <div class="form-group">
                             <label for="jabatan">Jabatan</label>
-                            <input type="text" class="form-control" id="jabatan" name="jabatan" aria-describedby="emailHelp" placeholder="Jabatan">
+                            <input type="text" class="form-control" id="jabatan" name="jabatan" placeholder="Jabatan">
                         </div>
                         <div class="form-group">
                             <div class="row">
@@ -43,6 +43,10 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label for="tanggal_input">Tanggal Input</label>
+                            <input type="date" class="form-control" id="tanggal_input" name="tanggal_input" placeholder="Jabatan">
+                        </div>
+                        <div class="form-group">
                             <button type="submit" class="btn btn-primary">Kirim</button>
                         </div>
                     </form>
@@ -51,5 +55,71 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="dataPasien" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Data Pasien</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
 
+            </div>
+            <div class="card-body mx-auto">
+                <div class="row">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Nomor Identitas</th>
+                                    <th>Nama</th>
+                                    <th>Usia</th>
+                                    <th>Jabatan</th>
+                                    <th>Jenis Kelamin</th>
+                                    <th>aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($pasien as $data) : ?>
+                                    <tr>
+                                        <td><?= $data->identitas; ?></td>
+                                        <td><?= $data->nama; ?></td>
+                                        <td><?= $data->usia; ?></td>
+                                        <td><?= $data->jabatan; ?></td>
+                                        <td><?php if ($data->jeniskelamin == 1) {
+                                                echo "Laki-laki";
+                                            } else {
+                                                echo "Perempuan";
+                                            } ?></td>
+                                        <td>
+                                            <button class="btn btn-primary btn-round" id="pilih" data-jk="<?= $data->jeniskelamin; ?>" data-usia="<?= $data->usia; ?>" data-identitas="<?= $data->identitas; ?>" data-nama="<?= $data->nama; ?>" data-jabatan="<?= $data->jabatan; ?>">Pilih</button>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        $('#dataTable').DataTable();
+        $(document).on('click', '#pilih', function(e) {
+            document.getElementById("identitas").value = $(this).attr('data-identitas');
+            document.getElementById("nama").value = $(this).attr('data-nama');
+            document.getElementById("usia").value = $(this).attr('data-usia');
+            document.getElementById("jabatan").value = $(this).attr('data-jabatan');
+            if ($(this).attr('data-jk') == 1) {
+                document.getElementById("jeniskelamin1").checked = true;
+            } else {
+                document.getElementById("jeniskelamin2").checked = true;
+            }
+
+            $('#dataPasien').modal('hide');
+        });
+    });
+</script>
 <?= $this->endSection(); ?>

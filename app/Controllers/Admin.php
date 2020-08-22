@@ -32,6 +32,7 @@ class Admin extends BaseController
             'jabatan' =>  $this->request->getPost('jabatan'),
             'usia' => $this->request->getPost('usia'),
             'jeniskelamin' =>  $this->request->getPost('jeniskelamin'),
+            'tanggal_input' =>  $this->request->getPost('tanggal_input'),
         ];
         $this->model->createPasien($data);
         return redirect()->to('/home');

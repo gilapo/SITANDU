@@ -30,6 +30,7 @@
     <script src="<?= base_url(); ?>/assets/js/plugin/chart.js/chart.min.js"></script>
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/Chart.min.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/fixedColumns.dataTables.min.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/atlantis.min.css">
     <link href="<?= base_url(); ?>/assets/css/all.css" rel="stylesheet">
 </head>
