@@ -27,6 +27,7 @@
 
     <!-- CSS Files -->
     <script src="<?= base_url(); ?>/assets/js/core/jquery.3.2.1.min.js"></script>
+    <script src="<?= base_url(); ?>/assets/js/plugin/chart.js/chart.min.js"></script>
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/Chart.min.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/atlantis.min.css">
@@ -98,7 +99,6 @@
 
 
             <!-- Chart JS -->
-            <script src="<?= base_url(); ?>/assets/js/plugin/chart.js/chart.min.js"></script>
 
             <!-- jQuery Sparkline -->
             <script src="<?= base_url(); ?>/assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>

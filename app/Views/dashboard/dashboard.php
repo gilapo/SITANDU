@@ -37,11 +37,9 @@
     </div>
 
 </div>
-</div>
 
 <script>
     var lineChart = document.getElementById('statisticsChart').getContext('2d');
-
     var myLineChart = new Chart(lineChart, {
         type: 'line',
         data: {
