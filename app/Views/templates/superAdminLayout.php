@@ -27,7 +27,6 @@
 
     <!-- CSS Files -->
     <script src="<?= base_url(); ?>/assets/js/core/jquery.3.2.1.min.js"></script>
-    <script src="<?= base_url(); ?>/assets/js/plugin/chart.js/chart.min.js"></script>
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/Chart.min.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/atlantis.min.css">
@@ -66,9 +65,6 @@
                                 <div>
                                     <h2 class="text-white pb-2 fw-bold"><?= $judul2; ?></h2>
                                 </div>
-                                <div class="ml-md-auto py-2 py-md-0">
-                                    <button type="button" id="dataPasienlBtn" name="dataPasienBtn" class="btn btn-secondary btn-round" data-toggle="modal" data-target="#dataPasien"> Lihat Data Pasien</button>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -86,11 +82,7 @@
             </div>
 
             <!--   Core JS Files   -->
-            <script src="<?= base_url(); ?>/assets/js/plugin/datatables/jquery.dataTables.min.js"></script>
 
-            <!--DateRangePicker -->
-            <script src="<?= base_url(); ?>/assets/js/plugin/datatables/moment.min.js"></script>
-            <script src="<?= base_url(); ?>/assets/js/plugin/datatables/daterangepicker.min.js"></script>
             <script src="<?= base_url(); ?>/assets/js/core/popper.min.js"></script>
             <script src="<?= base_url(); ?>/assets/js/core/bootstrap.min.js"></script>
 
@@ -100,6 +92,11 @@
 
             <!-- jQuery Scrollbar -->
             <script src="<?= base_url(); ?>/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+
+
+            <!-- Chart JS -->
+            <script src="<?= base_url(); ?>/assets/js/plugin/chart.js/chart.min.js"></script>
+
             <!-- jQuery Sparkline -->
             <script src="<?= base_url(); ?>/assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
 

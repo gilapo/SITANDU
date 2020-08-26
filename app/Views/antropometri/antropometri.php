@@ -9,129 +9,48 @@
                     <div class="card-title fw-bold">Antropometri</div>
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form action="/Admin/createAntropometriAct" method="post" enctype="multipart/form-data">
                         <div class="form-group row">
                             <div class="col">
-                                <label for="exampleInputEmail1">Nomor Antrian</label>
-                                <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" placeholder="Nomor Antrian" readonly>
+                                <label for="nik">Nomor Identitas</label>
+                                <input type="text" class="form-control" id="identitas" aria-describedby="textHelp" placeholder="NIK/no.KTP/no.Pasport/NIM" readonly>
                             </div>
                             <div class="col">
-                                <label for="exampleInputtext1">NIK</label>
-                                <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" placeholder="NIK/no.KTP/no.Pasport/NIM" readonly>
+                                <label for="nama">Nama</label>
+                                <input type="text" class="form-control" id="nama" aria-describedby="textHelp" placeholder="Nama Pasien" readonly>
                             </div>
-                            <div class="col">
-                                <label for="exampleInputtext1">Nama</label>
-                                <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" placeholder="NIK/no.KTP/no.Pasport/NIM" readonly>
-                            </div>
+                            <input type="text" id="id" name="id" aria-describedby="textHelp" hidden>
+                            <input type="text" id="id_detail_kesehatan" name="id_detail_kesehatan" aria-describedby="textHelp" hidden>
+                            <input type="text" id="status_meja_3" name="status_meja_3" aria-describedby="textHelp" value="1" hidden>
                         </div>
                         <hr>
                         <div class="form-group row">
                             <div class="col">
-                                <label for="exampleInputEmail1">Berat Badan</label>
-                                <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" placeholder="Berat Badan">
+                                <label>Berat Badan (Kg)</label>
+                                <input type="number" class="form-control" id="bb" name="bb" placeholder="Berat Badan" value="" onchange="total()">
                             </div>
                             <div class="col">
-                                <label for="exampleInputtext1">Tinggi Badan</label>
-                                <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" placeholder="Tinggi Badan">
+                                <label>Tinggi Badan (m)</label>
+                                <input type="text" class="form-control" id="bt" name="tb" placeholder="Tinggi Badan" value="" onchange="total()">
                             </div>
                             <div class="col">
-                                <label for="exampleInputtext1">IMT</label>
-                                <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" placeholder="" readonly>
+                                <label>IMT</label>
+                                <input type="text" class="form-control" id="imt" name="imt" value="" readonly>
+                                <h6 class="mt-1 ml-1 " id="keterangan"></h6>
                             </div>
                             <hr>
                         </div>
                         <div class="form-group row">
                             <div class="col">
-                                <label for="exampleInputEmail1">Lingkar Perut</label>
-                                <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" placeholder="Berat Badan">
+                                <label for="lp">Lingkar Perut</label>
+                                <input type="number" class="form-control" id="lp" name="lp" aria-describedby="textHelp" placeholder="Lingkar Perut" onchange="lingkar()">
+                                <h6 class="mt-1 ml-1 " id="ketlp"></h6>
                             </div>
                             <div class="col">
-                                <label for="exampleInputtext1">Jenis Kelamin</label>
-                                <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" placeholder="" readonly>
+                                <label>Jenis Kelamin</label>
+                                <input type="text" class="form-control" id="jk" name="ape" aria-describedby="textHelp" placeholder="Jenis Kelamin" readonly>
                             </div>
                             <hr>
-                        </div>
-                        <hr>
-                        <div class="form-group">
-                            <label class="fw-bold">Faktor Resiko Prilaku</label>
-                            <hr>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-5">
-                                <label for="exampleInputEmail1">Merokok</label>
-                            </div>
-                            <div class="col">
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                    <label class="custom-control-label" for="customRadio1">Ya</label>
-                                </div>
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                    <label class="custom-control-label" for="customRadio2">Tidak</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-5">
-                                <label for="s">Sayur dan Buah <br> kurang dari 5 per hari</label> </div>
-                            <div class="col">
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" id="q" name="q" class="custom-control-input">
-                                    <label class="custom-control-label" for="q">Ya</label>
-                                </div>
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" id="w" name="q" class="custom-control-input">
-                                    <label class="custom-control-label" for="w">Tidak</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-5">
-                                <label for="exampleInputEmail1">Kurang aktivitas Fisik</label>
-                            </div>
-                            <div class="col">
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                    <label class="custom-control-label" for="customRadio1">Ya</label>
-                                </div>
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                    <label class="custom-control-label" for="customRadio2">Tidak</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-5">
-                                <label for="exampleInputEmail1">Konsumsi Alkohol</label>
-                            </div>
-                            <div class="col">
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                    <label class="custom-control-label" for="customRadio1">Ya</label>
-                                </div>
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                    <label class="custom-control-label" for="customRadio2">Tidak</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-5">
-                                <label for="exampleInputEmail1">Susah Tidur & <br> Nafsu Makan Menurun</label>
-                            </div>
-                            <div class="col">
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                    <label class="custom-control-label" for="customRadio1">Ya</label>
-                                </div>
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                    <label class="custom-control-label" for="customRadio2">Tidak</label>
-                                </div>
-                            </div>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Kirim</button>
@@ -142,4 +61,148 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="dataPasien" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Data Pasien</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+            </div>
+            <div class="card-body mx-auto">
+                <div class="row">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Nomor Identitas</th>
+                                    <th>Nama</th>
+                                    <th>Usia</th>
+                                    <th>Jenis Kelamin</th>
+                                    <th>aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($pasien as $data) : if ($data->status_meja_3 == 0) {
+                                ?>
+                                        <tr>
+                                            <td><?= $data->identitas; ?></td>
+                                            <td><?= $data->nama; ?></td>
+                                            <td><?= $data->usia; ?></td>
+                                            <td><?php if ($data->jeniskelamin == 1) {
+                                                    echo "laki-laki";
+                                                } else {
+                                                    echo "perempuan";
+                                                } ?></td>
+                                            <td>
+                                                <button class="btn btn-primary btn-round" id="pilih" data-id="<?= $data->id; ?>" data-jk="<?php if ($data->jeniskelamin == 1) {
+                                                                                                                                                echo "laki-laki";
+                                                                                                                                            } else {
+                                                                                                                                                echo "perempuan";
+                                                                                                                                            } ?>" data-identitas="<?= $data->identitas; ?>" data-nama="<?= $data->nama; ?>">Pilih</button>
+                                            </td>
+                                        </tr>
+                                <?php }
+                                endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        $('#dataTable').DataTable();
+        $(document).on('click', '#pilih', function(e) {
+            document.getElementById("identitas").value = $(this).attr('data-identitas');
+            document.getElementById("nama").value = $(this).attr('data-nama');
+            document.getElementById("id").value = $(this).attr('data-id');
+            document.getElementById("jk").value = $(this).attr('data-jk');
+            document.getElementById("id_detail_kesehatan").value = $(this).attr('data-id');
+            $('#dataPasien').modal('hide');
+        });
+    });
+
+    function total() {
+        var h6 = document.getElementById("keterangan");
+        var jk = document.getElementById('jk').value
+        var bb = parseFloat(document.getElementById('bb').value);
+        var bt = parseFloat(document.getElementById('bt').value);
+
+        var hasil = bb / (bt * bt);
+
+        document.getElementById('imt').value = hasil;
+        if (jk == 'laki-laki') {
+            if (hasil < 18) {
+                document.getElementsByTagName("h6")[0].innerHTML = "Kurus";
+                h6.classList.remove("text-success", "text-warning");
+                h6.classList.add("text-danger");
+            } else if (hasil >= 18 && hasil <= 25) {
+                document.getElementsByTagName("h6")[0].innerHTML = "Normal";
+                h6.classList.remove("text-danger", "text-warning");
+                h6.classList.add("text-success");
+            } else if (hasil >= 26 && hasil <= 27) {
+                document.getElementsByTagName("h6")[0].innerHTML = "Kegemukan";
+                h6.classList.remove("text-success", "text-danger");
+                h6.classList.add("text-warning");
+            } else if (hasil >= 28) {
+                document.getElementsByTagName("h6")[0].innerHTML = "Obesitas";
+                h6.classList.remove("text-success", "text-warning");
+                h6.classList.add("text-danger");
+            }
+        } else if ("perempuan") {
+            if (hasil < 17) {
+                document.getElementsByTagName("h6")[0].innerHTML = "Kurus";
+                h6.classList.remove("text-success", "text-warning");
+                h6.classList.add("text-danger");
+            } else if (hasil >= 17 && hasil <= 23) {
+                document.getElementsByTagName("h6")[0].innerHTML = "Normal";
+                h6.classList.remove("text-danger", "text-warning");
+                h6.classList.add("text-success");
+            } else if (hasil >= 24 && hasil <= 27) {
+                document.getElementsByTagName("h6")[0].innerHTML = "Kegemukan";
+                h6.classList.remove("text-success", "text-danger");
+                h6.classList.add("text-warning");
+            } else if (hasil >= 27) {
+                document.getElementsByTagName("h6")[0].innerHTML = "Obesitas";
+                h6.classList.remove("text-success", "text-warning");
+                h6.classList.add("text-danger");
+            }
+        }
+    }
+
+    function lingkar() {
+
+        var lb = parseFloat(document.getElementById('lp').value);
+        var jk = document.getElementById('jk').value
+        var h61 = document.getElementById("ketlp");
+
+        if (jk == 'laki-laki') {
+            if (lb <= 90) {
+                document.getElementsByTagName("h6")[1].innerHTML = "Ideal";
+                h61.classList.remove("text-danger");
+                h61.classList.add("text-success");
+            } else {
+                document.getElementsByTagName("h6")[1].innerHTML = "kurang Ideal";
+                h61.classList.remove("text-success");
+                h61.classList.add("text-danger");
+            }
+        } else if ("perempuan") {
+            if (lb <= 80) {
+                document.getElementsByTagName("h6")[1].innerHTML = "Ideal";
+                h61.classList.remove("text-danger");
+                h61.classList.add("text-success");
+            } else {
+                document.getElementsByTagName("h6")[1].innerHTML = "kurang Ideal";
+                h61.classList.remove("text-success");
+                h61.classList.add("text-danger");
+            }
+        }
+
+    }
+</script>
 <?= $this->endSection(); ?>
