@@ -35,7 +35,7 @@ class Admin extends BaseController
             'tanggal_input' =>  $this->request->getPost('tanggal_input'),
         ];
         $this->model->createPasien($data);
-        return redirect()->to('/home');
+        return redirect()->to('/isiDataDiri');
     }
 
     public function isiRiwayatPenyakit()

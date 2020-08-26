@@ -9,6 +9,7 @@ class Admin_model extends Model
     public function readPasien()
     {
         $builder = $this->db->table('t_pasien');
+        $builder->select('*');
         return $builder->get();
     }
 
