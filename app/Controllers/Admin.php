@@ -19,7 +19,7 @@ class Admin extends BaseController
             'judul' => 'isi Data Diri|POSBINDU',
             'judul2' => 'DATA DIRI',
             'background' => 'dark',
-            'active' => 'active'
+            'id' => ''
         ];
         return view('dataDiri/dataDiri', $data);
     }
@@ -45,7 +45,8 @@ class Admin extends BaseController
             'judul' => 'Riwayat Penyakit|POSBINDU',
             'judul2' => 'RIWAYAT PENYAKIT',
             'background' => 'dark',
-            'active' => 'active'
+            'active' => 'active',
+            'id' => ''
         ];
         return view('riwayatPenyakit/riwayatPenyakit', $data);
     }
@@ -96,7 +97,8 @@ class Admin extends BaseController
             'judul' => 'Antropometri|POSBINDU',
             'judul2' => 'Antropometri',
             'background' => 'dark',
-            'active' => 'active'
+            'active' => 'active',
+            'id' => ''
         ];
         return view('antropometri/antropometri', $data);
     }
@@ -130,7 +132,8 @@ class Admin extends BaseController
             'judul' => 'Cek Kesehatan|POSBINDU',
             'judul2' => 'Cek Kesehatan',
             'background' => 'dark',
-            'active' => 'active'
+            'active' => 'active',
+            'id' => ''
         ];
         return view('cekKesehatan/cekKesehatan', $data);
     }
@@ -169,7 +172,8 @@ class Admin extends BaseController
             'judul' => 'Rekap Data|POSBINDU',
             'judul2' => 'Rekap Data',
             'background' => 'dark',
-            'active' => 'active'
+            'active' => 'active',
+            'id' => ''
         ];
         return view('rekapData/rekapData', $data);
     }
@@ -198,10 +202,24 @@ class Admin extends BaseController
             'judul' => 'Data Keseluruhan|POSBINDU',
             'judul2' => 'Data Keseluruhana',
             'background' => 'dark',
-            'active' => 'active'
+            'active' => 'active',
+            'id' => ''
         ];
-        return view('dataKeseluruhan/dataKeseluruhan', $data);
+        return view('dataKeseluruhan/data', $data);
     }
+    public function detil($id)
+    {
+
+        $data = [
+            'pasien' => $this->model->readKeseluruhanid($id)->getResult(),
+            'judul' => 'Data Keseluruhan|POSBINDU',
+            'judul2' => 'Data Keseluruhana',
+            'background' => 'dark',
+            'id' => $id
+        ];
+        return view('dataKeseluruhan/detil', $data);
+    }
+
 
     public function user()
     {
@@ -210,7 +228,8 @@ class Admin extends BaseController
             'judul' => 'user administrator|POSBINDU',
             'judul2' => 'pengaturan user',
             'background' => 'dark',
-            'active' => 'active'
+            'active' => 'active',
+            'id' => ''
         ];
         return view('user/user', $data);
     }

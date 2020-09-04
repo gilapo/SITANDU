@@ -18,7 +18,8 @@ class Home extends BaseController
 			'judul' => 'Home|POSBINDU',
 			'judul2' => 'Home',
 			'background' => 'dark',
-			'active' => 'active'
+			'active' => 'active',
+			'id' => ''
 		];
 		return view('dashboard/dashboard', $data);
 	}

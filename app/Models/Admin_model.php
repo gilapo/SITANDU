@@ -24,6 +24,25 @@ class Admin_model extends Model
         $builder->join('t_konseling', 't_konseling.id_kesimpulan=t_pasien.id', 'left');
         return $builder->get();
     }
+    public function readKeseluruhanid($id)
+    {
+        $builder = $this->db->table('t_pasien');
+        $builder->select('*');
+        $builder->join('t_tidak_menular_keluarga', 't_tidak_menular_keluarga.id_penyakit_keluarga=t_pasien.id', 'left');
+        $builder->join('t_tidak_menular_diri', 't_tidak_menular_diri.id_penyakit_diri_sendiri=t_pasien.id', 'left');
+        $builder->join('t_faktor_resiko', 't_faktor_resiko.id_faktor_resiko=t_pasien.id', 'left');
+        $builder->join('t_detail_kesehatan', 't_detail_kesehatan.id_detail_kesehatan=t_pasien.id', 'left');
+        $builder->join('t_konseling', 't_konseling.id_kesimpulan=t_pasien.id', 'left');
+        $builder->where(['id' => $id]);
+        return $builder->get();
+    }
+    // public function penyakitKeluarga($id)
+    // {
+    //     $builder = $this->db->table('t_tidak_menular_keluarga');
+    //     $builder->select('*');
+    //     $builder->where(['id' => $id]);
+    //     return $builder->get();
+    // }
     public function createPasien($data)
     {
         $query = $this->db->table('t_pasien')->insert($data);

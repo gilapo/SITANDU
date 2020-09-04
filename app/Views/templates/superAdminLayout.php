@@ -27,9 +27,14 @@
 
     <!-- CSS Files -->
     <script src="<?= base_url(); ?>/assets/js/core/jquery.3.2.1.min.js"></script>
+    <script src="<?= base_url(); ?>/assets/js/plugin/chart.js/chart.min.js"></script>
+    <script src="<?= base_url(); ?>/assets/prism.js"></script>
+    <script src="<?= base_url(); ?>/assets/prism-normalize-whitespace.min.js"></script>
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/Chart.min.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/atlantis.min.css">
+    <link href="<?= base_url(); ?>/assets/styles.css" rel="stylesheet" />
+    <link href="<?= base_url(); ?>/assets/prism.css" rel="stylesheet" />
     <link href="<?= base_url(); ?>/assets/css/all.css" rel="stylesheet">
 </head>
 
@@ -62,9 +67,6 @@
                     <div class="panel-header bg-danger-gradient">
                         <div class="page-inner py-5">
                             <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
-                                <div>
-                                    <h2 class="text-white pb-2 fw-bold"><?= $judul2; ?></h2>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -95,8 +97,6 @@
 
 
             <!-- Chart JS -->
-            <script src="<?= base_url(); ?>/assets/js/plugin/chart.js/chart.min.js"></script>
-
             <!-- jQuery Sparkline -->
             <script src="<?= base_url(); ?>/assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
 
@@ -118,7 +118,8 @@
 
             <!-- Atlantis JS -->
             <script src="<?= base_url(); ?>/assets/js/atlantis.min.js"></script>
-
+            <script src="<?= base_url(); ?>/assets/prism.js"></script>
+            <script src="<?= base_url(); ?>/assets/prism-normalize-whitespace.min.js"></script>
             <script>
                 var btnContainer = document.getElementById("sidebar");
 
