@@ -138,84 +138,6 @@
                                                 $tidak += 1;
                                             }
                                             ?>
-                                            <div class="modal fade" id="rpmk">
-                                                <div class="modal-dialog modal-dialog-centered modal-lg">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">Riwayat Penyakit Menular Pada Keluarga</h5>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <div class="card">
-                                                                <div id="chart-container">
-                                                                    <canvas id="pieChart" style="width: 50%; height: 50%;"></canvas>
-                                                                </div>
-                                                            </div>
-                                                            <div class="table-responsive">
-                                                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th>DM Keluarga</th>
-                                                                            <th>HT Keluarga</th>
-                                                                            <th>Jantung Keluarga</th>
-                                                                            <th>Stroke Keluarga</th>
-                                                                            <th>Asma Keluarga</th>
-                                                                            <th>Kanker Keluarga</th>
-                                                                            <th>Kolesterol Keluarga</th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <?php foreach ($pasien as $data) : ?>
-                                                                            <tr>
-                                                                                <td><?php if ($data->DM_1 == 1) {
-                                                                                        echo "Ya";
-                                                                                    } else {
-                                                                                        echo "Tidak";
-                                                                                    } ?></td>
-                                                                                <td><?php if ($data->HT_1 == 1) {
-                                                                                        echo "Ya";
-                                                                                    } else {
-                                                                                        echo "Tidak";
-                                                                                    } ?></td>
-                                                                                <td><?php if ($data->jantung_1 == 1) {
-                                                                                        echo "Ya";
-                                                                                    } else {
-                                                                                        echo "Tidak";
-                                                                                    } ?></td>
-                                                                                <td><?php if ($data->stroke_1 == 1) {
-                                                                                        echo "Ya";
-                                                                                    } else {
-                                                                                        echo "Tidak";
-                                                                                    } ?></td>
-                                                                                <td><?php if ($data->asma_1 == 1) {
-                                                                                        echo "Ya";
-                                                                                    } else {
-                                                                                        echo "Tidak";
-                                                                                    } ?></td>
-                                                                                <td><?php if ($data->kanker_1 == 1) {
-                                                                                        echo "Ya";
-                                                                                    } else {
-                                                                                        echo "Tidak";
-                                                                                    } ?></td>
-                                                                                <td><?php if ($data->kolesterol_1 == 1) {
-                                                                                        echo "Ya";
-                                                                                    } else {
-                                                                                        echo "Tidak";
-                                                                                    } ?></td>
-                                                                            </tr>
-                                                                        <?php endforeach; ?>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
                                             <script>
                                                 var pieChart = document.getElementById('pieChart').getContext('2d');
                                                 var myPieChart = new Chart(pieChart, {
@@ -264,7 +186,9 @@
                                                 <div id="chart-container">
                                                     <canvas id="pieChart2" style="width: 50%; height: 50%;"></canvas>
                                                 </div>
-                                                <button type="button" class="btn btn-info" id="alert_demo_3_4"> selengkapnya</button>
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#rptmpds">
+                                                    selengkapnya
+                                                </button>
                                             </div>
                                             <?php
                                             $ya2 = 0;
@@ -354,7 +278,9 @@
                                                 <div id="chart-container">
                                                     <canvas id="pieChart3" style="width: 50%; height: 50%;"></canvas>
                                                 </div>
-                                                <button type="button" class="btn btn-info" id="alert_demo_3_4"> selengkapnya</button>
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#frsk">
+                                                    selengkapnya
+                                                </button>
                                             </div>
                                         </div>
                                         <?php
@@ -395,7 +321,7 @@
                                                 data: {
                                                     datasets: [{
                                                         data: [<?= $tidak3; ?>, <?= $ya3; ?>],
-                                                        backgroundColor: ["#1d7af3", "#f3545d"],
+                                                        backgroundColor: ["#f3545d", "#1d7af3"],
                                                         borderWidth: 0
                                                     }],
                                                     labels: ['Ya', 'Tidak']
@@ -437,70 +363,170 @@
                                 <div class="timeline-panel">
                                     <div class="timeline-heading">
                                         <!-- //antro -->
-                                        <h4 class="timeline-title">Mussum ipsum cacilds</h4>
+                                        <h4 class="timeline-title text-danger">Antropometri</h4>
                                     </div>
                                     <div class="timeline-body">
-                                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="timeline-inverted">
-                                <div class="timeline-panel">
-                                    <div class="timeline-heading">
-                                        <!-- //cek kesehatan -->
-                                        <h4 class="timeline-title">Mussum ipsum cacilds</h4>
-                                    </div>
-                                    <div class="timeline-body">
-                                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="timeline-badge info"><i class="fas fa-tasks"></i></div>
-                                <div class="timeline-panel">
-                                    <div class="timeline-heading">
-                                        <!-- //dataakhir -->
-                                        <h4 class="timeline-title">Mussum ipsum cacilds</h4>
-                                    </div>
-                                    <div class="timeline-body">
-                                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                        <hr>
-                                        <div class="btn-group dropdown">
-                                            <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
-                                                <span class="btn-label">
-                                                    <i class="fa fa-cog"></i>
-                                                </span>
-                                            </button>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li>
-                                                    <a class="dropdown-item" href="#">Action</a>
-                                                    <a class="dropdown-item" href="#">Another action</a>
-                                                    <div class="dropdown-divider"></div>
-                                                    <a class="dropdown-item" href="#">Something else here</a>
-                                                </li>
-                                            </ul>
+                                        <div class="row">
+                                            <div class="col-3"><b>Berat Badan</b></div>
+                                            <div class="col"><?= $data->bb; ?></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3"><b>Tinggi Badan</b></div>
+                                            <div class="col"><?= $data->tb; ?></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3"><b>IMT</b></div>
+                                            <div class="col " id="imt"><?= $data->imt; ?></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3"><b>Lingkar Perut</b></div>
+                                            <div class="col" id="lp"><?= $data->lp; ?></div>
                                         </div>
                                     </div>
                                 </div>
+                                <script>
+                                    var h6 = document.getElementById("imt");
+                                    if (<?= $data->jeniskelamin; ?> == 1) {
+                                        if (<?= $data->imt; ?> < 18) {
+                                            h6.classList.add("text-danger");
+                                        } else if (<?= $data->imt; ?> >= 18 && <?= $data->imt; ?> <= 25) {
+                                            h6.classList.add("text-success");
+                                        } else if (<?= $data->imt; ?> >= 26 && <?= $data->imt; ?> <= 27) {
+                                            h6.classList.add("text-warning");
+                                        } else if (<?= $data->imt; ?> >= 28) {
+                                            h6.classList.add("text-danger");
+                                        }
+                                    } else if (<?= $data->jeniskelamin; ?> == 0) {
+                                        if (<?= $data->imt; ?> < 17) {
+                                            h6.classList.add("text-danger");
+                                        } else if (<?= $data->imt; ?> >= 17 && <?= $data->imt; ?> <= 23) {
+                                            h6.classList.add("text-success");
+                                        } else if (<?= $data->imt; ?> >= 24 && <?= $data->imt; ?> <= 27) {
+                                            h6.classList.add("text-warning");
+                                        } else if (<?= $data->imt; ?> >= 27) {
+                                            h6.classList.add("text-danger");
+                                        }
+                                    }
+                                </script>
+                                <script>
+                                    var h61 = document.getElementById("lp");
+                                    console.log("masuk");
+                                    if (<?= $data->jeniskelamin; ?> == 1) {
+                                        if (<?= $data->lp; ?> <= 90) {
+                                            h61.classList.add("text-success");
+                                        } else {
+                                            h61.classList.add("text-danger");
+                                        }
+                                    } else if (<?= $data->jeniskelamin; ?> == 0) {
+                                        if (<?= $data->lp; ?> <= 80) {
+                                            h61.classList.add("text-success");
+                                        } else {
+                                            h61.classList.add("text-danger");
+                                        }
+                                    }
+                                </script>
                             </li>
-                            <li>
+
+                            <li class="timeline-inverted">
+                                <div class="timeline-badge info"><i class="fas fa-tasks"></i></div>
                                 <div class="timeline-panel">
                                     <div class="timeline-heading">
-                                        <h4 class="timeline-title">Mussum ipsum cacilds</h4>
+                                        <!-- //cekes -->
+                                        <h4 class="timeline-title text-info">Cek Kesehatan</h4>
                                     </div>
                                     <div class="timeline-body">
-                                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                        <div class="row">
+                                            <div class="col-3"><b>Sistole</b></div>
+                                            <div class="col"><?= $data->sistole; ?></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3"><b>Diastole</b></div>
+                                            <div class="col"><?= $data->diastole; ?></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3"><b>Gula Darah</b></div>
+                                            <div class="col " id="imt"><?= $data->gds; ?></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3"><b>Kolesterol</b></div>
+                                            <div class="col" id="lp"><?= $data->kolesterol; ?></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3"><b>Asam Urat</b></div>
+                                            <div class="col" id="lp"><?= $data->asam_urat; ?></div>
+                                        </div>
+                                        <div class="row mt-1">
+                                            <div class="col-3"><b>Arus Puncak Respirasi</b></div>
+                                            <div class="col" id="lp"><?= $data->ekspirasi; ?></div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col">
+                                                <div class="table-responsive">
+                                                    <table class="table " id="dataTable" width="100%" cellspacing="0">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Benjolan pada Payudara</th>
+                                                                <th>Inspeksi Visual Asam Asetat</th>
+                                                                <th>Kadar Alkohol</th>
+                                                                <th>Tes Amfetamin</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <?php foreach ($pasien as $data) : ?>
+                                                                <tr>
+                                                                    <td><?php if ($data->benjolan_pada_payudara == 1) {
+                                                                            echo "Ya";
+                                                                        } else {
+                                                                            echo "Tidak";
+                                                                        } ?></td>
+                                                                    <td><?php if ($data->iva == 1) {
+                                                                            echo "Ya";
+                                                                        } else {
+                                                                            echo "Tidak";
+                                                                        } ?></td>
+                                                                    <td><?php if ($data->kadar_alkohol == 1) {
+                                                                            echo "Ya";
+                                                                        } else {
+                                                                            echo "Tidak";
+                                                                        } ?></td>
+                                                                    <td><?php if ($data->tes_amfetamin == 1) {
+                                                                            echo "Ya";
+                                                                        } else {
+                                                                            echo "Tidak";
+                                                                        } ?></td>
+                                                                </tr>
+                                                            <?php endforeach; ?>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                                <script>
+
+                                </script>
                             </li>
-                            <li class="timeline-inverted">
+                            <!-- datakhir -->
+                            <li>
                                 <div class="timeline-badge success"><i class="fas fa-table"></i></div>
                                 <div class="timeline-panel">
                                     <div class="timeline-heading">
-                                        <h4 class="timeline-title">Mussum ipsum cacilds</h4>
+                                        <h4 class="timeline-title">Hasil Data Akhir</h4>
                                     </div>
                                     <div class="timeline-body">
-                                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                        <div class="row">
+                                            <div class="col-3"><b>Masalah Yang Ditemukan</b></div>
+                                            <div class="col"><?= $data->masalah_yang_ditemukan; ?></div>
+                                        </div>
+                                        <div class="row mt-1">
+                                            <div class="col-3"><b>Saran</b></div>
+                                            <div class="col"><?= $data->saran; ?></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3"><b>Rujukan</b></div>
+                                            <div class="col "><?= $data->rujukan; ?></div>
+                                        </div>
                                     </div>
                                 </div>
                             </li>
@@ -512,4 +538,424 @@
     <?php endforeach; ?>
 </div>
 
+<!-- modals -->
+<div class="modal fade" id="rpmk">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Riwayat Penyakit Menular Pada Keluarga</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="chart-container">
+                    <canvas id="pieChart4" style="width: 50%; height: 50%;"></canvas>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>DM Keluarga</th>
+                                <th>HT Keluarga</th>
+                                <th>Jantung Keluarga</th>
+                                <th>Stroke Keluarga</th>
+                                <th>Asma Keluarga</th>
+                                <th>Kanker Keluarga</th>
+                                <th>Kolesterol Keluarga</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($pasien as $data) : ?>
+                                <tr class="text-white">
+                                    <td bgcolor="<?php if ($data->DM_1 == 1) {
+                                                        echo "#f3545d";
+                                                    } else {
+                                                        echo "#1d7af3";
+                                                    } ?>">
+                                        <?php if ($data->DM_1 == 1) {
+                                            echo "Ya";
+                                        } else {
+                                            echo "Tidak";
+                                        } ?></td>
+                                    <td bgcolor="<?php if ($data->HT_1 == 1) {
+                                                        echo "#f3545d";
+                                                    } else {
+                                                        echo "#1d7af3";
+                                                    } ?>"><?php if ($data->HT_1 == 1) {
+                                                                echo "Ya";
+                                                            } else {
+                                                                echo "Tidak";
+                                                            } ?></td>
+                                    <td bgcolor="<?php if ($data->jantung_1 == 1) {
+                                                        echo "#f3545d";
+                                                    } else {
+                                                        echo "#1d7af3";
+                                                    } ?>"><?php if ($data->jantung_1 == 1) {
+                                                                echo "Ya";
+                                                            } else {
+                                                                echo "Tidak";
+                                                            } ?></td>
+                                    <td bgcolor="<?php if ($data->stroke_1 == 1) {
+                                                        echo "#f3545d";
+                                                    } else {
+                                                        echo "#1d7af3";
+                                                    } ?>"><?php if ($data->stroke_1 == 1) {
+                                                                echo "Ya";
+                                                            } else {
+                                                                echo "Tidak";
+                                                            } ?></td>
+                                    <td bgcolor="<?php if ($data->asma_1 == 1) {
+                                                        echo "#f3545d";
+                                                    } else {
+                                                        echo "#1d7af3";
+                                                    } ?>"><?php if ($data->asma_1 == 1) {
+                                                                echo "Ya";
+                                                            } else {
+                                                                echo "Tidak";
+                                                            } ?></td>
+                                    <td bgcolor="<?php if ($data->kanker_1 == 1) {
+                                                        echo "#f3545d";
+                                                    } else {
+                                                        echo "#1d7af3";
+                                                    } ?>"><?php if ($data->kanker_1 == 1) {
+                                                                echo "Ya";
+                                                            } else {
+                                                                echo "Tidak";
+                                                            } ?></td>
+                                    <td bgcolor="<?php if ($data->kolesterol_1 == 1) {
+                                                        echo "#f3545d";
+                                                    } else {
+                                                        echo "#1d7af3";
+                                                    } ?>"><?php if ($data->kolesterol_1 == 1) {
+                                                                echo "Ya";
+                                                            } else {
+                                                                echo "Tidak";
+                                                            } ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var pieChart = document.getElementById('pieChart4').getContext('2d');
+    var myPieChart = new Chart(pieChart, {
+        type: 'pie',
+        data: {
+            datasets: [{
+                data: [<?= $tidak; ?>, <?= $ya; ?>],
+                backgroundColor: ["#1d7af3", "#f3545d"],
+                borderWidth: 0
+            }],
+            labels: ['Tidak', 'Ya']
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            legend: {
+                position: 'bottom',
+                labels: {
+                    fontColor: 'rgb(154, 154, 154)',
+                    fontSize: 11,
+                    usePointStyle: true,
+                    padding: 20
+                }
+            },
+            pieceLabel: {
+                render: 'percentage',
+                fontColor: 'white',
+                fontSize: 14,
+            },
+            tooltips: false,
+            layout: {
+                padding: {
+                    left: 20,
+                    right: 20,
+                    top: 20,
+                    bottom: 20
+                }
+            }
+        }
+    })
+</script>
+<!-- rptmpds -->
+<div class="modal fade" id="rptmpds">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Riwayat Penyakit Menular Pada Keluarga</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="chart-container">
+                    <canvas id="pieChart5" style="width: 50%; height: 50%;"></canvas>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>DM Diri Sendiri</th>
+                                <th>HT Diri Sendiri</th>
+                                <th>Jantung Diri Sendiri</th>
+                                <th>Stroke Diri Sendiri</th>
+                                <th>Asma Diri Sendiri</th>
+                                <th>Kanker Diri Sendiri</th>
+                                <th>Kolesterol Diri Sendiri</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($pasien as $data) : ?>
+                                <tr class="text-white">
+                                    <td bgcolor="<?php if ($data->DM_2 == 1) {
+                                                        echo "#f3545d";
+                                                    } else {
+                                                        echo "#1d7af3";
+                                                    } ?>">
+                                        <?php if ($data->DM_2 == 1) {
+                                            echo "Ya";
+                                        } else {
+                                            echo "Tidak";
+                                        } ?></td>
+                                    <td bgcolor="<?php if ($data->HT_2 == 1) {
+                                                        echo "#f3545d";
+                                                    } else {
+                                                        echo "#1d7af3";
+                                                    } ?>"><?php if ($data->HT_2 == 1) {
+                                                                echo "Ya";
+                                                            } else {
+                                                                echo "Tidak";
+                                                            } ?></td>
+                                    <td bgcolor="<?php if ($data->jantung_2 == 1) {
+                                                        echo "#f3545d";
+                                                    } else {
+                                                        echo "#1d7af3";
+                                                    } ?>"><?php if ($data->jantung_2 == 1) {
+                                                                echo "Ya";
+                                                            } else {
+                                                                echo "Tidak";
+                                                            } ?></td>
+                                    <td bgcolor="<?php if ($data->stroke_2 == 1) {
+                                                        echo "#f3545d";
+                                                    } else {
+                                                        echo "#1d7af3";
+                                                    } ?>"><?php if ($data->stroke_2 == 1) {
+                                                                echo "Ya";
+                                                            } else {
+                                                                echo "Tidak";
+                                                            } ?></td>
+                                    <td bgcolor="<?php if ($data->asma_2 == 1) {
+                                                        echo "#f3545d";
+                                                    } else {
+                                                        echo "#1d7af3";
+                                                    } ?>"><?php if ($data->asma_2 == 1) {
+                                                                echo "Ya";
+                                                            } else {
+                                                                echo "Tidak";
+                                                            } ?></td>
+                                    <td bgcolor="<?php if ($data->kanker_2 == 1) {
+                                                        echo "#f3545d";
+                                                    } else {
+                                                        echo "#1d7af3";
+                                                    } ?>"><?php if ($data->kanker_2 == 1) {
+                                                                echo "Ya";
+                                                            } else {
+                                                                echo "Tidak";
+                                                            } ?></td>
+                                    <td bgcolor="<?php if ($data->kolesterol_2 == 1) {
+                                                        echo "#f3545d";
+                                                    } else {
+                                                        echo "#1d7af3";
+                                                    } ?>"><?php if ($data->kolesterol_2 == 1) {
+                                                                echo "Ya";
+                                                            } else {
+                                                                echo "Tidak";
+                                                            } ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var pieChart = document.getElementById('pieChart5').getContext('2d');
+    var myPieChart = new Chart(pieChart, {
+        type: 'pie',
+        data: {
+            datasets: [{
+                data: [<?= $tidak2; ?>, <?= $ya2; ?>],
+                backgroundColor: ["#1d7af3", "#f3545d"],
+                borderWidth: 0
+            }],
+            labels: ['Tidak', 'Ya']
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            legend: {
+                position: 'bottom',
+                labels: {
+                    fontColor: 'rgb(154, 154, 154)',
+                    fontSize: 11,
+                    usePointStyle: true,
+                    padding: 20
+                }
+            },
+            pieceLabel: {
+                render: 'percentage',
+                fontColor: 'white',
+                fontSize: 14,
+            },
+            tooltips: false,
+            layout: {
+                padding: {
+                    left: 20,
+                    right: 20,
+                    top: 20,
+                    bottom: 20
+                }
+            }
+        }
+    })
+</script>
+<!-- frsk -->
+<div class="modal fade" id="frsk">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Riwayat Penyakit Menular Pada Keluarga</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="chart-container">
+                    <canvas id="pieChart6" style="width: 50%; height: 50%;"></canvas>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Merokok</th>
+                                <th>Makan Sayur dan Buah Kurang dari 5 Porsi</th>
+                                <th>Kurang Aktivitas Fisik</th>
+                                <th>Alkohol</th>
+                                <th>Sulit Tidur Mapsu Makan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($pasien as $data) : ?>
+                                <tr class="text-white">
+                                    <td bgcolor="<?php if ($data->merokok == 1) {
+                                                        echo "#1d7af3";
+                                                    } else {
+                                                        echo "#f3545d";
+                                                    } ?>"><?php if ($data->merokok == 1) {
+                                                                echo "Ya";
+                                                            } else {
+                                                                echo "Tidak";
+                                                            } ?></td>
+                                    <td bgcolor="<?php if ($data->sayur_buah == 1) {
+                                                        echo "#1d7af3";
+                                                    } else {
+                                                        echo "#f3545d";
+                                                    } ?>"><?php if ($data->sayur_buah == 1) {
+                                                                echo "Ya";
+                                                            } else {
+                                                                echo "Tidak";
+                                                            } ?></td>
+                                    <td bgcolor="<?php if ($data->kurang_aktivitas_fisik == 1) {
+                                                        echo "#1d7af3";
+                                                    } else {
+                                                        echo "#f3545d";
+                                                    } ?>"><?php if ($data->kurang_aktivitas_fisik == 1) {
+                                                                echo "Ya";
+                                                            } else {
+                                                                echo "Tidak";
+                                                            } ?></td>
+                                    <td bgcolor="<?php if ($data->alkohol == 1) {
+                                                        echo "#1d7af3";
+                                                    } else {
+                                                        echo "#f3545d";
+                                                    } ?>"><?php if ($data->alkohol == 1) {
+                                                                echo "Ya";
+                                                            } else {
+                                                                echo "Tidak";
+                                                            } ?></td>
+                                    <td bgcolor="<?php if ($data->sulit_tidur_napsu_makan == 1) {
+                                                        echo "#1d7af3";
+                                                    } else {
+                                                        echo "#f3545d";
+                                                    } ?>"><?php if ($data->sulit_tidur_napsu_makan == 1) {
+                                                                echo "Ya";
+                                                            } else {
+                                                                echo "Tidak";
+                                                            } ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var pieChart = document.getElementById('pieChart6').getContext('2d');
+    var myPieChart = new Chart(pieChart, {
+        type: 'pie',
+        data: {
+            datasets: [{
+                data: [<?= $tidak3; ?>, <?= $ya3; ?>],
+                backgroundColor: ["#f3545d", "#1d7af3"],
+                borderWidth: 0
+            }],
+            labels: ['Tidak', 'Ya']
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            legend: {
+                position: 'bottom',
+                labels: {
+                    fontColor: 'rgb(154, 154, 154)',
+                    fontSize: 11,
+                    usePointStyle: true,
+                    padding: 20
+                }
+            },
+            pieceLabel: {
+                render: 'percentage',
+                fontColor: 'white',
+                fontSize: 14,
+            },
+            tooltips: false,
+            layout: {
+                padding: {
+                    left: 20,
+                    right: 20,
+                    top: 20,
+                    bottom: 20
+                }
+            }
+        }
+    })
+</script>
 <?= $this->endSection(); ?>
