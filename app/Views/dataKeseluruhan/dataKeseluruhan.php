@@ -1,6 +1,5 @@
-<?= $this->extend('templates/layout'); ?>
+<?= $this->extend('templates/superAdminLayout'); ?>
 <?= $this->section('content'); ?>
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 <div class="page-inner mt--5">
     <div class="row mt--2">
         <div class="col-md-12 ml-auto mr-auto">
@@ -44,6 +43,7 @@
                                     <th>IMT</th>
                                     <th>Sistole</th>
                                     <th>Diastole</th>
+                                    <th>Jenis Gula Darah</th>
                                     <th>GDS</th>
                                     <th>Kolesterol</th>
                                     <th>Asam Urat</th>
@@ -55,6 +55,8 @@
                                     <th>Masalah yang Ditemukan</th>
                                     <th>Saran</th>
                                     <th>Rujukan</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -175,6 +177,7 @@
                                         <td><?= $data->imt; ?></td>
                                         <td><?= $data->sistole; ?></td>
                                         <td><?= $data->diastole; ?></td>
+                                        <td><?= $data->jenis_gd; ?></td>
                                         <td><?= $data->gds; ?></td>
                                         <td><?= $data->kolesterol; ?></td>
                                         <td><?= $data->asam_urat; ?></td>
@@ -202,6 +205,40 @@
                                         <td><?= $data->masalah_yang_ditemukan; ?></td>
                                         <td><?= $data->saran; ?></td>
                                         <td><?= $data->rujukan; ?></td>
+                                        <td>
+                                            <form method="post" action="/Admin/editPasien">
+                                                <div class="form-group">
+                                                    <input type="hidden" class="form-control hidden" id="id_edit_pasien" name="id_edit_pasien" placeholder="Masukkan ID" value="<?= $data->id; ?>">
+                                                </div>
+                                                <button type="submit" class="btn btn-info btn-round" id="edit">Edit</button></>
+                                            </form>
+                                        </td>
+                                        <td><button type="button" type="button" class="btn btn-danger btn-border btn-round" data-toggle="modal" data-target="#delete<?= $data->id; ?>"> <i class="fas fa-trash-alt"> </i></button>
+                                            <div class="modal fade" id="delete<?= $data->id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Hapus User</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form method="post" action="/Admin/deletePasienAct">
+                                                                <label for="delete">Apakah yakin user?</label>
+                                                                <div class="form-group">
+                                                                    <input type="hidden" class="form-control hidden" id="id_delete_pasien" name="id_delete_pasien" placeholder="Masukkan ID" value="<?= $data->id; ?>">
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                    <button type="submit" class="btn btn-danger">Kirim</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
@@ -243,7 +280,7 @@
     $(document).ready(function() {
         //konfigurasi DataTable pada tabel dengan id example dan menambahkan  div class dateseacrhbox dengan dom untuk meletakkan inputan daterangepicker
         var $dTable = $('#dataTable').DataTable({
-            scrollY: "1000px",
+            scrollY: true,
             scrollX: true,
             scrollCollapse: true,
             paging: true,
@@ -252,17 +289,21 @@
                     targets: [39, 40, 41],
                 },
                 {
-                    width: 100,
-                    targets: [2],
+                    width: 200,
+                    targets: [1, 2],
                 },
                 {
                     searchable: true,
                     targets: 1
                 }
             ],
+            "order": [
+                [1, "asc"]
+            ],
+            "lengthMenu": [50, 75, 100, 250, 500, 750, 1000],
             "rowCallback": function(row, data) {
                 if (data[5] == "Laki-Laki") {
-                    if (data[28] < 18) {
+                    if (data[28] > 0 && data[28] < 18) {
                         $('td:eq(28)', row).addClass('bg-danger');
                     } else if (data[28] >= 18 && data[28] <= 25) {
                         $('td:eq(28)', row).addClass('bg-success');
@@ -271,8 +312,53 @@
                     } else if (data[28] >= 28) {
                         $('td:eq(28)', row).addClass('bg-danger');
                     }
+                    if (data[27] > 0 && data[27] <= 80) {
+                        $('td:eq(27)', row).addClass('bg-success');
+                    } else if (data[27] > 80) {
+                        $('td:eq(27)', row).addClass('bg-danger');
+                    }
+                    if (data[29] > 0 && data[29] <= 120) {
+                        $('td:eq(29)', row).addClass('bg-success');
+                    } else if (data[29] >= 121 && data[29] <= 139) {
+                        $('td:eq(29)', row).addClass('bg-warning');
+                    } else if (data[29] >= 140 && data[29] <= 159) {
+                        $('td:eq(29)', row).addClass('bg-danger');
+                    } else if (data[29] >= 160) {
+                        $('td:eq(29)', row).addClass('bg-danger');
+                    }
+                    if (data[30] > 0 && data[30] <= 80) {
+                        $('td:eq(30)', row).addClass('bg-success');
+                    } else if (data[30] >= 81 && data[30] <= 90) {
+                        $('td:eq(30)', row).addClass('bg-warning');
+                    } else if (data[30] >= 91 && data[30] <= 99) {
+                        $('td:eq(30)', row).addClass('bg-danger');
+                    } else if (data[30] >= 100) {
+                        $('td:eq(30)', row).addClass('bg-danger');
+                    }
+
+                    if (data[33] > 0 && data[33] <= 170) {
+                        $('td:eq(33)', row).addClass('bg-success');
+                    } else if (data[33] >= 171 && data[33] <= 199) {
+                        $('td:eq(33)', row).addClass('bg-warning');
+                    } else if (data[33] >= 200) {
+                        $('td:eq(33)', row).addClass('bg-danger');
+                    }
+                    if (data[34] > 0 && data[34] < 3) {
+                        $('td:eq(34)', row).addClass('bg-danger');
+                    } else if (data[34] >= 4 && data[34] <= 7) {
+                        $('td:eq(34)', row).addClass('bg-success');
+                    } else if (data[34] > 7) {
+                        $('td:eq(34)', row).addClass('bg-danger');
+                    }
+                    if (data[35] > 0 && data[35] <= 499) {
+                        $('td:eq(35)', row).addClass('bg-danger');
+                    } else if (data[35] >= 500 && data[35] <= 700) {
+                        $('td:eq(35)', row).addClass('bg-success');
+                    } else if (data[35] > 700) {
+                        $('td:eq(35)', row).addClass('bg-danger');
+                    }
                 } else if (data[5] == "Perempuan") {
-                    if (data[28] < 17) {
+                    if (data[28] > 0 && data[28] < 17) {
                         $('td:eq(28)', row).addClass('bg-danger');
                     } else if (data[28] >= 17 && data[28] <= 23) {
                         $('td:eq(28)', row).addClass('bg-success');
@@ -281,7 +367,68 @@
                     } else if (data[28] >= 27) {
                         $('td:eq(28)', row).addClass('bg-danger');
                     }
-
+                    if (data[27] > 0 && data[27] <= 80) {
+                        $('td:eq(27)', row).addClass('bg-success');
+                    } else if (data[27] > 80) {
+                        $('td:eq(27)', row).addClass('bg-danger');
+                    }
+                    if (data[29] > 0 && data[29] <= 120) {
+                        $('td:eq(29)', row).addClass('bg-success');
+                    } else if (data[29] >= 121 && data[29] <= 139) {
+                        $('td:eq(29)', row).addClass('bg-warning');
+                    } else if (data[29] >= 140 && data[29] <= 159) {
+                        $('td:eq(29)', row).addClass('bg-danger');
+                    } else if (data[29] >= 160) {
+                        $('td:eq(29)', row).addClass('bg-danger');
+                    }
+                    if (data[30] > 0 && data[30] <= 80) {
+                        $('td:eq(30)', row).addClass('bg-success');
+                    } else if (data[30] >= 81 && data[30] <= 90) {
+                        $('td:eq(30)', row).addClass('bg-warning');
+                    } else if (data[30] >= 91 && data[30] <= 99) {
+                        $('td:eq(30)', row).addClass('bg-danger');
+                    } else if (data[30] >= 100) {
+                        $('td:eq(30)', row).addClass('bg-danger');
+                    }
+                    if (data[32] > 0 && data[32] <= 199) {
+                        $('td:eq(32)', row).addClass('bg-success');
+                    } else if (data[32] >= 200) {
+                        $('td:eq(32)', row).addClass('bg-danger');
+                    }
+                    if (data[33] > 0 && data[33] <= 170) {
+                        $('td:eq(33)', row).addClass('bg-success');
+                    } else if (data[33] >= 171 && data[33] <= 199) {
+                        $('td:eq(33)', row).addClass('bg-warning');
+                    } else if (data[33] >= 200) {
+                        $('td:eq(33)', row).addClass('bg-danger');
+                    }
+                    if (data[34] > 0 && data[34] < 6) {
+                        $('td:eq(34)', row).addClass('bg-danger');
+                    } else if (data[34] >= 6) {
+                        $('td:eq(34)', row).addClass('bg-success');
+                    }
+                    if (data[35] > 0 && data[35] <= 279) {
+                        $('td:eq(35)', row).addClass('bg-danger');
+                    } else if (data[35] >= 280 && data[35] <= 500) {
+                        $('td:eq(35)', row).addClass('bg-success');
+                    } else if (data[35] > 500) {
+                        $('td:eq(35)', row).addClass('bg-danger');
+                    }
+                }
+                if (data[31] == "gds") {
+                    if (data[32] > 0 && data[32] <= 199) {
+                        $('td:eq(32)', row).addClass('bg-success');
+                    } else if (data[32] >= 200) {
+                        $('td:eq(32)', row).addClass('bg-danger');
+                    }
+                } else if (data[31] == "gdp") {
+                    if (data[32] > 0 && data[32] <= 107) {
+                        $('td:eq(32)', row).addClass('bg-success');
+                    } else if (data[32] >= 108 && data[32] <= 125) {
+                        $('td:eq(32)', row).addClass('bg-danger');
+                    } else if (data[32] >= 200) {
+                        $('td:eq(32)', row).addClass('bg-danger');
+                    }
                 }
             },
             "dom": "<'row'<'col-sm-4'l><'col-sm-5' <'datesearchbox'>><'col-sm-3'f>>" +
@@ -290,7 +437,7 @@
         });
 
         //menambahkan daterangepicker di dalam datatables
-        $("div.datesearchbox").html('<div class="input-group"> <div class="input-group-addon"> <i class="glyphicon glyphicon-calendar"></i> </div><input type="text" class="form-control pull-right" id="datesearch" placeholder="Cari Berdasar Tanggal.."> </div>');
+        $("div.datesearchbox").html('<div class="input-group"> <div class="input-group-addon"> <i class="fas fa-calendar-alt fa-2x my-2 mx-3"></i> </div><input type="text" class="form-control pull-right" id="datesearch" placeholder="Cari Berdasar Tanggal.."> </div>');
 
         document.getElementsByClassName("datesearchbox")[0].style.textAlign = "right";
 

@@ -10,31 +10,27 @@
                     <div class="row">
                         <div class="col-md-9 col-lg-8 mx-auto">
                             <h1 class="text-white mb-4">Daftar Akun</h1>
-                            <form>
+                            <form action="/Register/createUserAct" method="post" enctype="multipart/form-data">
                                 <div class="form-label-group ">
                                     <label class="text-white" for="nama">Nama</label>
-                                    <input type="text" id="nama" class="form-control" placeholder="nama" required>
+                                    <input type="text" id="nama_user" name="nama_user" class="form-control" placeholder="nama" required>
+                                </div>
+                                <div class="form-label-group ">
+                                    <label class="text-white" for="username">Username</label>
+                                    <input type="text" id="username" name="username" class="form-control" placeholder="username" required>
                                 </div>
                                 <div class="form-label-group ">
                                     <label class="text-white" for="instansi">Instansi</label>
-                                    <input type="text" id="instansi" class="form-control" placeholder="instansi" required>
+                                    <input type="text" id="instansi" name="instansi" class="form-control" placeholder="instansi" required>
                                 </div>
                                 <div class="form-label-group ">
-                                    <label class="text-white" for="nim">Nomor Identitas</label>
-                                    <input type="text" id="nim" class="form-control" placeholder="NIM/NIK/NIY" required>
-                                </div>
-                                <div class="form-label-group ">
-                                    <label class="text-white" for="email">Alamat Email</label>
-                                    <input type="email" id="email" class="form-control" placeholder="Email" required>
+                                    <label class="text-white" for="no_identitas">Nomor Identitas</label>
+                                    <input type="text" id="no_identitas" name="no_identitas" class="form-control" placeholder="NIM/NIK/NIY" required>
                                 </div>
                                 <div class="row">
                                     <div class="form-label-group col">
-                                        <label class="text-white" for="pass">Password</label>
-                                        <input type="password" id="pass" class="form-control" placeholder="Password" required autofocus>
-                                    </div>
-                                    <div class="form-label-group col">
-                                        <label class="text-white" for="pass2">Konfirmasi</label>
-                                        <input type="password" id="pass2" class="form-control" placeholder="Konfirmasi" required>
+                                        <label class="text-white" for="password">Password</label>
+                                        <input type="password" id="password" name="password" class="form-control" placeholder="Password" required autofocus>
                                     </div>
                                 </div>
                                 <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2 mt-5" type="submit">Daftar</button>

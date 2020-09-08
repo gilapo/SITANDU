@@ -13,11 +13,11 @@
                         <div class="form-group row">
                             <div class="col">
                                 <label for="nik">Nomor Identitas</label>
-                                <input type="text" class="form-control" id="identitas" aria-describedby="textHelp" placeholder="NIK/no.KTP/no.Pasport/NIM" readonly>
+                                <input type="text" class="form-control" id="identitas" aria-describedby="textHelp" placeholder="NIK/no.KTP/no.Pasport/NIM" readonly required>
                             </div>
                             <div class="col">
                                 <label for="nama">Nama</label>
-                                <input type="text" class="form-control" id="nama" aria-describedby="textHelp" placeholder="Nama Pasien" readonly>
+                                <input type="text" class="form-control" id="nama" aria-describedby="textHelp" placeholder="Nama Pasien" readonly required>
                             </div>
                             <input type="text" id="id" name="id" aria-describedby="textHelp" hidden>
                             <input type="text" id="id_detail_kesehatan" name="id_detail_kesehatan" aria-describedby="textHelp" hidden>
@@ -27,15 +27,15 @@
                         <div class="form-group row">
                             <div class="col">
                                 <label>Berat Badan (Kg)</label>
-                                <input type="number" class="form-control" id="bb" name="bb" placeholder="Berat Badan" value="" onchange="total()">
+                                <input type="number" class="form-control" id="bb" name="bb" placeholder="Berat Badan" value="" oninput="total()" required>
                             </div>
                             <div class="col">
-                                <label>Tinggi Badan (m)</label>
-                                <input type="text" class="form-control" id="bt" name="tb" placeholder="Tinggi Badan" value="" onchange="total()">
+                                <label>Tinggi Badan (cm)</label>
+                                <input type="text" class="form-control" id="bt" name="tb" placeholder="Tinggi Badan" value="" oninput="total()" required>
                             </div>
                             <div class="col">
                                 <label>IMT</label>
-                                <input type="text" class="form-control" id="imt" name="imt" value="" readonly>
+                                <input type="text" class="form-control" id="imt" name="imt" value="" readonly required>
                                 <h6 class="mt-1 ml-1 " id="keterangan"></h6>
                             </div>
                             <hr>
@@ -43,12 +43,12 @@
                         <div class="form-group row">
                             <div class="col">
                                 <label for="lp">Lingkar Perut</label>
-                                <input type="number" class="form-control" id="lp" name="lp" aria-describedby="textHelp" placeholder="Lingkar Perut" onchange="lingkar()">
+                                <input type="number" class="form-control" id="lp" name="lp" aria-describedby="textHelp" placeholder="Lingkar Perut" oninput="lingkar()" required>
                                 <h6 class="mt-1 ml-1 " id="ketlp"></h6>
                             </div>
                             <div class="col">
                                 <label>Jenis Kelamin</label>
-                                <input type="text" class="form-control" id="jk" name="ape" aria-describedby="textHelp" placeholder="Jenis Kelamin" readonly>
+                                <input type="text" class="form-control" id="jk" name="ape" aria-describedby="textHelp" placeholder="Jenis Kelamin" readonly required>
                             </div>
                             <hr>
                         </div>
@@ -81,6 +81,7 @@
                                     <th>Nama</th>
                                     <th>Usia</th>
                                     <th>Jenis Kelamin</th>
+                                    <th>Tanggal Input</th>
                                     <th>aksi</th>
                                 </tr>
                             </thead>
@@ -96,6 +97,7 @@
                                                 } else {
                                                     echo "perempuan";
                                                 } ?></td>
+                                            <td><?= $data->tanggal_input; ?></td>
                                             <td>
                                                 <button class="btn btn-primary btn-round" id="pilih" data-id="<?= $data->id; ?>" data-jk="<?php if ($data->jeniskelamin == 1) {
                                                                                                                                                 echo "laki-laki";
@@ -116,7 +118,11 @@
 </div>
 <script>
     $(document).ready(function() {
-        $('#dataTable').DataTable();
+        $('#dataTable').DataTable({
+            "order": [
+                [4, "desc"]
+            ],
+        });
         $(document).on('click', '#pilih', function(e) {
             document.getElementById("identitas").value = $(this).attr('data-identitas');
             document.getElementById("nama").value = $(this).attr('data-nama');
@@ -133,7 +139,7 @@
         var bb = parseFloat(document.getElementById('bb').value);
         var bt = parseFloat(document.getElementById('bt').value);
 
-        var hasil = bb / (bt * bt);
+        var hasil = bb / ((bt / 100) * (bt / 100));
 
         document.getElementById('imt').value = hasil;
         if (jk == 'laki-laki') {

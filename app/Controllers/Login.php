@@ -9,8 +9,7 @@ class Login extends BaseController
         $data = [
             'judul' => 'Login|POSBINDU',
             'background' => 'dark',
-            'active' => 'active',
-            'id' => ''
+            'active' => 'active'
 
         ];
         return view('login/login', $data);
@@ -26,21 +25,24 @@ class Login extends BaseController
             $user = $userModel->where('username', $username)->first();
 
             if ($user) {
-                if ($user['password'] ==  $password) {
-                    $this->session->setFlashdata('errors', ['Password Salah']);
+                if ($user['password'] !=  $password) {
+                    return redirect()->to(site_url('/login'));
                 } else {
-                    $sessData = [
-                        'username' => $user['username'],
-                        'id' => $user['id_user'],
-                        'isLoggedIn' => TRUE
-                    ];
-
-                    $this->session->set($sessData);
-
-                    return redirect()->to(site_url('/'));
+                    if ($user['id_level'] == 1 || $user['id_level'] == 2) {
+                        $sessData = [
+                            'username' => $user['username'],
+                            'id' => $user['id_user'],
+                            'id_level' =>  $user['id_level'],
+                            'isLoggedIn' => TRUE
+                        ];
+                        $this->session->set($sessData);
+                        return redirect()->to(site_url('/'));
+                    } else {
+                        return redirect()->to(site_url('/login'));
+                    }
                 }
             } else {
-                $this->session->setFlashdata('errors', ['User Tidak Ditemukan']);
+                return redirect()->to(site_url('/login'));
             }
         }
         return view('login');

@@ -18,11 +18,7 @@
                                 <div class="form-label-group mt-3">
                                     <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
                                 </div>
-                                <div class="custom-control custom-checkbox mb-2 mt-1">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                    <label class="custom-control-label" for="customCheck1">Remember password</label>
-                                </div>
-                                <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Sign in</button>
+                                <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2 mt-2" type="submit">Sign in</button>
                                 <div class="text-center">
                                     <p class="mt-2">Belum punya akun? <a href="/Register">daftar disini</a></p>
                             </form>

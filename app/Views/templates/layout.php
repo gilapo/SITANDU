@@ -28,9 +28,15 @@
     <!-- CSS Files -->
     <script src="<?= base_url(); ?>/assets/js/core/jquery.3.2.1.min.js"></script>
     <script src="<?= base_url(); ?>/assets/js/plugin/chart.js/chart.min.js"></script>
+    <script src="<?= base_url(); ?>/assets/js/plugin/chart-circle/circles.min.js"></script>
+    <script src="<?= base_url(); ?>/assets/prism.js"></script>
+    <script src="<?= base_url(); ?>/assets/prism-normalize-whitespace.min.js"></script>
+    <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/daterangepicker.css" />
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/Chart.min.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/atlantis.min.css">
+    <link href="<?= base_url(); ?>/assets/styles.css" rel="stylesheet" />
+    <link href="<?= base_url(); ?>/assets/prism.css" rel="stylesheet" />
     <link href="<?= base_url(); ?>/assets/css/all.css" rel="stylesheet">
 </head>
 
@@ -122,7 +128,21 @@
             <!-- Atlantis JS -->
             <script src="<?= base_url(); ?>/assets/js/atlantis.min.js"></script>
 
+            <script>
+                var btnContainer = document.getElementById("sidebar");
 
+                // Get all buttons with class="btn" inside the container
+                var btns = btnContainer.getElementsByClassName("nav-item");
+
+                // Loop through the buttons and add the active class to the current/clicked button
+                for (var i = 0; i < btns.length; i++) {
+                    btns[i].addEventListener("click", function() {
+                        var current = document.getElementsByClassName("active");
+                        current[0].className = current[0].className.replace(" active", "");
+                        this.className += " active";
+                    });
+                }
+            </script>
 
 </body>
 

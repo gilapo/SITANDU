@@ -13,11 +13,11 @@
                         <div class="form-group row">
                             <div class="col">
                                 <label for="nik">Nomor Identitas</label>
-                                <input type="text" class="form-control" id="identitas" aria-describedby="textHelp" placeholder="NIK/no.KTP/no.Pasport/NIM" readonly>
+                                <input type="text" class="form-control" id="identitas" aria-describedby="textHelp" placeholder="NIK/no.KTP/no.Pasport/NIM" readonly required>
                             </div>
                             <div class="col">
                                 <label for="nama">Nama</label>
-                                <input type="text" class="form-control" id="nama" aria-describedby="textHelp" placeholder="Nama Pasien" readonly>
+                                <input type="text" class="form-control" id="nama" aria-describedby="textHelp" placeholder="Nama Pasien" readonly required>
                             </div>
                             <input type="text" id="id" name="id" aria-describedby="textHelp" hidden>
                             <input type="text" id="id_detail_kesehatan" name="id_detail_kesehatan" aria-describedby="textHelp" hidden>
@@ -32,13 +32,13 @@
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <input type="text" class="form-control" id="sistole" name="sistole" placeholder="Sistole" onchange="tekananDarah()">
+                                    <input type="text" class="form-control" id="sistole" name="sistole" placeholder="Sistole" oninput="tekananDarah()" required>
                                 </div>
                                 <div class="col">
-                                    <input type="text" class="form-control" id="diastole" name="diastole" placeholder="Diastole" onchange="tekananDarah()">
+                                    <input type="text" class="form-control" id="diastole" name="diastole" placeholder="Diastole" oninput="tekananDarah()" required>
                                 </div>
                                 <div class="col">
-                                    <input type="text" class="form-control" id="td" name="td" value="" readonly>
+                                    <input type="text" class="form-control" id="td" name="td" value="" readonly required>
                                     <h6 class="mt-1 ml-1 " id="kettd"></h6>
                                 </div>
                             </div>
@@ -51,25 +51,26 @@
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <select class="form-control" id="gulaDarah">
-                                        <option value="1">Gula Darah Sewaktu</option>
-                                        <option value="2">Gula Darah Puasa</option>
+                                    <select class="form-control" id="gulaDarah" name="jenis_gd">
+                                        <option value="" disabled selected hidden>Pilih Jenis Gula Darah...</option>
+                                        <option value="gds">Gula Darah Sewaktu</option>
+                                        <option value="gdp">Gula Darah Puasa</option>
                                     </select>
                                 </div>
                                 <div class="col">
-                                    <input type="text" class="form-control" id="isiGd" name="gds" placeholder="Gula Darah" onchange="guladarah()">
+                                    <input type="text" class="form-control" id="isiGd" name="gds" placeholder="Gula Darah" oninput="guladarah()" required>
                                     <h6 class="mt-1 ml-1 " id="ketGd"></h6>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label>Kolesterol Total</label>
-                            <input type="text" class="form-control" id="kt" name="kolesterol" placeholder="Kolesterol Total" onchange="kolesterol()">
+                            <input type="text" class="form-control" id="kt" name="kolesterol" placeholder="Kolesterol Total" oninput="koles()" required>
                             <h6 class="mt-1 ml-1 " id="ketkt"></h6>
                         </div>
                         <div class="form-group">
                             <label for="au">Asam Urat</label>
-                            <input type="text" class="form-control" id="au" name="asam_urat" placeholder="asam urat" onchange="asamurat()">
+                            <input type="text" class="form-control" id="au" name="asam_urat" placeholder="asam urat" oninput="asamurat()" required>
                             <h6 class="mt-1 ml-1 " id="ketau"></h6>
                         </div>
 
@@ -81,16 +82,16 @@
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <input type="text" class="form-control" id="eks" name="ekspirasi" placeholder="Ekspirasi" onchange="respirasi()">
+                                    <input type="text" class="form-control" id="eks" name="ekspirasi" placeholder="Ekspirasi" oninput="respirasi()" required>
                                     <h6 class="mt-1 ml-1 " id="ketres"></h6>
                                 </div>
                                 <div class="col">
-                                    <input type="text" class="form-control" id="jk" placeholder="Jenis Kelamin" readonly>
+                                    <input type="text" class="form-control" id="jk" placeholder="Jenis Kelamin" readonly required>
                                 </div>
                             </div>
                         </div>
                         <hr>
-                        <div class="form-group row">
+                        <div class="form-group row" id="benjolan">
                             <div class="col">
                                 <label>Benjolan Aneh Pada Payudara</label>
                             </div>
@@ -112,7 +113,7 @@
                             </div>
                             <div class="col">
                                 <label class="form-radio-label">
-                                    <input class="form-radio-input" type="radio" name="iva" value="1">
+                                    <input class="form-radio-input" type="radio" name="iva" value="1" required>
                                     <span class="form-radio-sign">Positif</span>
                                 </label>
                                 <label class="form-radio-label ml-3">
@@ -127,7 +128,7 @@
                             </div>
                             <div class="col">
                                 <label class="form-radio-label">
-                                    <input class="form-radio-input" type="radio" name="kadar_alkohol" value="1">
+                                    <input class="form-radio-input" type="radio" name="kadar_alkohol" value="1" required>
                                     <span class="form-radio-sign">Positif</span>
                                 </label>
                                 <label class="form-radio-label ml-3">
@@ -143,7 +144,7 @@
                             </div>
                             <div class="col">
                                 <label class="form-radio-label">
-                                    <input class="form-radio-input" type="radio" name="tes_amfetamin" value="1">
+                                    <input class="form-radio-input" type="radio" name="tes_amfetamin" value="1" required>
                                     <span class="form-radio-sign">Positif</span>
                                 </label>
                                 <label class="form-radio-label ml-3">
@@ -181,6 +182,7 @@
                                     <th>Nama</th>
                                     <th>Usia</th>
                                     <th>Jenis Kelamin</th>
+                                    <th>Tanggal Input</th>
                                     <th>aksi</th>
                                 </tr>
                             </thead>
@@ -196,6 +198,7 @@
                                                 } else {
                                                     echo "perempuan";
                                                 } ?></td>
+                                            <td><?= $data->tanggal_input; ?></td>
                                             <td>
                                                 <button class="btn btn-primary btn-round" id="pilih" data-id="<?= $data->id; ?>" data-jk="<?php if ($data->jeniskelamin == 1) {
                                                                                                                                                 echo "laki-laki";
@@ -216,7 +219,11 @@
 </div>
 <script>
     $(document).ready(function() {
-        $('#dataTable').DataTable();
+        $('#dataTable').DataTable({
+            "order": [
+                [4, "desc"]
+            ],
+        });
         $(document).on('click', '#pilih', function(e) {
             document.getElementById("identitas").value = $(this).attr('data-identitas');
             document.getElementById("nama").value = $(this).attr('data-nama');
@@ -224,7 +231,14 @@
             document.getElementById("jk").value = $(this).attr('data-jk');
             document.getElementById("id_detail_kesehatan").value = $(this).attr('data-id');
             $('#dataPasien').modal('hide');
+            var jk = document.getElementById('jk').value
+            if (jk == "perempuan") {
+                $("#benjolan").show().attr("required", "true");
+            } else {
+                $("#benjolan").hide();
+            }
         });
+
     });
 
     function tekananDarah() {
@@ -233,7 +247,7 @@
         var diastole = parseFloat(document.getElementById('diastole').value);
         document.getElementById('td').value = sistole + "/" + diastole;
 
-        if (sistole < 120 && diastole <= 80) {
+        if (sistole <= 120 && diastole <= 80) {
             document.getElementsByTagName("h6")[0].innerHTML = "normal";
             h61.classList.remove("text-danger", "text-warning");
             h61.classList.add("text-success");
@@ -259,7 +273,7 @@
         var h63 = document.getElementById("ketGd");
         var isiGd = parseFloat(document.getElementById('isiGd').value);
 
-        if (selectedGd == "1") {
+        if (selectedGd == "gds") {
             if (isiGd <= 199) {
                 document.getElementsByTagName("h6")[1].innerHTML = "Normal";
                 h63.classList.remove("text-danger");
@@ -269,7 +283,7 @@
                 h63.classList.remove("text-success");
                 h63.classList.add("text-danger");
             }
-        } else if (selectedGd == "2") {
+        } else if (selectedGd == "gdp") {
             if (isiGd <= 107) {
                 document.getElementsByTagName("h6")[1].innerHTML = "Normal";
                 h63.classList.remove("text-warning", "text-danger");
@@ -286,9 +300,9 @@
         }
     }
 
-    function kolesterol() {
-        var kt = parseFloat(document.getElementById('kt').value)
+    function koles() {
         var h64 = document.getElementById("ketkt");
+        var kt = parseFloat(document.getElementById('kt').value);
 
         if (kt <= 170) {
             document.getElementsByTagName("h6")[2].innerHTML = "Normal";
@@ -296,11 +310,11 @@
             h64.classList.add("text-success");
         } else if (kt >= 171 && kt <= 199) {
             document.getElementsByTagName("h6")[2].innerHTML = "Waspada";
-            h64.classList.remove("text-danger", "text success");
+            h64.classList.remove("text-danger", "text-success");
             h64.classList.add("text-warning");
         } else if (kt >= 200) {
             document.getElementsByTagName("h6")[2].innerHTML = "Bahaya";
-            h64.classList.remove("text-success", "text success");
+            h64.classList.remove("text-warning", "text-success");
             h64.classList.add("text-danger");
         }
     }
@@ -311,24 +325,34 @@
         var jk = document.getElementById('jk').value
 
         if (jk == "laki-laki") {
-            if (au > 7) {
+            if (au > 0 && au <= 3) {
                 document.getElementsByTagName("h6")[3].innerHTML = "Tinggi";
                 h65.classList.remove("text-success");
                 h65.classList.add("text-danger");
-            } else {
+
+            } else if (au >= 4 && au <= 7) {
                 document.getElementsByTagName("h6")[3].innerHTML = "Normal";
                 h65.classList.remove("text-danger");
                 h65.classList.add("text-success");
+            } else if (au > 7) {
+                document.getElementsByTagName("h6")[3].innerHTML = "Tinggi";
+                h65.classList.remove("text-success");
+                h65.classList.add("text-danger");
+
             }
         } else if (jk == "perempuan") {
-            if (au > 6) {
+            if (au > 0 && au <= 2) {
                 document.getElementsByTagName("h6")[3].innerHTML = "Tinggi";
                 h65.classList.remove("text-success");
                 h65.classList.add("text-danger");
-            } else {
+
+            } else if (au >= 3 && au <= 6) {
                 document.getElementsByTagName("h6")[3].innerHTML = "Normal";
                 h65.classList.remove("text-danger");
                 h65.classList.add("text-success");
+            } else if (au > 6) {
+                document.getElementsByTagName("h6")[3].innerHTML = "Tinggi";
+                h65.classList.remove("text-success");
             }
         }
     }

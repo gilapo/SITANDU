@@ -12,11 +12,11 @@
                         <div class="form-group row">
                             <div class="col">
                                 <label for="nik">Nomor Identitas</label>
-                                <input type="text" class="form-control" id="identitas" aria-describedby="textHelp" placeholder="NIK/no.KTP/no.Pasport/NIM" readonly>
+                                <input type="text" class="form-control" id="identitas" aria-describedby="textHelp" placeholder="NIK/no.KTP/no.Pasport/NIM" readonly required>
                             </div>
                             <div class="col">
                                 <label for="nama">Nama</label>
-                                <input type="text" class="form-control" id="nama" aria-describedby="textHelp" placeholder="Nama Pasien" readonly>
+                                <input type="text" class="form-control" id="nama" aria-describedby="textHelp" placeholder="Nama Pasien" readonly required>
                             </div>
                             <input type="text" id="id" name="id" aria-describedby="textHelp" hidden>
                             <input type="text" id="id_penyakit_keluarga" name="id_penyakit_keluarga" aria-describedby="textHelp" hidden>
@@ -37,7 +37,7 @@
                                     </div>
                                     <div class="col">
                                         <label class="form-radio-label">
-                                            <input class="form-radio-input" type="radio" name="DM_1" value="1">
+                                            <input class="form-radio-input" type="radio" name="DM_1" value="1" required>
                                             <span class="form-radio-sign">Ya</span>
                                         </label>
                                         <label class="form-radio-label ml-3">
@@ -52,7 +52,7 @@
                                     </div>
                                     <div class="col">
                                         <label class="form-radio-label">
-                                            <input class="form-radio-input" type="radio" name="HT_1" value="1">
+                                            <input class="form-radio-input" type="radio" name="HT_1" value="1" required>
                                             <span class="form-radio-sign">Ya</span>
                                         </label>
                                         <label class="form-radio-label ml-3">
@@ -67,7 +67,7 @@
                                     </div>
                                     <div class="col">
                                         <label class="form-radio-label">
-                                            <input class="form-radio-input" type="radio" name="jantung_1" value="1">
+                                            <input class="form-radio-input" type="radio" name="jantung_1" value="1" required>
                                             <span class="form-radio-sign">Ya</span>
                                         </label>
                                         <label class="form-radio-label ml-3">
@@ -82,7 +82,7 @@
                                     </div>
                                     <div class="col">
                                         <label class="form-radio-label">
-                                            <input class="form-radio-input" type="radio" name="stroke_1" value="1">
+                                            <input class="form-radio-input" type="radio" name="stroke_1" value="1" required>
                                             <span class="form-radio-sign">Ya</span>
                                         </label>
                                         <label class="form-radio-label ml-3">
@@ -97,7 +97,7 @@
                                     </div>
                                     <div class="col">
                                         <label class="form-radio-label">
-                                            <input class="form-radio-input" type="radio" name="asma_1" value="1">
+                                            <input class="form-radio-input" type="radio" name="asma_1" value="1" required>
                                             <span class="form-radio-sign">Ya</span>
                                         </label>
                                         <label class="form-radio-label ml-3">
@@ -112,7 +112,7 @@
                                     </div>
                                     <div class="col">
                                         <label class="form-radio-label">
-                                            <input class="form-radio-input" type="radio" name="kanker_1" value="1">
+                                            <input class="form-radio-input" type="radio" name="kanker_1" value="1" required>
                                             <span class="form-radio-sign">Ya</span>
                                         </label>
                                         <label class="form-radio-label ml-3">
@@ -127,7 +127,7 @@
                                     </div>
                                     <div class="col">
                                         <label class="form-radio-label">
-                                            <input class="form-radio-input" type="radio" name="kolesterol_1" value="1">
+                                            <input class="form-radio-input" type="radio" name="kolesterol_1" value="1" required>
                                             <span class="form-radio-sign">Ya</span>
                                         </label>
                                         <label class="form-radio-label ml-3">
@@ -148,7 +148,7 @@
                                     </div>
                                     <div class="col">
                                         <label class="form-radio-label">
-                                            <input class="form-radio-input" type="radio" name="merokok" value="1">
+                                            <input class="form-radio-input" type="radio" name="merokok" value="1" required>
                                             <span class="form-radio-sign">Ya</span>
                                         </label>
                                         <label class="form-radio-label ml-3">
@@ -163,7 +163,7 @@
                                     </div>
                                     <div class="col">
                                         <label class="form-radio-label">
-                                            <input class="form-radio-input" type="radio" name="sayur_buah" value="1">
+                                            <input class="form-radio-input" type="radio" name="sayur_buah" value="1" required>
                                             <span class="form-radio-sign">Ya</span>
                                         </label>
                                         <label class="form-radio-label ml-3">
@@ -178,7 +178,7 @@
                                     </div>
                                     <div class="col">
                                         <label class="form-radio-label">
-                                            <input class="form-radio-input" type="radio" name="kurang_aktivitas_fisik" value="1">
+                                            <input class="form-radio-input" type="radio" name="kurang_aktivitas_fisik" value="1" required>
                                             <span class="form-radio-sign">Ya</span>
                                         </label>
                                         <label class="form-radio-label ml-3">
@@ -193,7 +193,7 @@
                                     </div>
                                     <div class="col">
                                         <label class="form-radio-label">
-                                            <input class="form-radio-input" type="radio" name="alkohol" value="1">
+                                            <input class="form-radio-input" type="radio" name="alkohol" value="1" required>
                                             <span class="form-radio-sign">Ya</span>
                                         </label>
                                         <label class="form-radio-label ml-3">
@@ -208,7 +208,7 @@
                                     </div>
                                     <div class="col">
                                         <label class="form-radio-label">
-                                            <input class="form-radio-input" type="radio" name="sulit_tidur_napsu_makan" value="1">
+                                            <input class="form-radio-input" type="radio" name="sulit_tidur_napsu_makan" value="1" required>
                                             <span class="form-radio-sign">Ya</span>
                                         </label>
                                         <label class="form-radio-label ml-3">
@@ -231,7 +231,7 @@
                                     </div>
                                     <div class="col">
                                         <label class="form-radio-label">
-                                            <input class="form-radio-input" type="radio" name="DM_2" value="1">
+                                            <input class="form-radio-input" type="radio" name="DM_2" value="1" required>
                                             <span class="form-radio-sign">Ya</span>
                                         </label>
                                         <label class="form-radio-label ml-3">
@@ -246,7 +246,7 @@
                                     </div>
                                     <div class="col">
                                         <label class="form-radio-label">
-                                            <input class="form-radio-input" type="radio" name="HT_2" value="1">
+                                            <input class="form-radio-input" type="radio" name="HT_2" value="1" required>
                                             <span class="form-radio-sign">Ya</span>
                                         </label>
                                         <label class="form-radio-label ml-3">
@@ -261,7 +261,7 @@
                                     </div>
                                     <div class="col">
                                         <label class="form-radio-label">
-                                            <input class="form-radio-input" type="radio" name="jantung_2" value="1">
+                                            <input class="form-radio-input" type="radio" name="jantung_2" value="1" required>
                                             <span class="form-radio-sign">Ya</span>
                                         </label>
                                         <label class="form-radio-label ml-3">
@@ -276,7 +276,7 @@
                                     </div>
                                     <div class="col">
                                         <label class="form-radio-label">
-                                            <input class="form-radio-input" type="radio" name="stroke_2" value="1">
+                                            <input class="form-radio-input" type="radio" name="stroke_2" value="1" required>
                                             <span class="form-radio-sign">Ya</span>
                                         </label>
                                         <label class="form-radio-label ml-3">
@@ -291,7 +291,7 @@
                                     </div>
                                     <div class="col">
                                         <label class="form-radio-label">
-                                            <input class="form-radio-input" type="radio" name="asma_2" value="1">
+                                            <input class="form-radio-input" type="radio" name="asma_2" value="1" required>
                                             <span class="form-radio-sign">Ya</span>
                                         </label>
                                         <label class="form-radio-label ml-3">
@@ -306,7 +306,7 @@
                                     </div>
                                     <div class="col">
                                         <label class="form-radio-label">
-                                            <input class="form-radio-input" type="radio" name="kanker_2" value="1">
+                                            <input class="form-radio-input" type="radio" name="kanker_2" value="1" required>
                                             <span class="form-radio-sign">Ya</span>
                                         </label>
                                         <label class="form-radio-label ml-3">
@@ -321,7 +321,7 @@
                                     </div>
                                     <div class="col">
                                         <label class="form-radio-label">
-                                            <input class="form-radio-input" type="radio" name="kolesterol_2" value="1">
+                                            <input class="form-radio-input" type="radio" name="kolesterol_2" value="1" required>
                                             <span class="form-radio-sign">Ya</span>
                                         </label>
                                         <label class="form-radio-label ml-3">
@@ -361,6 +361,7 @@
                                     <th>Nama</th>
                                     <th>Usia</th>
                                     <th>Jenis Kelamin</th>
+                                    <th>Tanggal Input</th>
                                     <th>aksi</th>
                                 </tr>
                             </thead>
@@ -376,6 +377,7 @@
                                                 } else {
                                                     echo "Perempuan";
                                                 } ?></td>
+                                            <td><?= $data->tanggal_input; ?></td>
                                             <td>
                                                 <button class="btn btn-primary btn-round" id="pilih" data-id="<?= $data->id; ?>" data-identitas="<?= $data->identitas; ?>" data-nama="<?= $data->nama; ?>">Pilih</button>
                                             </td>
@@ -392,7 +394,11 @@
 </div>
 <script>
     $(document).ready(function() {
-        $('#dataTable').DataTable();
+        $('#dataTable').DataTable({
+            "order": [
+                [4, "desc"]
+            ],
+        });
         $(document).on('click', '#pilih', function(e) {
             document.getElementById("identitas").value = $(this).attr('data-identitas');
             document.getElementById("nama").value = $(this).attr('data-nama');

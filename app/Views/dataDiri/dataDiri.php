@@ -11,31 +11,31 @@
                     <form action="/Admin/createDataDiriAct" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="identitas">Nomor Identitas</label>
-                            <input type="text" class="form-control" id="identitas" name="identitas" placeholder="NIK/no.KTP/no.Pasport/NIM">
+                            <input type="text" class="form-control" id="identitas" name="identitas" placeholder="NIK/no.KTP/no.Pasport/NIM" required>
                         </div>
                         <div class="form-group">
                             <label for="nama">Nama</label>
-                            <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Lengkap">
+                            <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Lengkap" required>
                         </div>
                         <div class="form-group">
                             <label for="jabatan">Jabatan</label>
-                            <input type="text" class="form-control" id="jabatan" name="jabatan" placeholder="Jabatan">
+                            <input type="text" class="form-control" id="jabatan" name="jabatan" placeholder="Jabatan" required>
                         </div>
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-sm-3">
                                     <label for="usia">Usia</label>
-                                    <input type="Number" class="form-control" id="usia" name="usia" placeholder="Usia">
+                                    <input type="Number" class="form-control" id="usia" name="usia" placeholder="Usia" required>
                                 </div>
                                 <div class="col">
                                     <label for="jeniskelamin">Jenis Kelamin</label>
                                     <div class="row">
                                         <div class="custom-control custom-radio">
-                                            <input type="radio" id="jeniskelamin1" name="jeniskelamin" class="custom-control-input" value="1">
+                                            <input type="radio" id="jeniskelamin1" name="jeniskelamin" class="custom-control-input" value="1" required>
                                             <label class="custom-control-label" for="jeniskelamin1">Laki-Laki</label>
                                         </div>
                                         <div class="custom-control custom-radio">
-                                            <input type="radio" id="jeniskelamin2" name="jeniskelamin" class="custom-control-input" value="0">
+                                            <input type="radio" id="jeniskelamin2" name="jeniskelamin" class="custom-control-input" value="0" required>
                                             <label class="custom-control-label" for="jeniskelamin2">Perempuan</label>
                                         </div>
                                     </div>
@@ -44,7 +44,7 @@
                         </div>
                         <div class="form-group">
                             <label for="tanggal_input">Tanggal Input</label>
-                            <input type="date" class="form-control" id="tanggal_input" name="tanggal_input" placeholder="Jabatan">
+                            <input type="date" class="form-control" id="tanggal_input" name="tanggal_input" placeholder="Jabatan" required>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Kirim</button>
@@ -56,7 +56,7 @@
     </div>
 </div>
 <div class="modal fade" id="dataPasien" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="staticBackdropLabel">Data Pasien</h5>
@@ -71,6 +71,7 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
+                                    <th>No</th>
                                     <th>Nomor Identitas</th>
                                     <th>Nama</th>
                                     <th>Usia</th>
@@ -80,8 +81,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($pasien as $data) : ?>
+                                <?php $no = 1;
+                                foreach ($pasien as $data) : ?>
                                     <tr>
+                                        <td><?= $no++; ?></td>
                                         <td><?= $data->identitas; ?></td>
                                         <td><?= $data->nama; ?></td>
                                         <td><?= $data->usia; ?></td>

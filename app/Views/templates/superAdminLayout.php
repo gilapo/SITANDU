@@ -28,8 +28,10 @@
     <!-- CSS Files -->
     <script src="<?= base_url(); ?>/assets/js/core/jquery.3.2.1.min.js"></script>
     <script src="<?= base_url(); ?>/assets/js/plugin/chart.js/chart.min.js"></script>
+    <script src="<?= base_url(); ?>/assets/js/plugin/chart-circle/circles.min.js"></script>
     <script src="<?= base_url(); ?>/assets/prism.js"></script>
     <script src="<?= base_url(); ?>/assets/prism-normalize-whitespace.min.js"></script>
+    <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/daterangepicker.css" />
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/Chart.min.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/atlantis.min.css">
@@ -67,6 +69,9 @@
                     <div class="panel-header bg-danger-gradient">
                         <div class="page-inner py-5">
                             <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
+                                <div>
+                                    <h2 class="text-white pb-2 fw-bold"><?= $judul2; ?></h2>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -88,6 +93,12 @@
             <script src="<?= base_url(); ?>/assets/js/core/popper.min.js"></script>
             <script src="<?= base_url(); ?>/assets/js/core/bootstrap.min.js"></script>
 
+            <!--DateRangePicker -->
+            <script src="<?= base_url(); ?>/assets/js/plugin/datatables/moment.min.js"></script>
+            <script src="<?= base_url(); ?>/assets/js/plugin/datatables/daterangepicker.min.js"></script>
+            <script src="<?= base_url(); ?>/assets/js/core/popper.min.js"></script>
+            <script src="<?= base_url(); ?>/assets/js/core/bootstrap.min.js"></script>
+
             <!-- jQuery UI -->
             <script src="<?= base_url(); ?>/assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
             <script src="<?= base_url(); ?>/assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
@@ -97,6 +108,8 @@
 
 
             <!-- Chart JS -->
+            <script src="<?= base_url(); ?>/assets/js/plugin/chart.js/chart.min.js"></script>
+
             <!-- jQuery Sparkline -->
             <script src="<?= base_url(); ?>/assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
 
@@ -118,8 +131,7 @@
 
             <!-- Atlantis JS -->
             <script src="<?= base_url(); ?>/assets/js/atlantis.min.js"></script>
-            <script src="<?= base_url(); ?>/assets/prism.js"></script>
-            <script src="<?= base_url(); ?>/assets/prism-normalize-whitespace.min.js"></script>
+
             <script>
                 var btnContainer = document.getElementById("sidebar");
 

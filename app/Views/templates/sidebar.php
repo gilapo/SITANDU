@@ -126,14 +126,11 @@
                 } else if (url == "<?= base_url(); ?>/isiRekapData") {
                     ds.classList.remove("active");
                     dk.classList.add("active");
-                } else if (url == "<?= base_url(); ?>/dataKeseluruhan") {
+                } else if (url == "<?= base_url(); ?>/dataKeseluruhan" || url == "<?= base_url(); ?>/Admin/editPasien" || url == "<?= base_url(); ?>/Admin/dataKeseluruhan/dataKeseluruhan") {
                     ds.classList.remove("active");
                     rd.classList.add("active");
                 } else if (url == "<?= base_url(); ?>/user") {
                     ds.classList.remove("active");
                     us.classList.add("active");
-                } else if (url == "<?= base_url(); ?>/admin/detil/<?= $id; ?>") {
-                    ds.classList.remove("active");
-                    rd.classList.add("active");
                 }
             </script>

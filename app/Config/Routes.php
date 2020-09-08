@@ -31,15 +31,18 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+$routes->get('/login', 'Login::index');
 $routes->get('/', 'Home::index');
 $routes->get('/isiDataDiri', 'Admin::isiDataDiri');
 $routes->get('/isiRiwayatPenyakit', 'Admin::isiRiwayatPenyakit');
 $routes->get('/isiAntropometri', 'Admin::isiAntropometri');
 $routes->get('/isiCekKesehatan', 'Admin::isiCekKesehatan');
 $routes->get('/isiRekapData', 'Admin::isiRekapData');
+$routes->get('/editPasien', 'Admin::editPasien');
+$routes->get('/dataKeseluruhan', 'Admin::dataKeseluruhan');
 $routes->get('/user', 'SuperAdmin::user');
-$routes->get('/dataKeseluruhan', 'SuperAdmin::dataKeseluruhan');
-$routes->get('/login', 'Login::index');
+
+
 
 /**
  * --------------------------------------------------------------------

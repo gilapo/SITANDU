@@ -12,78 +12,98 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>id</th>
-                                    <th>Nama</th>
-                                    <th>role</th>
+                                    <th>Nama User</th>
+                                    <th>Username</th>
+                                    <th>Instansi</th>
+                                    <th>No Identitas</th>
+                                    <th>Level User</th>
                                     <th>aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>3424</td>
-                                    <td>yayayayayayaya</td>
-                                    <td>admin</td>
-                                    <td>
-                                        <button type="button" id="editbtn" name="editbtn" class="btn btn-primary btn-border btn-round" data-toggle="modal" data-target="#editmodal"> <i class="fas fa-edit"> </i> </button>
-                                        <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Edit User</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <form action="" method="post" enctype="multipart/form-data">
-                                                            <div class="form-group">
-                                                                <label for="jenis_surat">Role User</label>
-                                                                <select class="form-control" id="role_id" name="role_id" value="">
-                                                                    <option value="1">Admin</option>
-                                                                    <option value="2">super admin</option>
-                                                                </select>
-                                                                <div class="form-group">
-                                                                    <input type="hidden" class="form-control invisible" id="id" name="id" placeholder="Masukkan ID" value="">
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                                                                    <button type="submit" class="btn btn-primary">Kirim</button>
-                                                                </div>
+                                <?php foreach ($pasien as $data) : {
+                                ?>
+                                        <tr>
+                                            <td><?= $data->nama_user; ?></td>
+                                            <td><?= $data->username; ?></td>
+                                            <td><?= $data->instansi; ?></td>
+                                            <td><?= $data->no_identitas; ?></td>
+                                            <td><?php if ($data->id_level == 1) {
+                                                    echo "Super Admin";
+                                                } else {
+                                                    echo "Admin";
+                                                } ?></td>
+                                            <td>
+                                                <button type="button" id="editbtn<?= $data->id_user; ?>" name="editbtn" class="btn btn-primary btn-border btn-round" data-toggle="modal" data-target="#editmodal<?= $data->id_user; ?>"> <i class="fas fa-edit"> </i> </button>
+                                                <div class="modal fade" id="editmodal<?= $data->id_user; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Edit User</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
                                                             </div>
-                                                        </form>
+                                                            <div class="modal-body">
+                                                                <form action="/Register/updateUserAct" method="post" enctype="multipart/form-data">
+                                                                    <div class="form-group">
+                                                                        <label for="jenis_surat">Role User</label>
+                                                                        <select class="form-control" id="id_level" name="id_level" value="<?php if ($data->id_level == 1) {
+                                                                                                                                                echo "Super Admin";
+                                                                                                                                            } else if ($data->id_level == 2) {
+                                                                                                                                                echo "Admin";
+                                                                                                                                            } else {
+                                                                                                                                                echo "Belum Aktif";
+                                                                                                                                            } ?>">
+                                                                            <option value="1">Super Admin</option>
+                                                                            <option value="2">Admin</option>
+                                                                            <option value="3">Belum Aktif</option>
+                                                                        </select>
+                                                                        <div class="form-group">
+                                                                            <input type="hidden" class="form-control invisible" id="id" name="id" value="<?= $data->id_user; ?>">
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                                                            <button type="submit" class="btn btn-primary">Kirim</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <button type="button" type="button" class="btn btn-danger btn-border btn-round" data-toggle="modal" data-target="#delete"> <i class="fas fa-trash-alt"> </i></button>
-                                        <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Hapus User</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <form method="post" action="">
-                                                            <label for="delete">Apakah yakin user?</label>
-                                                            <div class="form-group">
-                                                                <input type="hidden" class="form-control invisible" id="id" name="id" placeholder="Masukkan ID" value="">
+                                                <button type="button" type="button" class="btn btn-danger btn-border btn-round" data-toggle="modal" data-target="#delete<?= $data->id_user; ?>"> <i class="fas fa-trash-alt"> </i></button>
+                                                <div class="modal fade" id="delete<?= $data->id_user; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Hapus User</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
                                                             </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                                <button type="submit" class="btn btn-danger">Kirim</button>
+                                                            <div class="modal-body">
+                                                                <form method="post" action="/Register/deleteUserAct">
+                                                                    <label for="delete">Apakah yakin user?</label>
+                                                                    <div class="form-group">
+                                                                        <input type="hidden" class="form-control invisible" id="id" name="id" placeholder="Masukkan ID" value="<?= $data->id_user; ?>">
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                        <button type="submit" class="btn btn-danger">Kirim</button>
+                                                                    </div>
+                                                                </form>
                                                             </div>
-                                                        </form>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
+                                            </td>
+                                        </tr>
                             </tbody>
+                    <?php }
+                                endforeach; ?>
                         </table>
+
                     </div>
                 </div>
             </div>
