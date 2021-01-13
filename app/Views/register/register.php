@@ -10,7 +10,7 @@
                     <div class="row">
                         <div class="col-md-9 col-lg-8 mx-auto">
                             <h1 class="text-white mb-4">Daftar Akun</h1>
-                            <form action="/Register/createUserAct" method="post" enctype="multipart/form-data">
+                            <form action="<?= base_url(); ?>/Register/createUserAct" method="post" enctype="multipart/form-data">
                                 <div class="form-label-group ">
                                     <label class="text-white" for="nama">Nama</label>
                                     <input type="text" id="nama_user" name="nama_user" class="form-control" placeholder="nama" required>
@@ -35,7 +35,7 @@
                                 </div>
                                 <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2 mt-5" type="submit">Daftar</button>
                                 <div class="text-center">
-                                    <p class="mt-2">Sudah punya akun? <a href="/Login">Masuk disini</a></p>
+                                    <p class="mt-2">Sudah punya akun? <a href="<?= base_url(); ?>/Login">Masuk disini</a></p>
                             </form>
                         </div>
                     </div>

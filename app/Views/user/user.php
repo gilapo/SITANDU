@@ -30,8 +30,10 @@
                                             <td><?= $data->no_identitas; ?></td>
                                             <td><?php if ($data->id_level == 1) {
                                                     echo "Super Admin";
-                                                } else {
+                                                } else if ($data->id_level == 2) {
                                                     echo "Admin";
+                                                } else if ($data->id_level == 3) {
+                                                    echo "Belum Aktif";
                                                 } ?></td>
                                             <td>
                                                 <button type="button" id="editbtn<?= $data->id_user; ?>" name="editbtn" class="btn btn-primary btn-border btn-round" data-toggle="modal" data-target="#editmodal<?= $data->id_user; ?>"> <i class="fas fa-edit"> </i> </button>
@@ -45,14 +47,14 @@
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form action="/Register/updateUserAct" method="post" enctype="multipart/form-data">
+                                                                <form action="<?= base_url(); ?>/Register/updateUserAct" method="post" enctype="multipart/form-data">
                                                                     <div class="form-group">
                                                                         <label for="jenis_surat">Role User</label>
                                                                         <select class="form-control" id="id_level" name="id_level" value="<?php if ($data->id_level == 1) {
                                                                                                                                                 echo "Super Admin";
                                                                                                                                             } else if ($data->id_level == 2) {
                                                                                                                                                 echo "Admin";
-                                                                                                                                            } else {
+                                                                                                                                            } else if ($data->id_level == 3) {
                                                                                                                                                 echo "Belum Aktif";
                                                                                                                                             } ?>">
                                                                             <option value="1">Super Admin</option>
@@ -83,8 +85,8 @@
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form method="post" action="/Register/deleteUserAct">
-                                                                    <label for="delete">Apakah yakin user?</label>
+                                                                <form method="post" action="<?= base_url(); ?>/Register/deleteUserAct">
+                                                                    <label for="delete">Apakah anda yakin menghapus user <?= $data->nama_user; ?>?</label>
                                                                     <div class="form-group">
                                                                         <input type="hidden" class="form-control invisible" id="id" name="id" placeholder="Masukkan ID" value="<?= $data->id_user; ?>">
                                                                     </div>

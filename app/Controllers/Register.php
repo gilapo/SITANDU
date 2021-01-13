@@ -13,13 +13,18 @@ class Register extends BaseController
     }
     public function index()
     {
-        $data = [
-            'judul' => 'daftar|POSBINDU',
-            'judul2' => 'daftar',
-            'background' => 'dark',
-            'active' => 'active'
-        ];
-        return view('register/register', $data);
+        $loggedIn = session('isLoggedIn');
+        if ($loggedIn  == 1) {
+            return redirect()->to(base_url('/'));
+        } else if ($loggedIn == 0) {
+            $data = [
+                'judul' => 'daftar|POSBINDU',
+                'judul2' => 'daftar',
+                'background' => 'dark',
+                'active' => 'active'
+            ];
+            return view('register/register', $data);
+        }
     }
     public function createUserAct()
     {
@@ -32,7 +37,7 @@ class Register extends BaseController
             'id_level' => 3,
         ];
         $this->model->createUser($data);
-        return redirect()->to('/login');
+        return redirect()->to(base_url('/login'));
     }
     public function updateUserAct()
     {
@@ -41,13 +46,13 @@ class Register extends BaseController
             'id_level' => $this->request->getPost('id_level'),
         ];
         $this->model->updateUser($data, $id);
-        return redirect()->to('/user');
+        return redirect()->to(base_url('/user'));
     }
     public function deleteUserAct()
     {
         $id = $this->request->getPost('id');
         $this->model->deleteUser($id);
-        return redirect()->to('/user');
+        return redirect()->to(base_url('/user'));
     }
     //--------------------------------------------------------------------
 

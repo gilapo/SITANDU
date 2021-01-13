@@ -15,13 +15,22 @@ class SuperAdmin extends BaseController
 
     public function user()
     {
-        $data = [
-            'pasien' => $this->model->readUSer()->getResult(),
-            'judul' => 'user administrator|POSBINDU',
-            'judul2' => 'pengaturan user',
-            'background' => 'dark',
-            'active' => 'active'
-        ];
-        return view('user/user', $data);
+        $loggedIn = session('isLoggedIn');
+        if ($loggedIn  == 1) {
+            if (session('id_level') == 1) {
+                $data = [
+                    'pasien' => $this->model->readUSer()->getResult(),
+                    'judul' => 'user administrator|POSBINDU',
+                    'judul2' => 'pengaturan user',
+                    'background' => 'dark',
+                    'active' => 'active'
+                ];
+                return view('user/user', $data);
+            } else if ((session('id_level') == 2)) {
+                return redirect()->to(base_url('/'));
+            }
+        } else {
+            return redirect()->to(base_url('/login'));
+        }
     }
 }

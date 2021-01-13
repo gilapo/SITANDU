@@ -10,7 +10,7 @@
                     <div class="row">
                         <div class="col-md-9 col-lg-8 mx-auto">
                             <img class="mb-4" src="<?= base_url(); ?>/assets/img/iconHome.png" alt="" width="300">
-                            <form action="/Login/loginAct" method="post" enctype="multipart/form-data">
+                            <form action="<?= base_url(); ?>/Login/loginAct" method="post" enctype="multipart/form-data">
                                 <div class="form-label-group">
                                     <input type="text" id="username" name="username" class="form-control" placeholder="username" required autofocus>
                                 </div>
@@ -20,7 +20,9 @@
                                 </div>
                                 <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2 mt-2" type="submit">Sign in</button>
                                 <div class="text-center">
-                                    <p class="mt-2">Belum punya akun? <a href="/Register">daftar disini</a></p>
+                                    <p class="mt-2">Belum punya akun? <a href="<?= base_url(); ?>/Register">daftar disini</a></p>
+                                </div>
+
                             </form>
                         </div>
                     </div>

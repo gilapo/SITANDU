@@ -8,7 +8,7 @@
                     <div class="card-title fw-bold">Riwayat Penyakit</div>
                 </div>
                 <div class="card-body">
-                    <form action="/Admin/createRiwayatPenyakitAct" method="post" enctype="multipart/form-data">
+                    <form action="<?= base_url(); ?>/Admin/createRiwayatPenyakitAct" method="post" enctype="multipart/form-data" id="myForm">
                         <div class="form-group row">
                             <div class="col">
                                 <label for="nik">Nomor Identitas</label>
@@ -28,7 +28,7 @@
                         <div class="form-group row">
                             <div class="col">
                                 <div class="form-group">
-                                    <label class="fw-bold">Riwayat Penyakit Menular Pada Keluarga</label>
+                                    <label class="fw-bold">Riwayat Penyakit Tidak Menular Pada Keluarga</label>
                                     <hr>
                                 </div>
                                 <div class="form-group row">
@@ -408,6 +408,22 @@
             document.getElementById("id_faktor_resiko").value = $(this).attr('data-id');
             $('#dataPasien').modal('hide');
         });
+    });
+
+    $("#myForm").submit(function() {
+        // Get the Login Name value and trim it
+        var ident1 = $('#identitas').val();
+        var ident2 = document.getElementById("identitas");
+
+        var nama1 = $('#nama').val();
+        var nama2 = document.getElementById("nama");
+
+        // Check if empty of not
+        if (ident1.length < 1 && nama1.length < 1) {
+            ident2.classList.add("text-danger");
+            nama2.classList.add("text-danger");
+            return false;
+        }
     });
 </script>
 <?= $this->endSection(); ?>

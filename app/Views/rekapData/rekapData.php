@@ -9,7 +9,7 @@
                     <div class="card-title fw-bold">Cek Kesehatan</div>
                 </div>
                 <div class="card-body">
-                    <form action="/Admin/createRekapDataAct" method="post" enctype="multipart/form-data">
+                    <form action="<?= base_url(); ?>/Admin/createRekapDataAct" method="post" enctype="multipart/form-data" id="myForm">
                         <div class="form-group row">
                             <div class="col">
                                 <label for="nik">Nomor Identitas</label>
@@ -112,6 +112,22 @@
             document.getElementById("id_kesimpulan").value = $(this).attr('data-id');
             $('#dataPasien').modal('hide');
         });
+    });
+
+    $("#myForm").submit(function() {
+        // Get the Login Name value and trim it
+        var ident1 = $('#identitas').val();
+        var ident2 = document.getElementById("identitas");
+
+        var nama1 = $('#nama').val();
+        var nama2 = document.getElementById("nama");
+
+        // Check if empty of not
+        if (ident1.length < 1 && nama1.length < 1) {
+            ident2.classList.add("text-danger");
+            nama2.classList.add("text-danger");
+            return false;
+        }
     });
 </script>
 <?= $this->endSection(); ?>

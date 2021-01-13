@@ -9,7 +9,7 @@
                 </div>
                 <div class="card-body">
                     <?php foreach ($pasien as $data) : ?>
-                        <form action="/Admin/editPasienAct" method="post" enctype="multipart/form-data">
+                        <form action="<?= base_url(); ?>/Admin/editPasienAct" method="post" enctype="multipart/form-data">
                             <div class="accordion" id="accordionExample">
                                 <div class="card">
                                     <div class="card-header" id="heading1">
@@ -539,7 +539,7 @@
                                                 <div class="row">
                                                     <div class="col">
 
-                                                        <select class="form-control" id="gulaDarah" name="jenis_gd">
+                                                        <select class="form-control" id="gulaDarah" name="jenis_gd" required>
                                                             <option value="" disabled selected hidden>Pilih Jenis Gula Darah...</option>
                                                             <option <?php if ($data->jenis_gd == "gds") {
                                                                         echo "selected";
@@ -593,16 +593,22 @@
                                                 </div>
                                                 <div class="col">
                                                     <label class="form-radio-label">
-                                                        <input class="form-radio-input" type="radio" name="benjolan_pada_payudara" <?php if ($data->benjolan_pada_payudara == 1) {
+                                                        <input class="form-radio-input" type="radio" name="benjolan_pada_payudara" <?php if ($data->benjolan_pada_payudara == 1 && isset($data->benjolan_pada_payudara)) {
                                                                                                                                         echo "checked";
                                                                                                                                     } ?> value="1">
-                                                        <span class="form-radio-sign">Normal</span>
+                                                        <span class="form-radio-sign">Ditemukan</span>
                                                     </label>
                                                     <label class="form-radio-label ml-3">
-                                                        <input class="form-radio-input" type="radio" name="benjolan_pada_payudara" <?php if ($data->benjolan_pada_payudara == 0) {
+                                                        <input class="form-radio-input" type="radio" name="benjolan_pada_payudara" <?php if ($data->benjolan_pada_payudara == 0 && isset($data->benjolan_pada_payudara)) {
                                                                                                                                         echo "checked";
                                                                                                                                     } ?> value="0">
-                                                        <span class="form-radio-sign">Tidak Normal</span>
+                                                        <span class="form-radio-sign">Tidak Ditemukan</span>
+                                                    </label>
+                                                    <label class="form-radio-label ml-3">
+                                                        <input class="form-radio-input" type="radio" name="benjolan_pada_payudara" <?php if ($data->benjolan_pada_payudara == 2 && isset($data->benjolan_pada_payudara)) {
+                                                                                                                                        echo "checked";
+                                                                                                                                    } ?> value="2">
+                                                        <span class="form-radio-sign">Tidak Terkaji</span>
                                                     </label>
                                                 </div>
                                             </div>
@@ -613,16 +619,22 @@
                                                 </div>
                                                 <div class="col">
                                                     <label class="form-radio-label">
-                                                        <input class="form-radio-input" type="radio" name="iva" value="1" <?php if ($data->iva == 1) {
+                                                        <input class="form-radio-input" type="radio" name="iva" value="1" <?php if ($data->iva == 1 && isset($data->iva)) {
                                                                                                                                 echo "checked";
                                                                                                                             } ?> required>
                                                         <span class="form-radio-sign">Positif</span>
                                                     </label>
                                                     <label class="form-radio-label ml-3">
-                                                        <input class="form-radio-input" type="radio" name="iva" <?php if ($data->iva == 0) {
+                                                        <input class="form-radio-input" type="radio" name="iva" <?php if ($data->iva == 0 && isset($data->iva)) {
                                                                                                                     echo "checked";
                                                                                                                 } ?> value="0">
                                                         <span class="form-radio-sign">Negatif</span>
+                                                    </label>
+                                                    <label class="form-radio-label ml-3">
+                                                        <input class="form-radio-input" type="radio" name="iva" <?php if ($data->iva == 2 && isset($data->iva)) {
+                                                                                                                    echo "checked";
+                                                                                                                } ?> value="2">
+                                                        <span class="form-radio-sign">Tidak Terkaji</span>
                                                     </label>
                                                 </div>
                                             </div>
@@ -632,16 +644,22 @@
                                                 </div>
                                                 <div class="col">
                                                     <label class="form-radio-label">
-                                                        <input class="form-radio-input" type="radio" name="kadar_alkohol" <?php if ($data->kadar_alkohol == 1) {
+                                                        <input class="form-radio-input" type="radio" name="kadar_alkohol" <?php if ($data->kadar_alkohol == 1 && isset($data->kadar_alkohol)) {
                                                                                                                                 echo "checked";
                                                                                                                             } ?> value="1" required>
                                                         <span class="form-radio-sign">Positif</span>
                                                     </label>
                                                     <label class="form-radio-label ml-3">
-                                                        <input class="form-radio-input" type="radio" name="kadar_alkohol" <?php if ($data->kadar_alkohol == 0) {
+                                                        <input class="form-radio-input" type="radio" name="kadar_alkohol" <?php if ($data->kadar_alkohol == 0 && isset($data->kadar_alkohol)) {
                                                                                                                                 echo "checked";
                                                                                                                             } ?> value="0">
                                                         <span class="form-radio-sign">Negatif</span>
+                                                    </label>
+                                                    <label class="form-radio-label ml-3">
+                                                        <input class="form-radio-input" type="radio" name="kadar_alkohol" <?php if ($data->kadar_alkohol == 2 && isset($data->kadar_alkohol)) {
+                                                                                                                                echo "checked";
+                                                                                                                            } ?> value="2">
+                                                        <span class="form-radio-sign">Tidak Terkaji</span>
                                                     </label>
                                                 </div>
                                             </div>
@@ -652,20 +670,25 @@
                                                 </div>
                                                 <div class="col">
                                                     <label class="form-radio-label">
-                                                        <input class="form-radio-input" type="radio" name="tes_amfetamin" <?php if ($data->tes_amfetamin == 1) {
+                                                        <input class="form-radio-input" type="radio" name="tes_amfetamin" <?php if ($data->tes_amfetamin == 1 && isset($data->tes_amfetamin)) {
                                                                                                                                 echo "checked";
                                                                                                                             } ?> value="1" required>
                                                         <span class="form-radio-sign">Positif</span>
                                                     </label>
                                                     <label class="form-radio-label ml-3">
-                                                        <input class="form-radio-input" type="radio" name="tes_amfetamin" <?php if ($data->tes_amfetamin == 0) {
+                                                        <input class="form-radio-input" type="radio" name="tes_amfetamin" <?php if ($data->tes_amfetamin == 0 && isset($data->tes_amfetamin)) {
                                                                                                                                 echo "checked";
                                                                                                                             } ?> value="0">
                                                         <span class="form-radio-sign">Negatif</span>
                                                     </label>
+                                                    <label class="form-radio-label ml-3">
+                                                        <input class="form-radio-input" type="radio" name="tes_amfetamin" <?php if ($data->tes_amfetamin == 2 && isset($data->tes_amfetamin)) {
+                                                                                                                                echo "checked";
+                                                                                                                            } ?> value="2">
+                                                        <span class="form-radio-sign">Tidak Terkaji</span>
+                                                    </label>
                                                 </div>
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
@@ -724,7 +747,7 @@
         var jk = document.getElementById('jk').value
         if (jk == "perempuan") {
             $("#benjolan").show().attr("required", "true");
-        } else {
+        } else if (jk == "laki-laki") {
             $("#benjolan").hide();
         }
     }
@@ -813,20 +836,16 @@
         var diastole = parseFloat(document.getElementById('diastole').value);
         document.getElementById('td').value = sistole + "/" + diastole;
 
-        if (sistole <= 120 && diastole <= 80) {
+        if (sistole < 130 && diastole < 80) {
             document.getElementsByTagName("h6")[2].innerHTML = "normal";
             h61.classList.remove("text-danger", "text-warning");
             h61.classList.add("text-success");
-        } else if (sistole >= 121 && sistole <= 139 || diastole >= 81 && diastole <= 90) {
+        } else if (sistole >= 130 && sistole <= 139 || diastole >= 80 && diastole <= 89) {
             document.getElementsByTagName("h6")[2].innerHTML = "Prehipertensi";
             h61.classList.remove("text-danger", "text-success");
             h61.classList.add("text-warning");
-        } else if (sistole >= 140 && sistole <= 159 || diastole >= 91 && diastole <= 99) {
-            document.getElementsByTagName("h6")[2].innerHTML = "Hipertensi I";
-            h61.classList.remove("text-success", "text-warning");
-            h61.classList.add("text-danger");
-        } else if (sistole >= 160 || diastole >= 100) {
-            document.getElementsByTagName("h6")[2].innerHTML = "Hipertensi II";
+        } else if (sistole >= 140 && diastole >= 90) {
+            document.getElementsByTagName("h6")[2].innerHTML = "Hipertensi";
             h61.classList.remove("text-success", "text-warning");
             h61.classList.add("text-danger");
         }
@@ -840,27 +859,37 @@
         var isiGd = parseFloat(document.getElementById('isiGd').value);
 
         if (selectedGd == "gds") {
-            if (isiGd <= 199) {
-                document.getElementsByTagName("h6")[3].innerHTML = "Normal";
+            if (isiGd >= 80 && isiGd <= 144) {
+                document.getElementsByTagName("h6")[3].innerHTML = "Rendah";
                 h63.classList.remove("text-danger");
+                h63.classList.remove("text-warning");
                 h63.classList.add("text-success");
-            } else if (isiGd >= 200) {
-                document.getElementsByTagName("h6")[3].innerHTML = "Diabetes";
+            } else if (isiGd >= 145 && isiGd <= 199) {
+                document.getElementsByTagName("h6")[3].innerHTML = "Waspada";
                 h63.classList.remove("text-success");
+                h63.classList.remove("text-danger");
+                h63.classList.add("text-warning");
+            } else if (isiGd >= 200) {
+                document.getElementsByTagName("h6")[3].innerHTML = "Tinggi";
+                h63.classList.remove("text-success");
+                h63.classList.remove("text-warning");
                 h63.classList.add("text-danger");
             }
         } else if (selectedGd == "gdp") {
-            if (isiGd <= 107) {
-                document.getElementsByTagName("h6")[3].innerHTML = "Normal";
-                h63.classList.remove("text-warning", "text-danger");
+            if (isiGd >= 80 && isiGd <= 120) {
+                document.getElementsByTagName("h6")[3].innerHTML = "Rendah";
+                h63.classList.remove("text-danger");
+                h63.classList.remove("text-warning");
                 h63.classList.add("text-success");
-            } else if (isiGd >= 108 && isiGd <= 125) {
-                document.getElementsByTagName("h6")[3].innerHTML = "Prediabetes";
-                h63.classList.remove("text-success", "text-danger");
+            } else if (isiGd >= 121 && isiGd <= 175) {
+                document.getElementsByTagName("h6")[3].innerHTML = "Waspada";
+                h63.classList.remove("text-success");
+                h63.classList.remove("text-danger");
                 h63.classList.add("text-warning");
-            } else if (isiGd >= 126) {
-                document.getElementsByTagName("h6")[3].innerHTML = "Diabetes";
-                h63.classList.remove("text-warning", "text-success");
+            } else if (isiGd >= 176) {
+                document.getElementsByTagName("h6")[3].innerHTML = "Tinggi";
+                h63.classList.remove("text-success");
+                h63.classList.remove("text-warning");
                 h63.classList.add("text-danger");
             }
         }
@@ -870,17 +899,17 @@
         var h64 = document.getElementById("ketkt");
         var kt = parseFloat(document.getElementById('kt').value);
 
-        if (kt <= 170) {
+        if (kt < 150) {
             document.getElementsByTagName("h6")[4].innerHTML = "Normal";
             h64.classList.remove("text-danger", "text-warning");
             h64.classList.add("text-success");
-        } else if (kt >= 171 && kt <= 199) {
+        } else if (kt >= 150 && kt <= 189) {
             document.getElementsByTagName("h6")[4].innerHTML = "Waspada";
-            h64.classList.remove("text-danger", "text success");
+            h64.classList.remove("text-danger", "text-success");
             h64.classList.add("text-warning");
-        } else if (kt >= 200) {
+        } else if (kt >= 190) {
             document.getElementsByTagName("h6")[4].innerHTML = "Bahaya";
-            h64.classList.remove("text-warning", "text success");
+            h64.classList.remove("text-warning", "text-success");
             h64.classList.add("text-danger");
         }
     }
@@ -892,32 +921,32 @@
 
         if (jk == "laki-laki") {
             if (au > 0 && au <= 3) {
-                document.getElementsByTagName("h6")[3].innerHTML = "Tinggi";
+                document.getElementsByTagName("h6")[5].innerHTML = "Rendah";
                 h65.classList.remove("text-success");
                 h65.classList.add("text-danger");
 
             } else if (au >= 4 && au <= 7) {
-                document.getElementsByTagName("h6")[3].innerHTML = "Normal";
+                document.getElementsByTagName("h6")[5].innerHTML = "Normal";
                 h65.classList.remove("text-danger");
                 h65.classList.add("text-success");
             } else if (au > 7) {
-                document.getElementsByTagName("h6")[3].innerHTML = "Tinggi";
+                document.getElementsByTagName("h6")[5].innerHTML = "Tinggi";
                 h65.classList.remove("text-success");
                 h65.classList.add("text-danger");
 
             }
         } else if (jk == "perempuan") {
             if (au > 0 && au <= 2) {
-                document.getElementsByTagName("h6")[3].innerHTML = "Tinggi";
+                document.getElementsByTagName("h6")[5].innerHTML = "Rendah";
                 h65.classList.remove("text-success");
                 h65.classList.add("text-danger");
 
             } else if (au >= 3 && au <= 6) {
-                document.getElementsByTagName("h6")[3].innerHTML = "Normal";
+                document.getElementsByTagName("h6")[5].innerHTML = "Normal";
                 h65.classList.remove("text-danger");
                 h65.classList.add("text-success");
             } else if (au > 6) {
-                document.getElementsByTagName("h6")[3].innerHTML = "Tinggi";
+                document.getElementsByTagName("h6")[5].innerHTML = "Tinggi";
                 h65.classList.remove("text-success");
             }
         }

@@ -6,13 +6,17 @@ class Login extends BaseController
 {
     public function index()
     {
-        $data = [
-            'judul' => 'Login|POSBINDU',
-            'background' => 'dark',
-            'active' => 'active'
-
-        ];
-        return view('login/login', $data);
+        $loggedIn = session('isLoggedIn');
+        if ($loggedIn  == 1) {
+            return redirect()->to(base_url('/'));
+        } else if ($loggedIn == 0) {
+            $data = [
+                'judul' => 'Login|POSBINDU',
+                'background' => 'dark',
+                'active' => 'active'
+            ];
+            return view('login/login', $data);
+        }
     }
     public function loginAct()
     {
@@ -26,23 +30,38 @@ class Login extends BaseController
 
             if ($user) {
                 if ($user['password'] !=  $password) {
-                    return redirect()->to(site_url('/login'));
+                    return redirect()->to(base_url('/login'));
                 } else {
-                    if ($user['id_level'] == 1 || $user['id_level'] == 2) {
+                    if ($user['id_level'] == 1) {
                         $sessData = [
+                            'nama_user' => $user['nama_user'],
+                            'instansi' => $user['instansi'],
+                            'no_identitas' => $user['no_identitas'],
                             'username' => $user['username'],
                             'id' => $user['id_user'],
                             'id_level' =>  $user['id_level'],
                             'isLoggedIn' => TRUE
                         ];
                         $this->session->set($sessData);
-                        return redirect()->to(site_url('/'));
+                        return redirect()->to(base_url('/'));
+                    } else if ($user['id_level'] == 2) {
+                        $sessData = [
+                            'nama_user' => $user['nama_user'],
+                            'instansi' => $user['instansi'],
+                            'no_identitas' => $user['no_identitas'],
+                            'username' => $user['username'],
+                            'id' => $user['id_user'],
+                            'id_level' =>  $user['id_level'],
+                            'isLoggedIn' => TRUE
+                        ];
+                        $this->session->set($sessData);
+                        return redirect()->to(base_url('/'));
                     } else {
-                        return redirect()->to(site_url('/login'));
+                        return redirect()->to(base_url('/login'));
                     }
                 }
             } else {
-                return redirect()->to(site_url('/login'));
+                return redirect()->to(base_url('/login'));
             }
         }
         return view('login');
@@ -50,7 +69,7 @@ class Login extends BaseController
     public function logoutAct()
     {
         $this->session->destroy();
-        return redirect()->to(site_url('login'));
+        return redirect()->to(base_url('/login'));
     }
     //--------------------------------------------------------------------
 

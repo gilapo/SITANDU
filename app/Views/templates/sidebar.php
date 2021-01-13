@@ -4,7 +4,7 @@
                     <div class="sidebar-content">
                         <ul class="nav nav-primary" id="sidebar">
                             <li class="nav-item active" id="dashboard">
-                                <a href="/" class="collapsed" aria-expanded="false">
+                                <a href="<?= base_url(); ?>" class="collapsed" aria-expanded="false">
                                     <i class="fas fa-home"></i>
                                     <p>Dashboard</p>
                                 </a>
@@ -16,64 +16,61 @@
                                 <h4 class="text-section">Menu</h4>
                             </li>
                             <li class="nav-item active" id="dataDiri">
-                                <a href="/isiDataDiri">
+                                <a href="<?= base_url(); ?>/isiDataDiri">
                                     <i class="fas fa-user-alt"></i>
                                     <p>Data Diri</p>
                                 </a>
                             </li>
                             <li class="nav-item active" id="riwayatPenyakit">
-                                <a href="/isiRiwayatPenyakit">
+                                <a href="<?= base_url(); ?>/isiRiwayatPenyakit">
                                     <i class="fas fa-head-side-mask"></i>
                                     <p>Riwayat penyait</p>
                                 </a>
                             </li>
                             <li class="nav-item active" id="antropometri">
-                                <a href="/isiAntropometri">
+                                <a href="<?= base_url(); ?>/isiAntropometri">
                                     <i class="fas fa-clipboard-list"></i>
                                     <p>Antropometri</p>
                                 </a>
                             </li>
                             <li class="nav-item active" id="cekKesehatan">
-                                <a href="/isiCekKesehatan">
+                                <a href="<?= base_url(); ?>/isiCekKesehatan">
                                     <i class="fas fa-tasks"></i>
                                     <p>Cek Kesehatan</p>
                                 </a>
                             </li>
                             <li class="nav-item active" id="rekapData">
-                                <a href="/isiRekapData">
+                                <a href="<?= base_url(); ?>/isiRekapData">
                                     <i class="fas fa-table"></i>
                                     <p>Hasil Data Akhir</p>
                                 </a>
                             </li>
                             <li class="nav-item active" id="dataKeseluruhan">
-                                <a href="/dataKeseluruhan">
+                                <a href="<?= base_url(); ?>/dataKeseluruhan">
                                     <i class="fas fa-book"></i>
                                     <p>Data Keseluruhan</p>
                                 </a>
                             </li>
-                            <li class="nav-section">
+                            <?php if ($_SESSION['id_level'] == 1) {
+                                print('<li class="nav-section">
                                 <span class="sidebar-mini-icon">
                                     <i class="fa fa-ellipsis-h"></i>
                                 </span>
                                 <h4 class="text-section">Administrator</h4>
                             </li>
                             <li class="nav-item active" id="user">
-                                <a href="/user">
+                                <a href="'); ?><?= base_url(); ?><?php echo ('/user">
                                     <i class="fas fa-user"></i>
                                     <p>user</p>
                                 </a>
-                            </li>
+                            </li>');
+                                                                }
+                                                                    ?>
                             <li class="nav-section">
                                 <span class="sidebar-mini-icon">
                                     <i class="fa fa-ellipsis-h"></i>
                                 </span>
                                 <hr>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/Login/logoutAct">
-                                    <i class="fas fa-sign-out-alt"></i>
-                                    <p>Logout</p>
-                                </a>
                             </li>
                         </ul>
                     </div>
@@ -94,6 +91,7 @@
                 // }
 
                 //var nav = document.getElementsByClassName('nav-item');
+                var id_level = <?php echo $_SESSION['id_level']; ?>;
                 var ds = document.getElementById('dashboard')
                 var dd = document.getElementById('dataDiri');
                 var rp = document.getElementById('riwayatPenyakit')
@@ -109,7 +107,10 @@
                 ck.classList.remove("active");
                 dk.classList.remove("active");
                 rd.classList.remove("active");
-                us.classList.remove("active");
+                if (id_level == 1) {
+                    us.classList.remove("active");
+                }
+
 
                 if (url == "<?= base_url(); ?>/isiDataDiri") {
                     ds.classList.remove("active");

@@ -9,7 +9,7 @@ class Admin_model extends Model
     public function jumlahPasien()
     {
         $tahun = date("Y");
-        $query = $this->db->query("SELECT tanggal_input AS Tanggal, COUNT(*) AS Jumlah From t_pasien WHERE year(tanggal_input)=$tahun GROUP BY month(tanggal_input)");
+        $query = $this->db->query("SELECT tanggal_input AS Tanggal, COUNT(*) AS Jumlah From t_pasien WHERE year(tanggal_input)=$tahun GROUP BY tanggal_input");
         return $query;
     }
     public function jk()
@@ -18,21 +18,57 @@ class Admin_model extends Model
         $query = $this->db->query("SELECT jeniskelamin, count(jeniskelamin) AS jumlah from t_pasien WHERE year(tanggal_input)=$tahun group by jeniskelamin");
         return $query;
     }
-    public function antro()
+    public function antroY()
     {
         $tahun = date("Y");
         $limit = $this->db->query("SELECT count(id_detail_kesehatan)from t_detail_kesehatan")->getRow();
         foreach ($limit as $key) {
-            $query = $this->db->query("SELECT imt, lp from t_detail_kesehatan join t_pasien where year(tanggal_input)=$tahun limit $key");
+            $query = $this->db->query("SELECT imt, lp from t_detail_kesehatan join t_pasien where year(tanggal_input)=$tahun AND id_detail_kesehatan=id limit $key");
             return $query;
         }
     }
-    public function cekKes()
+    public function cekKesY()
     {
         $tahun = date("Y");
         $limit = $this->db->query("SELECT count(id_detail_kesehatan)from t_detail_kesehatan")->getRow();
         foreach ($limit as $key) {
-            $query = $this->db->query("SELECT sistole, diastole, gds, kolesterol, asam_urat,ekspirasi, jenis_gd, ape from t_detail_kesehatan join t_pasien where year(tanggal_input)=$tahun limit $key");
+            $query = $this->db->query("SELECT sistole, diastole, gds, kolesterol, asam_urat,ekspirasi, jenis_gd, ape from t_detail_kesehatan join t_pasien where year(tanggal_input)=$tahun AND id_detail_kesehatan=id limit $key");
+            return $query;
+        }
+    }
+    public function antroM()
+    {
+        $bulan = date("m");
+        $limit = $this->db->query("SELECT count(id_detail_kesehatan)from t_detail_kesehatan")->getRow();
+        foreach ($limit as $key) {
+            $query = $this->db->query("SELECT imt, lp from t_detail_kesehatan join t_pasien where month(tanggal_input)=$bulan AND id_detail_kesehatan=id limit $key");
+            return $query;
+        }
+    }
+    public function cekKesM()
+    {
+        $bulan = date("m");
+        $limit = $this->db->query("SELECT count(id_detail_kesehatan)from t_detail_kesehatan")->getRow();
+        foreach ($limit as $key) {
+            $query = $this->db->query("SELECT sistole, diastole, gds, kolesterol, asam_urat,ekspirasi, jenis_gd, ape from t_detail_kesehatan join t_pasien where month(tanggal_input)=$bulan AND id_detail_kesehatan=id limit $key");
+            return $query;
+        }
+    }
+    public function antroD()
+    {
+        $hari = date("d");
+        $limit = $this->db->query("SELECT count(id_detail_kesehatan)from t_detail_kesehatan")->getRow();
+        foreach ($limit as $key) {
+            $query = $this->db->query("SELECT imt, lp from t_detail_kesehatan join t_pasien where day(tanggal_input)=$hari AND id_detail_kesehatan=id limit $key");
+            return $query;
+        }
+    }
+    public function cekKesD()
+    {
+        $hari = date("d");
+        $limit = $this->db->query("SELECT count(id_detail_kesehatan)from t_detail_kesehatan")->getRow();
+        foreach ($limit as $key) {
+            $query = $this->db->query("SELECT sistole, diastole, gds, kolesterol, asam_urat,ekspirasi, jenis_gd, ape from t_detail_kesehatan join t_pasien where day(tanggal_input)=$hari AND id_detail_kesehatan=id limit $key");
             return $query;
         }
     }

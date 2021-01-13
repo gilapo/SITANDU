@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title><?= $judul; ?></title>
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-    <link rel="icon" href="<?= base_url(); ?>/assets/img/icon.png" type="image/x-icon" />
+    <link rel="icon" href="<?= base_url(); ?>/assets/img/umy.jpg" type="image/x-icon" />
 
 
     <!-- Fonts and icons -->
@@ -45,7 +45,7 @@
         <div class="main-header">
             <!-- Logo Header -->
             <div class="logo-header" data-background-color="dark2">
-                <a href="/" class="logo">
+                <a href="<?= base_url(); ?>" class="logo">
                     <img src="<?= base_url(); ?>/assets/img/iconHome.png" alt="navbar brand" class="navbar-brand" width="150">
                 </a>
                 <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -84,7 +84,7 @@
                     <footer class="footer">
                         <div class="container-fluid">
                             <div class="copyright ml-auto">
-                                2020 SITANDU UMY
+                                Sitandu UMY 2020
                             </div>
                         </div>
                     </footer>

@@ -8,7 +8,7 @@
                     <div class="card-title fw-bold">Data Diri</div>
                 </div>
                 <div class="card-body">
-                    <form action="/Admin/createDataDiriAct" method="post" enctype="multipart/form-data">
+                    <form action="<?= base_url(); ?>/Admin/createDataDiriAct" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="identitas">Nomor Identitas</label>
                             <input type="text" class="form-control" id="identitas" name="identitas" placeholder="NIK/no.KTP/no.Pasport/NIM" required>

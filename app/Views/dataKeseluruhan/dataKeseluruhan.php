@@ -9,54 +9,58 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <table class="table table-bordered" id="example" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Nomor Identitas</th>
-                                    <th>Nama</th>
-                                    <th>Tanggal Input</th>
-                                    <th>Usia</th>
-                                    <th>Jabatan</th>
-                                    <th>Jenis Kelamin</th>
-                                    <th>DM Keluarga</th>
-                                    <th>HT Keluarga</th>
-                                    <th>Jantung Keluarga</th>
-                                    <th>Stroke Keluarga</th>
-                                    <th>Asma Keluarga</th>
-                                    <th>Kanker Keluarga</th>
-                                    <th>Kolesterol Keluarga</th>
-                                    <th>DM Diri Sendiri</th>
-                                    <th>HT Diri Sendiri</th>
-                                    <th>Jantung Diri Sendiri</th>
-                                    <th>Stroke Diri Sendiri</th>
-                                    <th>Asma Diri Sendiri</th>
-                                    <th>Kanker Diri Sendiri</th>
-                                    <th>Kolesterol Diri Sendiri</th>
-                                    <th>Merokok</th>
-                                    <th>Makan Sayur dan Buah Kurang dari 5 Porsi</th>
-                                    <th>Kurang Aktivitas Fisik</th>
-                                    <th>Alkohol</th>
-                                    <th>Sulit Tidur Mapsu Makan</th>
-                                    <th>Berat Badan</th>
-                                    <th>Tinggi Badan</th>
-                                    <th>Lingkar Perut</th>
-                                    <th>IMT</th>
-                                    <th>Sistole</th>
-                                    <th>Diastole</th>
-                                    <th>Jenis Gula Darah</th>
-                                    <th>GDS</th>
+                                    <th rowspan="2">Nomor Identitas</th>
+                                    <th rowspan="2">Nama</th>
+                                    <th rowspan="2">Tanggal Input</th>
+                                    <th rowspan="2">Usia</th>
+                                    <th rowspan="2">Jabatan</th>
+                                    <th rowspan="2">Jenis Kelamin</th>
+                                    <th colspan="7" style="text-align:center">Faktor Risiko pada Keluarga</th>
+                                    <th colspan="7" style="text-align:center">Faktor Risiko pada Diri Sendiri</th>
+                                    <th rowspan="2">Merokok</th>
+                                    <th rowspan="2">Makan Sayur dan Buah Kurang dari 5 Porsi</th>
+                                    <th rowspan="2">Kurang Aktivitas Fisik</th>
+                                    <th rowspan="2">Alkohol</th>
+                                    <th rowspan="2">Sulit Tidur Mapsu Makan</th>
+                                    <th rowspan="2">Berat Badan</th>
+                                    <th rowspan="2">Tinggi Badan</th>
+                                    <th rowspan="2">IMT</th>
+                                    <th rowspan="2">Lingkar Perut</th>
+                                    <th rowspan="2">Sistole</th>
+                                    <th rowspan="2">Diastole</th>
+                                    <th rowspan="2">Jenis Gula Darah</th>
+                                    <th rowspan="2">GDS</th>
+                                    <th rowspan="2">Kolesterol</th>
+                                    <th rowspan="2">Asam Urat</th>
+                                    <th rowspan="2">Ekspirasi</th>
+                                    <th rowspan="2">Benjolan pada Payudara</th>
+                                    <th rowspan="2">IVA</th>
+                                    <th rowspan="2">Kadar Alkohol</th>
+                                    <th rowspan="2">Tes Amfetamin</th>
+                                    <th rowspan="2">Masalah yang Ditemukan</th>
+                                    <th rowspan="2">Saran</th>
+                                    <th rowspan="2">Rujukan</th>
+                                    <th rowspan="2">Edit</th>
+                                    <th rowspan="2">Delete</th>
+                                </tr>
+                                <tr>
+                                    <th>DM</th>
+                                    <th>HT</th>
+                                    <th>Jantung</th>
+                                    <th>Stroke</th>
+                                    <th>Asma</th>
+                                    <th>Kanker</th>
                                     <th>Kolesterol</th>
-                                    <th>Asam Urat</th>
-                                    <th>Ekspirasi</th>
-                                    <th>Benjolan pada Payudara</th>
-                                    <th>IVA</th>
-                                    <th>Kadar Alkohol</th>
-                                    <th>Tes Amfetamin</th>
-                                    <th>Masalah yang Ditemukan</th>
-                                    <th>Saran</th>
-                                    <th>Rujukan</th>
-                                    <th>Edit</th>
-                                    <th>Delete</th>
+                                    <th>DM</th>
+                                    <th>HT</th>
+                                    <th>Jantung</th>
+                                    <th>Stroke</th>
+                                    <th>Asma</th>
+                                    <th>Kanker</th>
+                                    <th>Kolesterol</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -76,137 +80,163 @@
                                             } else {
                                                 echo "Perempuan";
                                             } ?></td>
-                                        <td><?php if ($data->DM_1 == 1) {
+                                        <td><?php if ($data->DM_1 == 1 && isset($data->DM_1)) {
                                                 echo "Ya";
-                                            } else {
+                                            } else if ($data->DM_1 == 0 && isset($data->DM_1)) {
                                                 echo "Tidak";
-                                            } ?></td>
-                                        <td><?php if ($data->HT_1 == 1) {
+                                            }  ?></td>
+                                        <td><?php if ($data->HT_1 == 1 && isset($data->HT_1)) {
                                                 echo "Ya";
-                                            } else {
+                                            } else if ($data->HT_1 == 0 && isset($data->HT_1)) {
                                                 echo "Tidak";
-                                            } ?></td>
-                                        <td><?php if ($data->jantung_1 == 1) {
+                                            }  ?></td>
+                                        <td><?php if ($data->jantung_1 == 1 && isset($data->jantung_1)) {
                                                 echo "Ya";
-                                            } else {
+                                            } else if ($data->jantung_1 == 0 && isset($data->jantung_1)) {
                                                 echo "Tidak";
-                                            } ?></td>
-                                        <td><?php if ($data->stroke_1 == 1) {
+                                            }  ?></td>
+                                        <td><?php if ($data->stroke_1 == 1 && isset($data->stroke_1)) {
                                                 echo "Ya";
-                                            } else {
+                                            } else if ($data->stroke_1 == 0 && isset($data->stroke_1)) {
                                                 echo "Tidak";
-                                            } ?></td>
-                                        <td><?php if ($data->asma_1 == 1) {
+                                            }  ?></td>
+                                        <td><?php if ($data->asma_1 == 1 && isset($data->asma_1)) {
                                                 echo "Ya";
-                                            } else {
+                                            } else if ($data->asma_1 == 0 && isset($data->asma_1)) {
                                                 echo "Tidak";
-                                            } ?></td>
-                                        <td><?php if ($data->kanker_1 == 1) {
+                                            }  ?></td>
+
+                                        <td><?php if ($data->kanker_1 == 1 && isset($data->kanker_1)) {
                                                 echo "Ya";
-                                            } else {
+                                            } else if ($data->kanker_1 == 0 && isset($data->kanker_1)) {
                                                 echo "Tidak";
-                                            } ?></td>
-                                        <td><?php if ($data->kolesterol_1 == 1) {
+                                            }  ?></td>
+                                        <td>
+                                            <?php if ($data->kolesterol_1 == 1 && isset($data->kolesterol_1)) {
                                                 echo "Ya";
-                                            } else {
+                                            } else if ($data->kolesterol_1 == 0 && isset($data->kolesterol_1)) {
                                                 echo "Tidak";
-                                            } ?></td>
-                                        <td><?php if ($data->DM_2 == 1) {
+                                            }  ?></td>
+                                        <td>
+                                            <?php if ($data->DM_2 == 1 && isset($data->DM_2)) {
                                                 echo "Ya";
-                                            } else {
+                                            } else if ($data->DM_2 == 0 && isset($data->DM_2)) {
                                                 echo "Tidak";
-                                            } ?></td>
-                                        <td><?php if ($data->HT_2 == 1) {
+                                            }  ?></td>
+                                        <td>
+                                            <?php if ($data->HT_2 == 1 && isset($data->HT_2)) {
                                                 echo "Ya";
-                                            } else {
+                                            } else if ($data->HT_2 == 0 && isset($data->HT_2)) {
                                                 echo "Tidak";
-                                            } ?></td>
-                                        <td><?php if ($data->jantung_2 == 1) {
+                                            }  ?></td>
+                                        <td>
+                                            <?php if ($data->jantung_2 == 1 && isset($data->jantung_2)) {
                                                 echo "Ya";
-                                            } else {
+                                            } else if ($data->jantung_2 == 0 && isset($data->jantung_2)) {
                                                 echo "Tidak";
-                                            } ?></td>
-                                        <td><?php if ($data->stroke_2 == 1) {
+                                            }  ?></td>
+                                        <td>
+                                            <?php if ($data->stroke_2 == 1 && isset($data->stroke_2)) {
                                                 echo "Ya";
-                                            } else {
+                                            } else if ($data->stroke_2 == 0 && isset($data->stroke_2)) {
                                                 echo "Tidak";
-                                            } ?></td>
-                                        <td><?php if ($data->asma_2 == 1) {
+                                            }  ?></td>
+                                        <td>
+                                            <?php if ($data->asma_2 == 1 && isset($data->asma_2)) {
                                                 echo "Ya";
-                                            } else {
+                                            } else if ($data->asma_2 == 0 && isset($data->asma_2)) {
                                                 echo "Tidak";
-                                            } ?></td>
-                                        <td><?php if ($data->kanker_2 == 1) {
+                                            }  ?></td>
+                                        <td>
+                                            <?php if ($data->kanker_2 == 1 && isset($data->kanker_2)) {
                                                 echo "Ya";
-                                            } else {
+                                            } else if ($data->kanker_2 == 0 && isset($data->kanker_2)) {
                                                 echo "Tidak";
-                                            } ?></td>
-                                        <td><?php if ($data->kolesterol_2 == 1) {
+                                            }  ?></td>
+                                        <td>
+                                            <?php if ($data->kolesterol_2 == 1 && isset($data->kolesterol_2)) {
                                                 echo "Ya";
-                                            } else {
+                                            } else if ($data->kolesterol_2 == 0 && isset($data->kolesterol_2)) {
                                                 echo "Tidak";
-                                            } ?></td>
-                                        <td><?php if ($data->merokok == 1) {
+                                            }  ?></td>
+                                        <td>
+                                            <?php if ($data->merokok == 1 && isset($data->merokok)) {
                                                 echo "Ya";
-                                            } else {
+                                            } else if ($data->merokok == 0 && isset($data->merokok)) {
                                                 echo "Tidak";
-                                            } ?></td>
-                                        <td><?php if ($data->sayur_buah == 1) {
+                                            }  ?></td>
+                                        <td>
+                                            <?php if ($data->sayur_buah == 1 && isset($data->sayur_buah)) {
                                                 echo "Ya";
-                                            } else {
+                                            } else if ($data->sayur_buah == 0 && isset($data->sayur_buah)) {
                                                 echo "Tidak";
-                                            } ?></td>
-                                        <td><?php if ($data->kurang_aktivitas_fisik == 1) {
+                                            }  ?>
+                                        </td>
+                                        <td>
+                                            <?php if ($data->kurang_aktivitas_fisik == 1 && isset($data->kurang_aktivitas_fisik)) {
                                                 echo "Ya";
-                                            } else {
+                                            } else if ($data->kurang_aktivitas_fisik == 0 && isset($data->kurang_aktivitas_fisik)) {
                                                 echo "Tidak";
-                                            } ?></td>
-                                        <td><?php if ($data->alkohol == 1) {
+                                            }  ?></td>
+                                        <td><?php if ($data->alkohol == 1 && isset($data->alkohol)) {
                                                 echo "Ya";
-                                            } else {
+                                            } else if ($data->alkohol == 0 && isset($data->alkohol)) {
                                                 echo "Tidak";
-                                            } ?></td>
-                                        <td><?php if ($data->sulit_tidur_napsu_makan == 1) {
+                                            }  ?></td>
+                                        <td>
+                                            <?php if ($data->sulit_tidur_napsu_makan == 1 && isset($data->sulit_tidur_napsu_makan)) {
                                                 echo "Ya";
-                                            } else {
+                                            } else if ($data->sulit_tidur_napsu_makan == 0 && isset($data->sulit_tidur_napsu_makan)) {
                                                 echo "Tidak";
-                                            } ?></td>
+                                            }  ?></td>
                                         <td><?= $data->bb; ?></td>
                                         <td><?= $data->tb; ?></td>
-                                        <td><?= $data->lp; ?></td>
                                         <td><?= $data->imt; ?></td>
+                                        <td><?= $data->lp; ?></td>
                                         <td><?= $data->sistole; ?></td>
                                         <td><?= $data->diastole; ?></td>
                                         <td><?= $data->jenis_gd; ?></td>
                                         <td><?= $data->gds; ?></td>
                                         <td><?= $data->kolesterol; ?></td>
                                         <td><?= $data->asam_urat; ?></td>
-                                        <td><?= $data->ekspirasi; ?></td>
-                                        <td><?php if ($data->benjolan_pada_payudara == 1) {
-                                                echo "Ya";
+                                        <td><?php if ($data->ekspirasi == 0 && isset($data->ekspirasi)) {
+                                                echo "Tidak Ada";
                                             } else {
-                                                echo "Tidak";
+                                                echo $data->ekspirasi;
                                             } ?></td>
-                                        <td><?php if ($data->iva == 1) {
-                                                echo "Ya";
-                                            } else {
-                                                echo "Tidak";
+                                        <td><?php if ($data->benjolan_pada_payudara == 1 && isset($data->benjolan_pada_payudara)) {
+                                                echo "Ditemukan";
+                                            } else if ($data->benjolan_pada_payudara == 0 && isset($data->benjolan_pada_payudara)) {
+                                                echo "Tidak Ditemukan";
+                                            } else if ($data->benjolan_pada_payudara == 2 && isset($data->benjolan_pada_payudara)) {
+                                                echo "Tidak Terkaji";
                                             } ?></td>
-                                        <td><?php if ($data->kadar_alkohol == 1) {
+                                        <td><?php if ($data->iva == 1 && isset($data->iva)) {
                                                 echo "Ya";
-                                            } else {
+                                            } else if ($data->iva == 0 && isset($data->iva)) {
                                                 echo "Tidak";
+                                            } else if ($data->iva == 2 && isset($data->iva)) {
+                                                echo "Tidak Terkaji";
                                             } ?></td>
-                                        <td><?php if ($data->tes_amfetamin == 1) {
+                                        <td><?php if ($data->kadar_alkohol == 1 && isset($data->kadar_alkohol)) {
                                                 echo "Ya";
-                                            } else {
+                                            } else if ($data->kadar_alkohol == 0 && isset($data->kadar_alkohol)) {
                                                 echo "Tidak";
+                                            } else if ($data->kadar_alkohol == 2 && isset($data->kadar_alkohol)) {
+                                                echo "Tidak Terkaji";
+                                            }  ?></td>
+                                        <td><?php if ($data->tes_amfetamin == 1 && isset($data->tes_amfetamin)) {
+                                                echo "Ya";
+                                            } else if ($data->tes_amfetamin == 0 && isset($data->tes_amfetamin)) {
+                                                echo "Tidak";
+                                            } else if ($data->tes_amfetamin == 2 && isset($data->tes_amfetamin)) {
+                                                echo "Tidak Terkaji";
                                             } ?></td>
                                         <td><?= $data->masalah_yang_ditemukan; ?></td>
                                         <td><?= $data->saran; ?></td>
                                         <td><?= $data->rujukan; ?></td>
                                         <td>
-                                            <form method="post" action="/Admin/editPasien">
+                                            <form method="post" action="<?= base_url(); ?>/Admin/editPasien">
                                                 <div class="form-group">
                                                     <input type="hidden" class="form-control hidden" id="id_edit_pasien" name="id_edit_pasien" placeholder="Masukkan ID" value="<?= $data->id; ?>">
                                                 </div>
@@ -218,14 +248,14 @@
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">Hapus User</h5>
+                                                            <h5 class="modal-title" id="exampleModalLabel">Hapus Pasien</h5>
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form method="post" action="/Admin/deletePasienAct">
-                                                                <label for="delete">Apakah yakin user?</label>
+                                                            <form method="post" action="<?= base_url(); ?>/Admin/deletePasienAct">
+                                                                <label for="delete">Apakah yakin menghapus data pasien <?= $data->nama; ?>?</label>
                                                                 <div class="form-group">
                                                                     <input type="hidden" class="form-control hidden" id="id_delete_pasien" name="id_delete_pasien" placeholder="Masukkan ID" value="<?= $data->id; ?>">
                                                                 </div>
@@ -250,6 +280,23 @@
     </div>
 </div>
 <script type="text/javascript">
+    jQuery.extend(jQuery.fn.dataTableExt.oSort, {
+        "date-uk-pre": function(a) {
+            if (a == null || a == "") {
+                return 0;
+            }
+            var ukDatea = a.split('/');
+            return (ukDatea[2] + ukDatea[1] + ukDatea[0]) * 1;
+        },
+
+        "date-uk-asc": function(a, b) {
+            return ((a < b) ? -1 : ((a > b) ? 1 : 0));
+        },
+
+        "date-uk-desc": function(a, b) {
+            return ((a < b) ? 1 : ((a > b) ? -1 : 0));
+        }
+    });
     //fungsi untuk filtering data berdasarkan tanggal 
     var start_date;
     var end_date;
@@ -279,11 +326,19 @@
 
     $(document).ready(function() {
         //konfigurasi DataTable pada tabel dengan id example dan menambahkan  div class dateseacrhbox dengan dom untuk meletakkan inputan daterangepicker
-        var $dTable = $('#dataTable').DataTable({
+        var table = $('#example').DataTable({
             scrollY: true,
             scrollX: true,
             scrollCollapse: true,
             paging: true,
+            buttons: [{
+                text: 'Export Menjadi Excel',
+                className: ['mx-4 btn-success'],
+                extend: 'excelHtml5',
+                exportOptions: {
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42]
+                },
+            }],
             columnDefs: [{
                     width: 150,
                     targets: [39, 40, 41],
@@ -295,6 +350,10 @@
                 {
                     searchable: true,
                     targets: 1
+                },
+                {
+                    'targets': 2,
+                    type: 'date-uk'
                 }
             ],
             "order": [
@@ -302,20 +361,40 @@
             ],
             "lengthMenu": [50, 75, 100, 250, 500, 750, 1000],
             "rowCallback": function(row, data) {
-                if (data[5] == "Laki-Laki") {
-                    if (data[28] > 0 && data[28] < 18) {
-                        $('td:eq(28)', row).addClass('bg-danger');
-                    } else if (data[28] >= 18 && data[28] <= 25) {
-                        $('td:eq(28)', row).addClass('bg-success');
-                    } else if (data[28] >= 26 && data[28] <= 27) {
-                        $('td:eq(28)', row).addClass('bg-warning');
-                    } else if (data[28] >= 28) {
-                        $('td:eq(28)', row).addClass('bg-danger');
+                for (let i = 6; i <= 24; i++) {
+                    if (data[i] == "Ya") {
+                        $('td:eq(' +
+                            i + ')', row).addClass('bg-danger');
+                    } else if (data[i] == "Tidak") {
+                        $('td:eq(' +
+                            i + ')', row).addClass('bg-success');
                     }
-                    if (data[27] > 0 && data[27] <= 80) {
-                        $('td:eq(27)', row).addClass('bg-success');
-                    } else if (data[27] > 80) {
+                }
+
+                for (let i = 36; i <= 39; i++) {
+                    if (data[i] == "Ya" || data[i] == "Ditemukan") {
+                        $('td:eq(' +
+                            i + ')', row).addClass('bg-danger');
+                    } else if (data[i] == "Tidak" || data[i] == "Tidak Ditemukan") {
+                        $('td:eq(' +
+                            i + ')', row).addClass('bg-success');
+                    }
+                }
+
+                if (data[5] == "Laki-Laki") {
+                    if (data[27] > 0 && data[27] < 18) {
                         $('td:eq(27)', row).addClass('bg-danger');
+                    } else if (data[27] >= 18 && data[27] <= 25) {
+                        $('td:eq(27)', row).addClass('bg-success');
+                    } else if (data[27] >= 26 && data[27] <= 27) {
+                        $('td:eq(27)', row).addClass('bg-warning');
+                    } else if (data[27] >= 28) {
+                        $('td:eq(27)', row).addClass('bg-danger');
+                    }
+                    if (data[28] > 0 && data[28] <= 90) {
+                        $('td:eq(28)', row).addClass('bg-success');
+                    } else if (data[28] > 90) {
+                        $('td:eq(28)', row).addClass('bg-danger');
                     }
                     if (data[29] > 0 && data[29] <= 120) {
                         $('td:eq(29)', row).addClass('bg-success');
@@ -358,19 +437,19 @@
                         $('td:eq(35)', row).addClass('bg-danger');
                     }
                 } else if (data[5] == "Perempuan") {
-                    if (data[28] > 0 && data[28] < 17) {
-                        $('td:eq(28)', row).addClass('bg-danger');
-                    } else if (data[28] >= 17 && data[28] <= 23) {
-                        $('td:eq(28)', row).addClass('bg-success');
-                    } else if (data[28] >= 24 && data[28] <= 27) {
-                        $('td:eq(28)', row).addClass('bg-warning');
-                    } else if (data[28] >= 27) {
-                        $('td:eq(28)', row).addClass('bg-danger');
-                    }
-                    if (data[27] > 0 && data[27] <= 80) {
-                        $('td:eq(27)', row).addClass('bg-success');
-                    } else if (data[27] > 80) {
+                    if (data[27] > 0 && data[27] < 17) {
                         $('td:eq(27)', row).addClass('bg-danger');
+                    } else if (data[27] >= 17 && data[27] <= 23) {
+                        $('td:eq(27)', row).addClass('bg-success');
+                    } else if (data[27] >= 24 && data[27] <= 27) {
+                        $('td:eq(27)', row).addClass('bg-warning');
+                    } else if (data[27] >= 27) {
+                        $('td:eq(27)', row).addClass('bg-danger');
+                    }
+                    if (data[28] > 0 && data[28] <= 80) {
+                        $('td:eq(28)', row).addClass('bg-success');
+                    } else if (data[28] > 80) {
+                        $('td:eq(28)', row).addClass('bg-danger');
                     }
                     if (data[29] > 0 && data[29] <= 120) {
                         $('td:eq(29)', row).addClass('bg-success');
@@ -435,7 +514,8 @@
                 "<'row'<'col-sm-12'tr>>" +
                 "<'row'<'col-sm-5'i><'col-sm-7'p>>"
         });
-
+        table.buttons().container()
+            .appendTo('#example_wrapper :eq(2)');
         //menambahkan daterangepicker di dalam datatables
         $("div.datesearchbox").html('<div class="input-group"> <div class="input-group-addon"> <i class="fas fa-calendar-alt fa-2x my-2 mx-3"></i> </div><input type="text" class="form-control pull-right" id="datesearch" placeholder="Cari Berdasar Tanggal.."> </div>');
 
@@ -452,7 +532,7 @@
             start_date = picker.startDate.format('DD/MM/YYYY');
             end_date = picker.endDate.format('DD/MM/YYYY');
             $.fn.dataTableExt.afnFiltering.push(DateFilterFunction);
-            $dTable.draw();
+            table.draw();
         });
 
         $('#datesearch').on('cancel.daterangepicker', function(ev, picker) {
@@ -460,8 +540,9 @@
             start_date = '';
             end_date = '';
             $.fn.dataTable.ext.search.splice($.fn.dataTable.ext.search.indexOf(DateFilterFunction, 1));
-            $dTable.draw();
+            table.draw();
         });
     });
 </script>
+
 <?= $this->endSection(); ?>

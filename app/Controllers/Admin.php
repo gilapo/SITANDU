@@ -7,20 +7,27 @@ use App\Models\Admin_model;
 class Admin extends BaseController
 {
     protected $model;
+
     public function __construct()
     {
         $this->model = new Admin_model();
     }
+
     public function isiDataDiri()
     {
-        $data = [
-            'pasien' => $this->model->readPasienGrouped()->getResult(),
-            'judul' => 'isi Data Diri|POSBINDU',
-            'judul2' => 'DATA DIRI',
-            'background' => 'dark',
-            'active' => 'active'
-        ];
-        return view('dataDiri/dataDiri', $data);
+        $loggedIn = session('isLoggedIn');
+        if ($loggedIn  == 1) {
+            $data = [
+                'pasien' => $this->model->readPasienGrouped()->getResult(),
+                'judul' => 'isi Data Diri|POSBINDU',
+                'judul2' => 'Data Diri',
+                'background' => 'dark',
+                'active' => 'active'
+            ];
+            return view('dataDiri/dataDiri', $data);
+        } else if ($loggedIn == 0) {
+            return redirect()->to(base_url('/login'));
+        }
     }
     public function createDataDiriAct()
     {
@@ -34,19 +41,24 @@ class Admin extends BaseController
             'tanggal_input' =>  $this->request->getPost('tanggal_input'),
         ];
         $this->model->createPasien($data);
-        return redirect()->to('/isiDataDiri');
+        return redirect()->to(base_url('/isiDataDiri'));
     }
 
     public function isiRiwayatPenyakit()
     {
-        $data = [
-            'pasien' => $this->model->readPasien()->getResult(),
-            'judul' => 'Riwayat Penyakit|POSBINDU',
-            'judul2' => 'RIWAYAT PENYAKIT',
-            'background' => 'dark',
-            'active' => 'active'
-        ];
-        return view('riwayatPenyakit/riwayatPenyakit', $data);
+        $loggedIn = session('isLoggedIn');
+        if ($loggedIn  == 1) {
+            $data = [
+                'pasien' => $this->model->readPasien()->getResult(),
+                'judul' => 'Riwayat Penyakit|POSBINDU',
+                'judul2' => 'Riwayat Penyakit',
+                'background' => 'dark',
+                'active' => 'active'
+            ];
+            return view('riwayatPenyakit/riwayatPenyakit', $data);
+        } else if ($loggedIn == 0) {
+            return redirect()->to(base_url('/login'));
+        }
     }
     public function createRiwayatPenyakitAct()
     {
@@ -86,18 +98,23 @@ class Admin extends BaseController
         $this->model->createRiwayatPenyakit_2($data_menular_sendiri);
         $this->model->createRiwayatPenyakit_3($data_faktor_risiko);
         $this->model->updatePasien($data_status, $id);
-        return redirect()->to('/isiRiwayatPenyakit');
+        return redirect()->to(base_url('/isiRiwayatPenyakit'));
     }
     function isiAntropometri()
     {
-        $data = [
-            'pasien' => $this->model->readPasien()->getResult(),
-            'judul' => 'Antropometri|POSBINDU',
-            'judul2' => 'Antropometri',
-            'background' => 'dark',
-            'active' => 'active'
-        ];
-        return view('antropometri/antropometri', $data);
+        $loggedIn = session('isLoggedIn');
+        if ($loggedIn  == 1) {
+            $data = [
+                'pasien' => $this->model->readPasien()->getResult(),
+                'judul' => 'Antropometri|POSBINDU',
+                'judul2' => 'Antropometri',
+                'background' => 'dark',
+                'active' => 'active'
+            ];
+            return view('antropometri/antropometri', $data);
+        } else if ($loggedIn == 0) {
+            return redirect()->to(base_url('/login'));
+        }
     }
     public function createAntropometriAct()
     {
@@ -120,37 +137,60 @@ class Admin extends BaseController
             $this->model->createCekKesehatan($data);
         }
         $this->model->updatePasien($data_status, $id);
-        return redirect()->to('/isiAntropometri');
+        return redirect()->to(base_url('/isiAntropometri'));
     }
 
     public function isiCekKesehatan()
     {
-        $data = [
-            'pasien' => $this->model->readPasien()->getResult(),
-            'judul' => 'Cek Kesehatan|POSBINDU',
-            'judul2' => 'Cek Kesehatan',
-            'background' => 'dark',
-            'active' => 'active'
-        ];
-        return view('cekKesehatan/cekKesehatan', $data);
+        $loggedIn = session('isLoggedIn');
+        if ($loggedIn  == 1) {
+            $data = [
+                'pasien' => $this->model->readPasien()->getResult(),
+                'judul' => 'Cek Kesehatan|POSBINDU',
+                'judul2' => 'Cek Kesehatan',
+                'background' => 'dark',
+                'active' => 'active'
+            ];
+            return view('cekKesehatan/cekKesehatan', $data);
+        } else if ($loggedIn == 0) {
+            return redirect()->to(base_url('/login'));
+        }
     }
     public function createCekKesehatanAct()
     {
         $id = $this->request->getPost('id');
-        $data = [
-            'id_detail_kesehatan' => $this->request->getPost('id_detail_kesehatan'),
-            'sistole' =>  $this->request->getPost('sistole'),
-            'diastole' => $this->request->getPost('diastole'),
-            'jenis_gd' => $this->request->getPost('jenis_gd'),
-            'gds' =>  $this->request->getPost('gds'),
-            'kolesterol' =>  $this->request->getPost('kolesterol'),
-            'asam_urat' =>  $this->request->getPost('asam_urat'),
-            'ekspirasi' =>  $this->request->getPost('ekspirasi'),
-            'benjolan_pada_payudara' =>  $this->request->getPost('benjolan_pada_payudara'),
-            'iva' =>  $this->request->getPost('iva'),
-            'kadar_alkohol' =>  $this->request->getPost('kadar_alkohol'),
-            'tes_amfetamin' =>  $this->request->getPost('tes_amfetamin'),
-        ];
+        if (null !== ($this->request->getPost('benjolan_pada_payudara'))) {
+            $data = [
+                'id_detail_kesehatan' => $this->request->getPost('id_detail_kesehatan'),
+                'sistole' =>  $this->request->getPost('sistole'),
+                'diastole' => $this->request->getPost('diastole'),
+                'jenis_gd' => $this->request->getPost('jenis_gd'),
+                'gds' =>  $this->request->getPost('gds'),
+                'kolesterol' =>  $this->request->getPost('kolesterol'),
+                'asam_urat' =>  $this->request->getPost('asam_urat'),
+                'ekspirasi' =>  $this->request->getPost('ekspirasi'),
+                'benjolan_pada_payudara' =>  $this->request->getPost('benjolan_pada_payudara'),
+                'iva' =>  $this->request->getPost('iva'),
+                'kadar_alkohol' =>  $this->request->getPost('kadar_alkohol'),
+                'tes_amfetamin' =>  $this->request->getPost('tes_amfetamin'),
+            ];
+        } else if (null == ($this->request->getPost('benjolan_pada_payudara'))) {
+            $data = [
+                'id_detail_kesehatan' => $this->request->getPost('id_detail_kesehatan'),
+                'sistole' =>  $this->request->getPost('sistole'),
+                'diastole' => $this->request->getPost('diastole'),
+                'jenis_gd' => $this->request->getPost('jenis_gd'),
+                'gds' =>  $this->request->getPost('gds'),
+                'kolesterol' =>  $this->request->getPost('kolesterol'),
+                'asam_urat' =>  $this->request->getPost('asam_urat'),
+                'ekspirasi' =>  $this->request->getPost('ekspirasi'),
+                'benjolan_pada_payudara' => 2,
+                'iva' =>  $this->request->getPost('iva'),
+                'kadar_alkohol' =>  $this->request->getPost('kadar_alkohol'),
+                'tes_amfetamin' =>  $this->request->getPost('tes_amfetamin'),
+            ];
+        }
+
         $data_status = [
             'status_meja_4'        => $this->request->getPost('status_meja_4'),
         ];
@@ -161,19 +201,24 @@ class Admin extends BaseController
             $this->model->createCekKesehatan($data);
         }
         $this->model->updatePasien($data_status, $id);
-        return redirect()->to('/isiCekKesehatan');
+        return redirect()->to(base_url('/isiCekKesehatan'));
     }
 
     public function isiRekapData()
     {
-        $data = [
-            'pasien' => $this->model->readPasien()->getResult(),
-            'judul' => 'Rekap Data|POSBINDU',
-            'judul2' => 'Rekap Data',
-            'background' => 'dark',
-            'active' => 'active'
-        ];
-        return view('rekapData/rekapData', $data);
+        $loggedIn = session('isLoggedIn');
+        if ($loggedIn  == 1) {
+            $data = [
+                'pasien' => $this->model->readPasien()->getResult(),
+                'judul' => 'Rekap Data|POSBINDU',
+                'judul2' => 'Rekap Data',
+                'background' => 'dark',
+                'active' => 'active'
+            ];
+            return view('rekapData/rekapData', $data);
+        } else if ($loggedIn == 0) {
+            return redirect()->to(base_url('/login'));
+        }
     }
     public function createRekapDataAct()
     {
@@ -189,7 +234,7 @@ class Admin extends BaseController
         ];
         $this->model->createRekapData($data);
         $this->model->updatePasien($data_status, $id);
-        return redirect()->to('/isiRekapData');
+        return redirect()->to(base_url('/isiRekapData'));
     }
     public function editPasien()
     {
@@ -268,7 +313,7 @@ class Admin extends BaseController
         $this->model->updateRiwayatPenyakit_3($data_faktor_risiko, $id);
         $this->model->updateCekKesehatan($data_cek_kesehatan, $id);
         $this->model->updateRekapData($data_rekap_data, $id);
-        return redirect()->to('dataKeseluruhan/dataKeseluruhan');
+        return redirect()->to(base_url('/dataKeseluruhan'));
     }
     public function deletePasienAct()
     {
@@ -279,31 +324,23 @@ class Admin extends BaseController
         $this->model->deleteCekKesehatan($id);
         $this->model->deleteRekapData($id);
         $this->model->deletePasien($id);
-        return redirect()->to('dataKeseluruhan/dataKeseluruhan');
+        return redirect()->to(base_url('/dataKeseluruhan'));
     }
     //--------------------------------------------------------------------
     public function dataKeseluruhan()
     {
-
-        $data = [
-            'pasien' => $this->model->readKeseluruhan()->getResult(),
-            'judul' => 'Data Keseluruhan|POSBINDU',
-            'judul2' => 'Data Keseluruhan',
-            'background' => 'dark',
-            'active' => 'active'
-        ];
-        return view('dataKeseluruhan/dataKeseluruhan', $data);
-    }
-
-    public function user()
-    {
-        $data = [
-            'pasien' => $this->model->readUSer()->getResult(),
-            'judul' => 'user administrator|POSBINDU',
-            'judul2' => 'pengaturan user',
-            'background' => 'dark',
-            'active' => 'active'
-        ];
-        return view('user/user', $data);
+        $loggedIn = session('isLoggedIn');
+        if ($loggedIn  == 1) {
+            $data = [
+                'pasien' => $this->model->readKeseluruhan()->getResult(),
+                'judul' => 'Data Keseluruhan|POSBINDU',
+                'judul2' => 'Data Keseluruhan',
+                'background' => 'dark',
+                'active' => 'active'
+            ];
+            return view('dataKeseluruhan/dataKeseluruhan', $data);
+        } else if ($loggedIn == 0) {
+            return redirect()->to(base_url('/login'));
+        }
     }
 }

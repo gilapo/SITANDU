@@ -1,6 +1,5 @@
 <?= $this->extend('templates/layout'); ?>
 <?= $this->section('content'); ?>
-
 <div class="page-inner mt--5">
     <div class="row mt--2">
         <div class="col-md-8 ml-auto mr-auto">
@@ -9,15 +8,15 @@
                     <div class="card-title fw-bold">Antropometri</div>
                 </div>
                 <div class="card-body">
-                    <form action="/Admin/createAntropometriAct" method="post" enctype="multipart/form-data">
+                    <form action="<?= base_url(); ?>/Admin/createAntropometriAct" method="post" enctype="multipart/form-data" id="myForm">
                         <div class="form-group row">
                             <div class="col">
                                 <label for="nik">Nomor Identitas</label>
-                                <input type="text" class="form-control" id="identitas" aria-describedby="textHelp" placeholder="NIK/no.KTP/no.Pasport/NIM" readonly required>
+                                <input type="text" class="form-control" id="identitas" aria-describedby="textHelp" placeholder="NIK/no.KTP/no.Pasport/NIM" readonly>
                             </div>
                             <div class="col">
                                 <label for="nama">Nama</label>
-                                <input type="text" class="form-control" id="nama" aria-describedby="textHelp" placeholder="Nama Pasien" readonly required>
+                                <input type="text" class="form-control" id="nama" aria-describedby="textHelp" placeholder="Nama Pasien" readonly>
                             </div>
                             <input type="text" id="id" name="id" aria-describedby="textHelp" hidden>
                             <input type="text" id="id_detail_kesehatan" name="id_detail_kesehatan" aria-describedby="textHelp" hidden>
@@ -132,6 +131,23 @@
             $('#dataPasien').modal('hide');
         });
     });
+
+    $("#myForm").submit(function() {
+        // Get the Login Name value and trim it
+        var ident1 = $('#identitas').val();
+        var ident2 = document.getElementById("identitas");
+
+        var nama1 = $('#nama').val();
+        var nama2 = document.getElementById("nama");
+
+        // Check if empty of not
+        if (ident1.length < 1 && nama1.length < 1) {
+            ident2.classList.add("text-danger");
+            nama2.classList.add("text-danger");
+            return false;
+        }
+    });
+
 
     function total() {
         var h6 = document.getElementById("keterangan");

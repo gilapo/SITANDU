@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title><?= $judul; ?></title>
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-    <link rel="icon" href="<?= base_url(); ?>/assets/img/icon.png" type="image/x-icon" />
+    <link rel="icon" href="<?= base_url(); ?>/assets/img/umy.jpg" type="image/x-icon" />
 
 
     <!-- Fonts and icons -->
@@ -26,7 +26,22 @@
     </script>
 
     <!-- CSS Files -->
-    <script src="<?= base_url(); ?>/assets/js/core/jquery.3.2.1.min.js"></script>
+    <script src="<?= base_url(); ?>/assets/button/jquery-3.5.1.js"></script>
+    <script src="<?= base_url(); ?>/assets/js/plugin/chart.js/chart.min.js"></script>
+    <script src="<?= base_url(); ?>/assets/js/plugin/chart-circle/circles.min.js"></script>
+    <script src="<?= base_url(); ?>/assets/prism.js"></script>
+    <script src="<?= base_url(); ?>/assets/prism-normalize-whitespace.min.js"></script>
+    <script src="<?= base_url(); ?>/assets/button/pdfmake.min.js"></script>
+    <script src="<?= base_url(); ?>/assets/button/jquery.dataTables.min.js"></script>
+    <script src="<?= base_url(); ?>/assets/button/buttons.bootstrap4.min.js"></script>
+    <script src="<?= base_url(); ?>/assets/button/dataTables.buttons.min.js"></script>
+    <script src="<?= base_url(); ?>/assets/button/dataTables.bootstrap4.min.js"></script>
+    <script src="<?= base_url(); ?>/assets/button/buttons.colVis.min.js"></script>
+    <script src="<?= base_url(); ?>/assets/button/buttons.print.min.js"></script>
+    <script src="<?= base_url(); ?>/assets/button/buttons.html5.min.js"></script>
+    <script src="<?= base_url(); ?>/assets/button/buttons.html5.min.js"></script>
+    <script src="<?= base_url(); ?>/assets/button/vfs_fonts.js"></script>
+    <script src="<?= base_url(); ?>/assets/button/jszip.min.js"></script>
     <script src="<?= base_url(); ?>/assets/js/plugin/chart.js/chart.min.js"></script>
     <script src="<?= base_url(); ?>/assets/js/plugin/chart-circle/circles.min.js"></script>
     <script src="<?= base_url(); ?>/assets/prism.js"></script>
@@ -38,6 +53,8 @@
     <link href="<?= base_url(); ?>/assets/styles.css" rel="stylesheet" />
     <link href="<?= base_url(); ?>/assets/prism.css" rel="stylesheet" />
     <link href="<?= base_url(); ?>/assets/css/all.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>/assets/button/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>/assets/button/buttons.bootstrap4.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -45,7 +62,7 @@
         <div class="main-header">
             <!-- Logo Header -->
             <div class="logo-header" data-background-color="dark2">
-                <a href="/" class="logo">
+                <a href="<?= base_url(); ?>" class="logo">
                     <img src="<?= base_url(); ?>/assets/img/iconHome.png" alt="navbar brand" class="navbar-brand" width="150">
                 </a>
                 <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -92,12 +109,15 @@
 
             <script src="<?= base_url(); ?>/assets/js/core/popper.min.js"></script>
             <script src="<?= base_url(); ?>/assets/js/core/bootstrap.min.js"></script>
+            <script src="<?= base_url(); ?>/assets/button/pdfmake.min.js"></script>
+            <script src="<?= base_url(); ?>/assets/button/buttons.bootstrap4.min.js"></script>
+            <script src="<?= base_url(); ?>/assets/button/dataTables.buttons.min.js"></script>
+            <script src="<?= base_url(); ?>/assets/button/dataTables.bootstrap4.min.js"></script>
 
             <!--DateRangePicker -->
             <script src="<?= base_url(); ?>/assets/js/plugin/datatables/moment.min.js"></script>
             <script src="<?= base_url(); ?>/assets/js/plugin/datatables/daterangepicker.min.js"></script>
-            <script src="<?= base_url(); ?>/assets/js/core/popper.min.js"></script>
-            <script src="<?= base_url(); ?>/assets/js/core/bootstrap.min.js"></script>
+
 
             <!-- jQuery UI -->
             <script src="<?= base_url(); ?>/assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
@@ -117,7 +137,6 @@
             <script src="<?= base_url(); ?>/assets/js/plugin/chart-circle/circles.min.js"></script>
 
             <!-- Datatables -->
-            <script src="<?= base_url(); ?>/assets/js/plugin/datatables/datatables.min.js"></script>
 
             <!-- Bootstrap Notify -->
             <script src="<?= base_url(); ?>/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
